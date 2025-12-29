@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants/lite";
 
 const buttonStyle = tv({
-  base: "rounded-lg",
+  base: "rounded-lg cursor-pointer",
   variants: {
     variant: {
       primary: "bg-primary text-onPrimary",
