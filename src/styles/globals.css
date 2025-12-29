@@ -1,8 +1,56 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #7a590c;
+  --surfaceTint: #7a590c;
+  --onPrimary: #ffffff;
+  --primaryContainer: #ffdea5;
+  --onPrimaryContainer: #5d4200;
+  --secondary: #6c5c3f;
+  --onSecondary: #ffffff;
+  --secondaryContainer: #f6e0bb;
+  --onSecondaryContainer: #53452a;
+  --tertiary: #4c6545;
+  --onTertiary: #ffffff;
+  --tertiaryContainer: #ceebc2;
+  --onTertiaryContainer: #354d2f;
+  --error: #ba1a1a;
+  --onError: #ffffff;
+  --errorContainer: #ffdad6;
+  --onErrorContainer: #93000a;
+  --foreground: #201b13;
+  --background: #fff8f3;
+  --surface: #fff8f3;
+  --onSurface: #201b13;
+  --surfaceVariant: #eee1cf;
+  --onSurfaceVariant: #4e4639;
+  --outline: #7f7667;
+  --outlineVariant: #d1c5b4;
+  --shadow: #000000;
+  --scrim: #000000;
+  --inverseSurface: #353027;
+  --inverseOnSurface: #faefe2;
+  --inversePrimary: #ecc06c;
+  --primaryFixed: #ffdea5;
+  --onPrimaryFixed: #261900;
+  --primaryFixedDim: #ecc06c;
+  --onPrimaryFixedVariant: #5d4200;
+  --secondaryFixed: #f6e0bb;
+  --onSecondaryFixed: #251a04;
+  --secondaryFixedDim: #d9c4a0;
+  --onSecondaryFixedVariant: #53452a;
+  --tertiaryFixed: #ceebc2;
+  --onTertiaryFixed: #0a2007;
+  --tertiaryFixedDim: #b2cfa7;
+  --onTertiaryFixedVariant: #354d2f;
+  --surfaceDim: #e3d9cc;
+  --surfaceBright: #fff8f3;
+  --surfaceContainerLowest: #ffffff;
+  --surfaceContainerLow: #fdf2e5;
+  --surfaceContainer: #f7ecdf;
+  --surfaceContainerHigh: #f1e7d9;
+  --surfaceContainerHighest: #ebe1d4;
 }
 
 @theme inline {
@@ -12,13 +60,60 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #ecc06c;
+    --surfaceTint: #ecc06c;
+    --onPrimary: #412d00;
+    --primaryContainer: #5d4200;
+    --onPrimaryContainer: #ffdea5;
+    --secondary: #d9c4a0;
+    --onSecondary: #3b2e15;
+    --secondaryContainer: #53452a;
+    --onSecondaryContainer: #f6e0bb;
+    --tertiary: #b2cfa7;
+    --onTertiary: #1f361a;
+    --tertiaryContainer: #354d2f;
+    --onTertiaryContainer: #ceebc2;
+    --error: #ffb4ab;
+    --onError: #690005;
+    --errorContainer: #93000a;
+    --onErrorContainer: #ffdad6;
+    --foreground: #ebe1d4;
+    --background: #17130b;
+    --surface: #17130b;
+    --onSurface: #ebe1d4;
+    --surfaceVariant: #4e4639;
+    --onSurfaceVariant: #d1c5b4;
+    --outline: #9a8f80;
+    --outlineVariant: #4e4639;
+    --shadow: #000000;
+    --scrim: #000000;
+    --inverseSurface: #ebe1d4;
+    --inverseOnSurface: #353027;
+    --inversePrimary: #7a590c;
+    --primaryFixed: #ffdea5;
+    --onPrimaryFixed: #261900;
+    --primaryFixedDim: #ecc06c;
+    --onPrimaryFixedVariant: #5d4200;
+    --secondaryFixed: #f6e0bb;
+    --onSecondaryFixed: #251a04;
+    --secondaryFixedDim: #d9c4a0;
+    --onSecondaryFixedVariant: #53452a;
+    --tertiaryFixed: #ceebc2;
+    --onTertiaryFixed: #0a2007;
+    --tertiaryFixedDim: #b2cfa7;
+    --onTertiaryFixedVariant: #354d2f;
+    --surfaceDim: #17130b;
+    --surfaceBright: #3e382f;
+    --surfaceContainerLowest: #120e07;
+    --surfaceContainerLow: #201b13;
+    --surfaceContainer: #241f17;
+    --surfaceContainerHigh: #2e2921;
+    --surfaceContainerHighest: #3a342b;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: '--font-pretendard', Arial, Helvetica, sans-serif;
+  font-family: "--font-pretendard", Arial, Helvetica, sans-serif;
 }

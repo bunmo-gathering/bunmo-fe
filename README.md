@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥡 분모 Front-end
 
-## Getting Started
+분모는 '소분 모임'의 줄임말로, 고물가 시대에서 식비를 절약하기 위해 소분을 원하는 사람들을 위한 플랫폼입니다.
 
-First, run the development server:
+필요한 만큼 나눠 구매하고, 소분을 하는 과정에서 발생하는 불편함을 해결하는 서비스를 제공합니다.
+
+<br />
+<br />
+
+# 🚀 프로젝트 실행
 
 ```bash
+git clone <repository-url>
+cd bunmo-fe
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
+<br />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# ⚙️ 사용 기술
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```css
+1. NextJS
+2. TypeScript
+3. Tailwind CSS
+```
 
-## Learn More
+<br />
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+# 📋 규칙
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 코드 스타일 규칙                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------ |
+| <center><a href="https://github.com/bunmo-gathering/bunmo-fe/blob/main/.github/instructions/rules.instructions.md">링크</a></center> |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<br />
+<br />
 
-## Deploy on Vercel
+# 🧑🏻‍💻 분모 프론트엔드 개발자
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| <img src="https://avatars.githubusercontent.com/u/26660534?v=4" style="width: 100px; border-radius: 12px;"/> | <img src="https://avatars.githubusercontent.com/u/65654463?v=4" style="width: 100px; border-radius: 12px;"/> | <img src="https://avatars.githubusercontent.com/u/232318625?v=4" style="width: 100px; border-radius: 12px;"/> | <img src="https://avatars.githubusercontent.com/u/124643372?v=4" style="width: 100px; border-radius: 12px;"/> |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <center>박종원</center>                                                                                      | <center>박세윤</center>                                                                                      | <center>정승일</center>                                                                                       | <center>조성훈</center>                                                                                       |
+| <center><a href="https://github.com/monegit">Github</a></center>                                             | <center><a href="https://github.com/seyun0714">Github</a></center>                                           | <center><a href="https://github.com/Decseung">Github</a></center>                                             | <center><a href="https://github.com/syunghoon">Github</a></center>                                            |
