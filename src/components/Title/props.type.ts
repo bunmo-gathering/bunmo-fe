@@ -6,8 +6,8 @@ interface TitleProps {
   title: string;
   subtitle?: string;
   subtitleColor?: SubTitleColor;
-  direction: TitleDirection;
-  size: TitleSize;
+  direction?: TitleDirection;
+  size?: TitleSize;
 }
 
 export type { TitleProps };

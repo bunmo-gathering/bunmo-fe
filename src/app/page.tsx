@@ -1,6 +1,7 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/button";
+import Title from "@/components/Title";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       >
         asdf
       </Button>
+      <Title title="Sample Title" />
     </>
   );
 }

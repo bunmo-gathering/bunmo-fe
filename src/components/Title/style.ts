@@ -14,6 +14,10 @@ const titleContainerStyle = tv({
       lg: "gap-2",
     },
   },
+  defaultVariants: {
+    direction: "vertical",
+    size: "md",
+  },
 });
 
 const titleStyle = tv({
@@ -25,10 +29,12 @@ const titleStyle = tv({
       lg: "text-title4-semibold",
     },
   },
+  defaultVariants: {
+    size: "md",
+  },
 });
 
 const subtitleStyle = tv({
-  base: "",
   variants: {
     size: {
       sm: "text-body2-medium",
@@ -39,6 +45,10 @@ const subtitleStyle = tv({
       primary: "text-primary",
       gray: "text-[#667085]",
     },
+  },
+  defaultVariants: {
+    size: "md",
+    color: "primary",
   },
 });
 
