@@ -1,5 +1,4 @@
 import { Animate, Transition } from "@/types/animate";
-import { TargetAndTransition, VariantLabels } from "motion/react";
 
 const buttonAnimation = {
   whileHover: {
