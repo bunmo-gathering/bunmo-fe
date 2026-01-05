@@ -6,8 +6,9 @@ const buttonGroupProviderStyle = tv({
   variants: {
     type: {
       normal: "",
-      action: "w-full",
+      action: "w-full pb-9 pt-3 px-4",
     },
+    stroke: { true: "border-t border-outlineVariant", false: "" },
   },
 
   defaultVariants: {

@@ -71,12 +71,27 @@ const ButtonGroupProvider = ({
     <>
       {childrenCount === 1 ? (
         // Button 컴포넌트가 1개일 경우
-        cloneElement(children as ReactElement<ComponentProps<typeof Button>>, {
-          size: size || "lg",
-        })
+        <div
+          className={buttonGroupProviderStyle({
+            type,
+            stroke: type === "action" ? true : false,
+          })}
+        >
+          {cloneElement(
+            children as ReactElement<ComponentProps<typeof Button>>,
+            {
+              size: size || "lg",
+            },
+          )}
+        </div>
       ) : (
         // Button 컴포넌트가 2개 이상일 경우
-        <div className={buttonGroupProviderStyle({ type })}>
+        <div
+          className={buttonGroupProviderStyle({
+            type,
+            stroke: type === "action" ? true : false,
+          })}
+        >
           {Children.map(children, (child, index) =>
             cloneElement(child as ReactElement<ComponentProps<typeof Button>>, {
               key: index,
