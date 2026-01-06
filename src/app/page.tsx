@@ -44,7 +44,6 @@ export default function Home() {
           handleChange={(e) => setSelectedValue(e.target.value)}
           type="second"
           label="박종원"
-          description="박종원의 코딩비책"
         />
       </div>
     </>
