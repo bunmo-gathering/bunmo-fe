@@ -20,4 +20,4 @@ interface ButtonProps {
   onTap?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export type { ButtonProps };
+export type { ButtonProps, ButtonSize };

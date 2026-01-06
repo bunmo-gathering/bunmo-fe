@@ -1,6 +1,7 @@
 "use client";
 
-import Button from "@/components/button";
+import Button from "@/components/Button";
+import ButtonGroup from "@/components/ButtonGroupProvider";
 import Title from "@/components/Title";
 
 export default function Home() {
@@ -15,6 +16,11 @@ export default function Home() {
         asdf
       </Button>
       <Title title="Sample Title" />
+
+      <ButtonGroup type="action">
+        <Button>asdf</Button>
+        <Button>asdf</Button>
+      </ButtonGroup>
     </>
   );
 }
