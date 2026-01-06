@@ -6,18 +6,6 @@ const meta = {
   title: "Components/Radio",
   component: Radio,
   tags: ["autodocs"],
-  argTypes: {
-    type: {
-      control: "inline-radio",
-      options: ["first", "second"],
-    },
-    handleChange: { action: "changed" },
-  },
-  // 기본 props 설정
-  args: {
-    name: "radio-group",
-    type: "first",
-  },
 } satisfies Meta<typeof Radio>;
 
 export default meta;
@@ -25,14 +13,17 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 /**
- * 두 개의 라디오 버튼이 하나의 상태를 공유하며 작동하는 실습용 스토리(최상단에서 진행)
+ * 두 개의 라디오 버튼이 하나의 상태를 공유하며 작동하는 실습용 스토리입니다. (최상단에서 진행)
  */
-export const Defalut: Story = {
+export const Default: Story = {
+  args: {
+    name: "radio-group",
+    type: "first",
+  },
   render: (args) => {
     const [{ selectedValue }, updateArgs] = useArgs();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      args.handleChange(e);
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       updateArgs({ selectedValue: e.target.value });
     };
 
@@ -45,7 +36,7 @@ export const Defalut: Story = {
           label="옵션 1 (Value: option1)"
           description="첫 번째 옵션입니다."
           selectedValue={selectedValue}
-          handleChange={handleChange}
+          onChange={onChange}
         />
         <Radio
           {...args}
@@ -54,7 +45,7 @@ export const Defalut: Story = {
           label="옵션 2 (Value: option2)"
           description="두 번째 옵션입니다."
           selectedValue={selectedValue}
-          handleChange={handleChange}
+          onChange={onChange}
         />
       </div>
     );
