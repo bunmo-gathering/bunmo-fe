@@ -2,9 +2,12 @@
 
 import Button from "@/components/Button";
 import ButtonGroup from "@/components/ButtonGroupProvider";
+import Radio from "@/components/Radio";
 import Title from "@/components/Title";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedValue, setSelectedValue] = useState<string>();
   return (
     <>
       <Button
@@ -21,6 +24,21 @@ export default function Home() {
         <Button>asdf</Button>
         <Button>asdf</Button>
       </ButtonGroup>
+
+      <div>
+        <Radio
+          name={"이름"}
+          value={"백종원"}
+          selectedValue={selectedValue}
+          handleChange={(e) => setSelectedValue(e.target.value)}
+        />
+        <Radio
+          name={"이름"}
+          value={"박종원"}
+          selectedValue={selectedValue}
+          handleChange={(e) => setSelectedValue(e.target.value)}
+        />
+      </div>
     </>
   );
 }
