@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import ButtonGroupProvider from ".";
-import Button from "../button";
+import Button from "../Button";
 import React, { ComponentProps } from "react";
 
 const meta = {

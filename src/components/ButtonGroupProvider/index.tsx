@@ -6,7 +6,7 @@ import {
   ReactElement,
 } from "react";
 import { ButtonGroupProviderProps } from "./props.type";
-import Button from "../button";
+import Button from "../Button";
 import buttonGroupProviderStyle from "./style";
 
 const MAX_CHILDREN = 2;

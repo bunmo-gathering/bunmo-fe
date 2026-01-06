@@ -1,9 +1,9 @@
 "use client";
 
+import buttonAnimation from "./animate";
 import { ButtonProps } from "./props.type";
 import { motion } from "motion/react";
 import buttonStyle from "./style";
-import buttonAnimation from "./animate";
 
 const Button = ({
   variant,

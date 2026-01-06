@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from "react";
-import { ButtonSize } from "../button/props.type";
+import { ButtonSize } from "../Button/props.type";
 
 type ButtonGroupProviderType = "normal" | "action";
 

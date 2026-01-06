@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/button";
+import Button from "@/components/Button";
 import ButtonGroup from "@/components/ButtonGroupProvider";
 import Title from "@/components/Title";
 
