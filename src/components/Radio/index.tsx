@@ -1,15 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { RadioProps } from "./props.type";
-import {
-  radioStyle,
-  radioBorderStyle,
-  radioWrapperLabelStyle,
-  radioWrapperStyle,
-  radioTextWrapperStyle,
-  radioLabelStyle,
-  radioDescriptionStyle,
-} from "./style";
+import { radioStyle, radioBorderStyle, radioWrapperStyle } from "./style";
 import { radioAnimation, radioBorderAnimation } from "./animate";
 
 const Radio = ({
@@ -17,7 +9,7 @@ const Radio = ({
   name,
   value,
   selectedValue,
-  handleChange,
+  onChange,
   type,
   label,
   description,
@@ -26,7 +18,7 @@ const Radio = ({
 
   return (
     <div className={radioWrapperStyle({ type })}>
-      <label className={radioWrapperLabelStyle()}>
+      <label className="inline-flex items-center cursor-pointer mt-0.5">
         <input
           id={id}
           type="radio"
@@ -34,7 +26,7 @@ const Radio = ({
           name={name}
           value={value}
           checked={isSelected}
-          onChange={handleChange}
+          onChange={onChange}
         />
 
         {/* 바깥쪽 원 */}
@@ -52,11 +44,16 @@ const Radio = ({
           />
         </motion.div>
       </label>
-      <div className={radioTextWrapperStyle()}>
-        <label htmlFor={id} className={radioLabelStyle()}>
+      <div className="flex flex-col gap-1">
+        <label
+          htmlFor={id}
+          className="text-body1-medium text-onSurface cursor-pointer"
+        >
           {label}
         </label>
-        <span className={radioDescriptionStyle()}>{description}</span>
+        <span className="text-caption-regular text-onSurfaceVariant">
+          {description}
+        </span>
       </div>
     </div>
   );
