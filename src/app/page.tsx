@@ -1,8 +1,9 @@
 "use client";
 
 import Button from "@/components/Button";
-import ButtonGroup from "@/components/ButtonGroupProvider";
+import ProfileIcon from "@/components/Avatar";
 import Title from "@/components/Title";
+import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 
 export default function Home() {
   return (
@@ -17,10 +18,11 @@ export default function Home() {
       </Button>
       <Title title="Sample Title" />
 
-      <ButtonGroup type="action">
+      <ButtonGroupProvider type="action">
         <Button>asdf</Button>
         <Button>asdf</Button>
-      </ButtonGroup>
+      </ButtonGroupProvider>
+      <ProfileIcon status="indicator" />
     </>
   );
 }
