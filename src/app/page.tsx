@@ -31,7 +31,7 @@ export default function Home() {
           name={"이름"}
           value={"백종원"}
           selectedValue={selectedValue}
-          handleChange={(e) => setSelectedValue(e.target.value)}
+          onChange={(e) => setSelectedValue(e.target.value)}
           type="first"
           label="백종원"
           description="백종원의 요리비책"
@@ -41,7 +41,7 @@ export default function Home() {
           name={"이름"}
           value={"박종원"}
           selectedValue={selectedValue}
-          handleChange={(e) => setSelectedValue(e.target.value)}
+          onChange={(e) => setSelectedValue(e.target.value)}
           type="second"
           label="박종원"
         />

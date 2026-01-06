@@ -7,7 +7,7 @@ interface RadioProps {
   name: string;
   value: string;
   selectedValue?: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   type: Type;
   label: string;
   description?: string;
