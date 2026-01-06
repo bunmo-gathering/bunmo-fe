@@ -10,12 +10,8 @@ const radioWrapperStyle = tv({
   },
 });
 
-const radioWrapperLabelStyle = tv({
-  base: "inline-flex items-center cursor-pointer mt-0.5",
-});
-
 const radioBorderStyle = tv({
-  base: "flex items-center justify-center w-5 h-5 rounded-full border-1 border-outline",
+  base: "flex items-center justify-center w-5 h-5 rounded-full border border-outline",
   variants: {
     isSelected: {
       true: "bg-primaryContainer",
@@ -37,24 +33,4 @@ const radioStyle = tv({
   },
 });
 
-const radioTextWrapperStyle = tv({
-  base: "flex flex-col gap-1",
-});
-
-const radioLabelStyle = tv({
-  base: "text-body1-medium text-onSurface cursor-pointer",
-});
-
-const radioDescriptionStyle = tv({
-  base: "text-caption-regular text-onSurfaceVariant",
-});
-
-export {
-  radioWrapperStyle,
-  radioWrapperLabelStyle,
-  radioBorderStyle,
-  radioStyle,
-  radioTextWrapperStyle,
-  radioLabelStyle,
-  radioDescriptionStyle,
-};
+export { radioWrapperStyle, radioBorderStyle, radioStyle };
