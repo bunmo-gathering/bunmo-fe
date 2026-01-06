@@ -1,7 +1,17 @@
 import { tv } from "tailwind-variants/lite";
 
-const labelStyle = tv({
-  base: "inline-flex items-center cursor-pointer",
+const radioWrapperStyle = tv({
+  base: "flex items-start gap-3",
+  variants: {
+    type: {
+      first: "",
+      second: "pl-8",
+    },
+  },
+});
+
+const radioWrapperLabelStyle = tv({
+  base: "inline-flex items-center cursor-pointer mt-0.5",
 });
 
 const radioBorderStyle = tv({
@@ -21,10 +31,30 @@ const radioStyle = tv({
   base: "w-2 h-2 rounded-full",
   variants: {
     isSelected: {
-      true: "bg-onPrimary",
+      true: "bg-onPrimaryContainer",
       false: "",
     },
   },
 });
 
-export { labelStyle, radioBorderStyle, radioStyle };
+const radioTextWrapperStyle = tv({
+  base: "flex flex-col gap-1",
+});
+
+const radioLabelStyle = tv({
+  base: "text-body1-medium text-onSurface cursor-pointer",
+});
+
+const radioDescriptionStyle = tv({
+  base: "text-caption-regular text-onSurfaceVariant",
+});
+
+export {
+  radioWrapperStyle,
+  radioWrapperLabelStyle,
+  radioBorderStyle,
+  radioStyle,
+  radioTextWrapperStyle,
+  radioLabelStyle,
+  radioDescriptionStyle,
+};
