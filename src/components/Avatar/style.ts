@@ -10,8 +10,8 @@ const avatarStyle = tv({
       lg: "size-20 rounded-4xl p-4",
       xl: "size-25 rounded-full p-5",
     },
-    a: {
-      true: "",
+    hasImage: {
+      true: "p-0! overflow-hidden",
       false: "",
     },
   },

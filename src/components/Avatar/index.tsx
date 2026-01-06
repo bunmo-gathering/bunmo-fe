@@ -5,18 +5,17 @@ import { avatarStyle } from "./style";
 import Indicator from "../Indicator";
 
 const Avatar = ({ size, imageUrl, status }: AvatarProps) => {
+  const hasImage = !!imageUrl;
   return (
     <div className="relative inline-block">
-      <div
-        className={avatarStyle({ size }) + (imageUrl && "p-0 overflow-hidden")}
-      >
+      <div className={avatarStyle({ size, hasImage })}>
         {imageUrl ? (
           // 이미지 URL 있을 경우
 
           <img
             src={imageUrl}
             alt="ProfileImage"
-            className="object-cover size-full "
+            className="object-cover size-full"
           />
         ) : (
           // 이미지 URL 없을 경우 기본 아이콘
