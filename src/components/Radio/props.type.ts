@@ -1,7 +1,5 @@
 import { ChangeEvent } from "react";
 
-type Indent = "first" | "second";
-
 interface RadioProps {
   /**
    * Radio 그룹의 이름입니다. 동일한 name을 가진 Radio끼리 하나의 그룹으로 묶입니다.
