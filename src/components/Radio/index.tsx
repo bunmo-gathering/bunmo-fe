@@ -5,12 +5,11 @@ import { radioStyle, radioBorderStyle, radioWrapperStyle } from "./style";
 import { radioAnimation, radioBorderAnimation } from "./animate";
 
 const Radio = ({
-  id,
   name,
   value,
   selectedValue,
   onChange,
-  type,
+  indent = false,
   label,
   description,
 }: RadioProps) => {
@@ -21,10 +20,10 @@ const Radio = ({
   }
 
   return (
-    <div className={radioWrapperStyle({ type })}>
+    <div className={radioWrapperStyle({ indent })}>
       <label className="inline-flex items-center cursor-pointer mt-0.5">
         <input
-          id={id}
+          id={value}
           type="radio"
           className="sr-only"
           name={name}
@@ -50,7 +49,7 @@ const Radio = ({
       </label>
       <div className="flex flex-col gap-1">
         <label
-          htmlFor={id}
+          htmlFor={value}
           className="text-body1-medium text-onSurface cursor-pointer"
         >
           {label}

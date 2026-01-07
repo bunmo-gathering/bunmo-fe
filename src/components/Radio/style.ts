@@ -3,9 +3,9 @@ import { tv } from "tailwind-variants/lite";
 const radioWrapperStyle = tv({
   base: "flex items-start gap-3",
   variants: {
-    type: {
-      first: "",
-      second: "pl-8",
+    indent: {
+      false: "",
+      true: "pl-8",
     },
   },
 });
