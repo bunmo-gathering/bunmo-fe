@@ -27,22 +27,19 @@ export default function Home() {
 
       <div>
         <Radio
-          id="백종원"
           name={"이름"}
           value={"백종원"}
           selectedValue={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
-          type="first"
           label="백종원"
           description="백종원의 요리비책"
         />
         <Radio
-          id="박종원"
           name={"이름"}
           value={"박종원"}
           selectedValue={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
-          type="second"
+          indent={true}
           label="박종원"
         />
       </div>
