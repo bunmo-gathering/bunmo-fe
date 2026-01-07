@@ -1,14 +1,14 @@
 import { useArgs } from "storybook/internal/preview-api";
-import Toggle from ".";
+import Switch from ".";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  component: Toggle,
+  component: Switch,
   tags: ["autodocs"],
-} satisfies Meta<typeof Toggle>;
+} satisfies Meta<typeof Switch>;
 
 export default meta;
-type Story = StoryObj<typeof Toggle>;
+type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
   args: {
@@ -17,10 +17,10 @@ export const Default: Story = {
   },
   render: (args) => {
     const [{ activate }, updateArgs] = useArgs();
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       updateArgs({ activate: e.target.checked });
     };
-    return <Toggle {...args} activate={activate} onChange={onChange} />;
+    return <Switch {...args} activate={activate} onChange={handleChange} />;
   },
 };
 
@@ -41,7 +41,7 @@ export const WithDescription = {
   },
 };
 
-export const OnlyToggle = {
+export const OnlySwitch = {
   args: {
     activate: false,
     onChange: () => {},

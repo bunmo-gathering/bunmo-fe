@@ -1,6 +1,6 @@
 import { Animate, Transition } from "@/types/animate";
 
-const toggleAnimation = (activate: boolean) => ({
+const switchAnimation = (activate: boolean) => ({
   animate: {
     x: activate ? 20 : 0,
   } as Animate,
@@ -11,4 +11,4 @@ const toggleAnimation = (activate: boolean) => ({
   } as Transition,
 });
 
-export default toggleAnimation;
+export default switchAnimation;

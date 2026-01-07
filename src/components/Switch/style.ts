@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 
-const toggleStyle = tv({
+const switchStyle = tv({
   base: "flex items-center w-11 h-6 p-0.5 rounded-xl cursor-pointer transition-colors duration-500",
   variants: {
     activate: {
@@ -10,4 +10,4 @@ const toggleStyle = tv({
   },
 });
 
-export default toggleStyle;
+export default switchStyle;

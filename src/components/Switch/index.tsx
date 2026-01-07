@@ -1,11 +1,11 @@
 "use client";
 
-import { ToggleProps } from "./props.type";
+import { SwitchProps } from "./props.type";
 import { motion } from "motion/react";
-import toggleStyle from "./style";
-import toggleAnimation from "./animate";
+import switchStyle from "./style";
+import switchAnimation from "./animate";
 
-const Toggle = ({ activate, onChange, label, description }: ToggleProps) => {
+const Switch = ({ activate, onChange, label, description }: SwitchProps) => {
   if (!label && description) {
     throw new Error("Label 없이 Description 단독으로 사용할 수 없습니다.");
   }
@@ -18,11 +18,11 @@ const Toggle = ({ activate, onChange, label, description }: ToggleProps) => {
           checked={activate}
           onChange={onChange}
         />
-        <motion.div className={toggleStyle({ activate })}>
+        <motion.div className={switchStyle({ activate })}>
           <motion.div
             className="w-5 h-5 bg-white rounded-full shadow-sm"
             layout
-            {...toggleAnimation(activate)}
+            {...switchAnimation(activate)}
           ></motion.div>
         </motion.div>
       </label>
@@ -36,4 +36,4 @@ const Toggle = ({ activate, onChange, label, description }: ToggleProps) => {
   );
 };
 
-export default Toggle;
+export default Switch;
