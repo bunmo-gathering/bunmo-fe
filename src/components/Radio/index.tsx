@@ -16,6 +16,10 @@ const Radio = ({
 }: RadioProps) => {
   const isSelected = value === selectedValue;
 
+  if (!label && description) {
+    throw new Error("Label 없이 Description 단독으로 사용할 수 없습니다.");
+  }
+
   return (
     <div className={radioWrapperStyle({ type })}>
       <label className="inline-flex items-center cursor-pointer mt-0.5">
