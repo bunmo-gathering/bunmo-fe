@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants/lite";
 
 const indicatorStlye = tv({
-  base: "rounded-full bg-error absolute bottom-0 right-0",
+  base: "rounded-full bg-error absolute right-0",
   variants: {
     size: {
       xs: "hidden",
@@ -10,9 +10,14 @@ const indicatorStlye = tv({
       lg: "size-6",
       xl: "size-7",
     },
+    position: {
+      top: "top-0",
+      bottom: "bottom-0",
+    },
   },
   defaultVariants: {
     size: "md",
+    positon: "bottom",
   },
 });
 

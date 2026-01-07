@@ -22,7 +22,7 @@ const Avatar = ({ size, imageUrl, status }: AvatarProps) => {
           <User size={"auto"} />
         )}
       </div>
-      {status === "indicator" && <Indicator size={size} />}
+      {status === "indicator" && <Indicator size={size} type="avatar" />}
       {/* {status === "button" && <Indicator size="xl" />} */}
     </div>
   );
