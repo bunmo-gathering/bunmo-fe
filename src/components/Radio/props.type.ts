@@ -1,20 +1,15 @@
 import { ChangeEvent } from "react";
 
-type Type = "first" | "second";
+type Indent = "first" | "second";
 
 interface RadioProps {
-  /**
-   * Radio 요소의 고유 식별자(ID)입니다.
-   */
-  id: string;
-
   /**
    * Radio 그룹의 이름입니다. 동일한 name을 가진 Radio끼리 하나의 그룹으로 묶입니다.
    */
   name: string;
 
   /**
-   * Radio 요소가 선택되었을 때 전달될 값입니다.
+   * Radio 요소가 나타내는 고유한 값입니다.
    */
   value: string;
 
@@ -27,17 +22,15 @@ interface RadioProps {
   /**
    * Radio의 선택 상태가 변경될 때 실행되는 콜백 함수입니다.
    */
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 
   /**
-   * Radio 컴포넌트의 들여쓰기 스타일을 결정합니다.
-   * - 'first': 기본 들여쓰기가 적용된 타입
-   * - 'second': 추가적인 들여쓰기가 적용된 타입
+   * Radio 컴포넌트의 들여쓰기 여부를 결정합니다.
    */
-  type: "first" | "second";
+  indent?: boolean;
 
   /**
-   * 사용자에게 노출될 주요 텍스트 라벨입니다.
+   * 사용자에게 노출될 주요 텍스트 라벨입니다. 클릭 시 해당 라디오 요소가 선택됩니다.
    */
   label: string;
 
