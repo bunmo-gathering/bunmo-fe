@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants/lite";
 
 const iconButtonStyle = tv({
-  base: "cursor-pointer",
+  base: "cursor-pointer ",
   variants: {
     variant: {
       primary: "bg-primary",
