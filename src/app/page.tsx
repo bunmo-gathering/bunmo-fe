@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import ButtonGroup from "@/components/ButtonGroupProvider";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
+import Switch from "@/components/Switch";
 import { useState } from "react";
 
 export default function Home() {
@@ -43,6 +44,13 @@ export default function Home() {
           label="박종원"
         />
       </div>
+
+      <Switch
+        defalutValue={false}
+        onChange={(e) => console.log(e.target.checked)}
+        label="박종원"
+        description="박종원의 코딩비책"
+      />
     </>
   );
 }
