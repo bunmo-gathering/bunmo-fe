@@ -2,7 +2,9 @@
 
 import Button from "@/components/Button";
 import ButtonGroup from "@/components/ButtonGroupProvider";
+import IconButton from "@/components/IconButton";
 import Title from "@/components/Title";
+import { Plus, User2 } from "lucide-react";
 
 export default function Home() {
   return (
@@ -21,6 +23,9 @@ export default function Home() {
         <Button>asdf</Button>
         <Button>asdf</Button>
       </ButtonGroup>
+      <IconButton size="sm">
+        <Plus color="white" />
+      </IconButton>
     </>
   );
 }
