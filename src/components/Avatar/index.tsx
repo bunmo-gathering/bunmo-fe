@@ -1,29 +1,28 @@
-import React from "react";
 import { AvatarProps } from "./props.type";
 import { User } from "lucide-react";
 import { avatarStyle } from "./style";
 import Indicator from "../Indicator";
 
-const Avatar = ({ size, imageUrl, status }: AvatarProps) => {
-  const hasImage = !!imageUrl;
+const Avatar = ({
+  size,
+  imageUrl,
+  status,
+  indicatorPosition = "bottom-right",
+}: AvatarProps) => {
+  const avatar = imageUrl ? (
+    <img src={imageUrl} alt="ProfileImage" className="object-cover size-full" />
+  ) : (
+    <User className="size-full" />
+  );
+
   return (
     <div className="relative inline-block">
-      <div className={avatarStyle({ size, hasImage })}>
-        {imageUrl ? (
-          // 이미지 URL 있을 경우
-
-          <img
-            src={imageUrl}
-            alt="ProfileImage"
-            className="object-cover size-full"
-          />
-        ) : (
-          // 이미지 URL 없을 경우 기본 아이콘
-          <User size={"auto"} />
-        )}
+      <div className={avatarStyle({ size, hasImage: !!imageUrl })}>
+        {avatar}
       </div>
-      {status === "indicator" && <Indicator size={size} type="avatar" />}
-      {/* {status === "button" && <Indicator size="xl" />} */}
+      {status === "indicator" && (
+        <Indicator size={size} position={indicatorPosition} />
+      )}
     </div>
   );
 };

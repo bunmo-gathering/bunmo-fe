@@ -22,7 +22,13 @@ export default function Home() {
         <Button>asdf</Button>
         <Button>asdf</Button>
       </ButtonGroupProvider>
-      <Avatar size="xl" imageUrl="" status="indicator" />
+
+      <Avatar
+        size="xl"
+        imageUrl=""
+        status="indicator"
+        indicatorPosition={"top-right"}
+      />
     </>
   );
 }

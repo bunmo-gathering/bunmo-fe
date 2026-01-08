@@ -1,7 +1,8 @@
 import { tv } from "tailwind-variants/lite";
 
 const avatarStyle = tv({
-  base: "flex items-center justify-center bg-[#D0D5DD]",
+  base: "flex items-center justify-center bg-outlineVariant overflow-hidden",
+
   variants: {
     size: {
       xs: "rounded-full w-8 h-8 border border-outline p-1",
@@ -10,11 +11,13 @@ const avatarStyle = tv({
       lg: "size-20 rounded-4xl p-4",
       xl: "size-25 rounded-full p-5",
     },
+
     hasImage: {
-      true: "p-0! overflow-hidden",
+      true: "p-0!",
       false: "",
     },
   },
+
   defaultVariants: {
     size: "md",
   },

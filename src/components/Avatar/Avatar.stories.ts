@@ -1,42 +1,112 @@
 import Avatar from ".";
-import type { Meta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+import exampleImage from "./assets/cat.jpg";
 
 const meta = {
   component: Avatar,
   tags: ["autodocs"],
+  argTypes: {
+    size: {
+      options: ["sm", "md", "lg", "xl"],
+    },
+
+    status: {
+      options: ["none", "indicator", "button"],
+    },
+
+    indicatorPosition: {
+      options: ["top-right", "bottom-right", "top-left", "bottom-left"],
+      if: { arg: "status", eq: "indicator" },
+    },
+  },
 } satisfies Meta<typeof Avatar>;
 export default meta;
+type Story = StoryObj<typeof Avatar>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     size: "md",
-    imageUrl: null,
-    status: null,
+    status: "none",
+    imageUrl: undefined,
   },
 };
 
-export const WithImage = {
+export const WithImage: Story = {
   args: {
-    size: "lg",
-    imageUrl:
-      "https://img.freepik.com/free-vector/simple-vibing-cat-square-meme_742173-4493.jpg?semt=ais_hybrid&w=740&q=80",
+    size: "md",
+    status: "none",
+    imageUrl: exampleImage.src,
   },
-  status: null,
 };
 
-export const WithIndicator = {
+export const WithIndicatorBottomRight: Story = {
   args: {
-    size: "xl",
-    imageUrl: null,
+    size: "md",
     status: "indicator",
+    indicatorPosition: "bottom-right",
+    imageUrl: undefined,
   },
 };
 
-export const WithImageAndIndicator = {
+export const WithIndicatorBottomLeft: Story = {
   args: {
-    size: "xl",
-    imageUrl:
-      "https://img.freepik.com/free-vector/simple-vibing-cat-square-meme_742173-4493.jpg?semt=ais_hybrid&w=740&q=80",
+    size: "md",
     status: "indicator",
+    indicatorPosition: "bottom-left",
+    imageUrl: undefined,
+  },
+};
+
+export const WithIndicatorTopRight: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "top-right",
+    imageUrl: undefined,
+  },
+};
+
+export const WithIndicatorTopLeft: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "top-left",
+    imageUrl: undefined,
+  },
+};
+
+export const ImageWithIndicatorBottomRight: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "bottom-right",
+    imageUrl: exampleImage.src,
+  },
+};
+
+export const ImageWithIndicatorBottomLeft: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "bottom-left",
+    imageUrl: exampleImage.src,
+  },
+};
+
+export const ImageWithIndicatorTopRight: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "top-right",
+    imageUrl: exampleImage.src,
+  },
+};
+
+export const ImageWithIndicatorTopLeft: Story = {
+  args: {
+    size: "md",
+    status: "indicator",
+    indicatorPosition: "top-left",
+    imageUrl: exampleImage.src,
   },
 };
