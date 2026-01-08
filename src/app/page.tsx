@@ -46,7 +46,7 @@ export default function Home() {
       </div>
 
       <Switch
-        initValue={false}
+        defalutValue={false}
         onChange={(e) => console.log(e.target.checked)}
         label="박종원"
         description="박종원의 코딩비책"

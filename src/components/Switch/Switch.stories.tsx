@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
   args: {
-    initValue: false,
+    defalutValue: false,
     label: "토글 레이블",
     description: "이건 토글 레이블 입니다.",
   },
@@ -25,14 +25,14 @@ export const Default: Story = {
 
 export const Activated = {
   args: {
-    initValue: true,
+    defalutValue: true,
     label: "활성화 상태",
   },
 };
 
 export const WithDescription = {
   args: {
-    initValue: false,
+    defalutValue: false,
     label: "알림 설정",
     description: "새로운 소식과 마케팅 정보를 푸시 알림으로 받아봅니다.",
   },
@@ -40,13 +40,13 @@ export const WithDescription = {
 
 export const OnlySwitch = {
   args: {
-    initValue: false,
+    defalutValue: false,
   },
 };
 
 export const ActiveWithDescription = {
   args: {
-    initValue: true,
+    defalutValue: true,
     label: "위치 정보 권한",
     description: "내 주변 맛집 추천을 위해 위치 정보 사용에 동의합니다.",
   },
@@ -54,7 +54,7 @@ export const ActiveWithDescription = {
 
 export const AlignLeftSwitch = {
   args: {
-    initValue: false,
+    defalutValue: false,
     label: "토글 레이블",
     align: "left",
   },
