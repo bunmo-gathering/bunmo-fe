@@ -1,10 +1,9 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
-export interface InputFieldProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
-    "type" | "onChange"
-  > {
+export interface InputFieldProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  "type" | "onChange"
+> {
   /**
    * 입력 필드의 스타일을 지정합니다.
    * - 'input': 단일 라인 입력 필드
@@ -31,7 +30,7 @@ export interface InputFieldProps
    * 입력 필드의 값이 변경될 때 호출되는 콜백 함수입니다.
    */
   onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
 
   /**
@@ -55,7 +54,15 @@ export interface InputFieldProps
   rows?: number;
 
   /**
-   * 에러 상태 여부를 지정합니다. (Destructive state)
+   * 입력 필드에 에러 메시지를 표시합니다.
    */
-  error?: boolean;
+  errorMessage?: string;
+
+  /**
+   * 추가적인 HTML 속성을 입력 필드에 전달합니다.
+   */
+  inputOptions?: Omit<
+    InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+    "className" | "style" | "id"
+  >;
 }

@@ -1,23 +1,16 @@
 import { tv } from "tailwind-variants";
 
 /**
- * InputField 컨테이너 스타일
- */
-export const inputFieldContainer = tv({
-  base: "flex flex-col gap-3 w-full",
-});
-
-/**
  * Label 스타일
  */
-export const labelStyle = tv({
-  base: "text-body1-medium",
+const labelStyle = tv({
   variants: {
     error: {
-      true: "text-error",
-      false: "text-onSurface",
+      true: "text-error text-body1-medium",
+      false: "text-onSurface text-body1-medium",
     },
   },
+
   defaultVariants: {
     error: false,
   },
@@ -26,22 +19,26 @@ export const labelStyle = tv({
 /**
  * Input/Textarea Content 스타일
  */
-export const inputContentStyle = tv({
+const inputContentStyle = tv({
   base: "w-full px-3 py-2.5 rounded-lg border transition-colors cursor-text",
+
   variants: {
     type: {
       input: "",
       textarea: "resize-none",
     },
+
     error: {
       true: "border-error",
       false: "border-outlineVariant",
     },
+
     active: {
       true: "",
       false: "",
     },
   },
+
   compoundVariants: [
     {
       error: false,
@@ -54,6 +51,7 @@ export const inputContentStyle = tv({
       class: "border-outlineVariant",
     },
   ],
+
   defaultVariants: {
     type: "input",
     error: false,
@@ -64,14 +62,16 @@ export const inputContentStyle = tv({
 /**
  * Input/Textarea Text 스타일
  */
-export const inputTextStyle = tv({
-  base: "w-full text-body2-medium bg-transparent outline-none resize-none",
+const inputTextStyle = tv({
+  base: "w-full bg-transparent outline-none resize-none",
+
   variants: {
     hasValue: {
-      true: "text-onSurfaceVariant",
-      false: "text-outline placeholder:text-outline",
+      true: "text-onSurfaceVariant text-body2-medium",
+      false: "text-outline placeholder:text-outline text-body2-medium",
     },
   },
+
   defaultVariants: {
     hasValue: false,
   },
@@ -80,14 +80,14 @@ export const inputTextStyle = tv({
 /**
  * Hint/Error Text 스타일
  */
-export const hintTextStyle = tv({
-  base: "text-caption-regular",
+const hintTextStyle = tv({
   variants: {
     error: {
-      true: "text-error",
-      false: "text-onSurfaceVariant",
+      true: "text-error text-caption-regular",
+      false: "text-onSurfaceVariant text-caption-regular",
     },
   },
+
   defaultVariants: {
     error: false,
   },
@@ -96,6 +96,21 @@ export const hintTextStyle = tv({
 /**
  * Error and Hint 컨테이너 스타일 (에러 상태일 때 에러 메시지와 힌트를 함께 표시)
  */
-export const errorHintContainer = tv({
+const errorHintContainer = tv({
   base: "flex flex-row justify-between items-center w-full gap-3",
+
+  variants: {
+    error: {
+      true: "text-error",
+      false: "justify-end",
+    },
+  },
 });
+
+export {
+  labelStyle,
+  inputContentStyle,
+  inputTextStyle,
+  hintTextStyle,
+  errorHintContainer,
+};

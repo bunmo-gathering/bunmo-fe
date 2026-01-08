@@ -34,9 +34,9 @@ const meta = {
       control: "boolean",
       description: "입력 필드를 비활성화할지 여부를 지정합니다.",
     },
-    error: {
-      control: "boolean",
-      description: "에러 상태 여부를 지정합니다.",
+    errorMessage: {
+      control: "text",
+      description: "입력 필드에 에러 메시지를 표시합니다.",
     },
     maxLength: {
       control: "number",
@@ -45,6 +45,10 @@ const meta = {
     rows: {
       control: "number",
       description: "textarea 타입일 때 표시할 행 수를 지정합니다.",
+    },
+    inputOptions: {
+      control: { disable: false },
+      description: "추가적인 HTML 속성을 입력 필드에 전달합니다.",
     },
   },
 } satisfies Meta<typeof InputField>;
@@ -132,7 +136,7 @@ export const ErrorInput: Story = {
     label: "Label",
     placeholder: "Placeholder",
     hint: "Hint text",
-    error: true,
+    errorMessage: "errorMessage",
   },
   render: (args) => <ControlledInputField {...args} />,
 };
@@ -147,7 +151,7 @@ export const ErrorInputWithValue: Story = {
     placeholder: "Placeholder",
     hint: "Hint text",
     value: "내용을 입력했을 때",
-    error: true,
+    errorMessage: "errorMessage",
   },
   render: (args) => <ControlledInputField {...args} />,
 };
@@ -161,7 +165,7 @@ export const ErrorTextarea: Story = {
     label: "Label",
     placeholder: "Placeholder",
     hint: "Hint text",
-    error: true,
+    errorMessage: "errorMessage",
     rows: 3,
   },
   render: (args) => <ControlledInputField {...args} />,
@@ -177,7 +181,7 @@ export const ErrorTextareaWithValue: Story = {
     placeholder: "Placeholder",
     hint: "Hint text",
     value: "내용을 입력했을 때",
-    error: true,
+    errorMessage: "errorMessage",
     rows: 3,
   },
   render: (args) => <ControlledInputField {...args} />,
