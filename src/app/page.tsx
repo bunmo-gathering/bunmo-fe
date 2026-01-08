@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
-  const [isActivated, setIsActivated] = useState<boolean>(false);
   return (
     <>
       <Button
@@ -45,9 +44,10 @@ export default function Home() {
           label="박종원"
         />
       </div>
+
       <Switch
-        activate={isActivated}
-        onChange={(e) => setIsActivated(e.target.checked)}
+        initValue={false}
+        onChange={(e) => console.log(e.target.checked)}
         label="박종원"
         description="박종원의 코딩비책"
       />
