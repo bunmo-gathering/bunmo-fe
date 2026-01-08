@@ -13,6 +13,7 @@ export const Default: Story = {
   args: {
     initValue: false,
     label: "토글 레이블",
+    description: "이건 토글 레이블 입니다.",
   },
   render: (args) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,5 +49,13 @@ export const ActiveWithDescription = {
     initValue: true,
     label: "위치 정보 권한",
     description: "내 주변 맛집 추천을 위해 위치 정보 사용에 동의합니다.",
+  },
+};
+
+export const AlignLeftSwitch = {
+  args: {
+    initValue: false,
+    label: "토글 레이블",
+    align: "left",
   },
 };

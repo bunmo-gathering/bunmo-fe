@@ -3,10 +3,16 @@
 import { useState } from "react";
 import { SwitchProps } from "./props.type";
 import { motion } from "motion/react";
-import switchStyle from "./style";
+import { wrapperStyle, switchStyle } from "./style";
 import switchAnimation from "./animate";
 
-const Switch = ({ initValue, onChange, label, description }: SwitchProps) => {
+const Switch = ({
+  initValue = false,
+  onChange,
+  label,
+  description,
+  align = "right",
+}: SwitchProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(initValue);
 
   const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +29,7 @@ const Switch = ({ initValue, onChange, label, description }: SwitchProps) => {
   }
 
   return (
-    <div className="flex items-start gap-3">
+    <div className={wrapperStyle({ align })}>
       <label>
         <input
           type="checkbox"
@@ -41,7 +47,7 @@ const Switch = ({ initValue, onChange, label, description }: SwitchProps) => {
         </motion.div>
       </label>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 flex-1">
         <span className="text-body1-medium text-onSurface">{label}</span>
         <span className="text-caption-regular text-onSurfaceVariant">
           {description}

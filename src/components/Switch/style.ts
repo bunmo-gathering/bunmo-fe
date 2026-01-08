@@ -1,6 +1,16 @@
 import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
+const wrapperStyle = tv({
+  base: "flex items-start gap-3 w-full",
+  variants: {
+    align: {
+      left: "",
+      right: "flex-row-reverse",
+    },
+  },
+});
+
 const switchStyle = tv({
   base: clsx(
     // style
@@ -16,4 +26,4 @@ const switchStyle = tv({
   },
 });
 
-export default switchStyle;
+export { wrapperStyle, switchStyle };
