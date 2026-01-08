@@ -1,9 +1,8 @@
 interface SwitchProps {
   /**
-   * 스위치의 현재 온/오프(On/Off) 상태를 결정합니다.
-   * true일 경우 스위치가 켜진(On) 상태가 됩니다.
+   * 스위치의 초기 온/오프(On/Off) 상태를 결정합니다.
    */
-  activate: boolean;
+  initValue: boolean;
 
   /**
    * 스위치의 상태가 변경될 때 실행되는 콜백 함수입니다.

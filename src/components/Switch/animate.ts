@@ -1,13 +1,13 @@
 import { Animate, Transition } from "@/types/animate";
 
-const switchAnimation = (activate: boolean) => ({
+const switchAnimation = (isChecked: boolean) => ({
   animate: {
-    x: activate ? 20 : 0,
+    x: isChecked ? 20 : 0,
   } as Animate,
+
   transition: {
     type: "spring",
-    stiffness: 500,
-    damping: 50,
+    duration: 0.25,
   } as Transition,
 });
 
