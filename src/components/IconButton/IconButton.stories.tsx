@@ -14,9 +14,11 @@ export const Default: Story = {
     size: "md",
     variant: "primary",
   },
+
   argTypes: {
     children: { control: false },
   },
+
   render: (args) => (
     <IconButton {...args}>
       <Plus color="white" />
