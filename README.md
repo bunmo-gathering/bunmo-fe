@@ -21,10 +21,15 @@ npm run dev
 
 # ⚙️ 사용 기술
 
-```css
-1. NextJS
-2. TypeScript
-3. Tailwind CSS
+```
+1. NextJS@16.1
+2. TypeScript@5
+3. Tailwind CSS@4
+	3.1. clsx@2.1
+	3.2. tailwind-merge@3.4
+	3.3. tailwind-variants@3.2
+4. motion@12.23
+5. Storybook@10.1
 ```
 
 <br />
