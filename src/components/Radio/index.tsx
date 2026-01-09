@@ -26,6 +26,7 @@ const Radio = ({
           id={value}
           type="radio"
           className="sr-only"
+          readOnly={!onChange}
           name={name}
           value={value}
           checked={isSelected}
