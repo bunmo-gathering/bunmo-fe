@@ -34,6 +34,7 @@ const Switch = ({
         <input
           type="checkbox"
           className="sr-only"
+          readOnly={!onChange}
           checked={isChecked}
           onChange={handleToggle}
         />
