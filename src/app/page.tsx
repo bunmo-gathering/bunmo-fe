@@ -2,11 +2,13 @@
 
 import Button from "@/components/Button";
 import ButtonGroup from "@/components/ButtonGroupProvider";
-import IconButton from "@/components/IconButton";
+import Radio from "@/components/Radio";
 import Title from "@/components/Title";
-import { Plus, User2 } from "lucide-react";
+import Switch from "@/components/Switch";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedValue, setSelectedValue] = useState<string>();
   return (
     <>
       <Button
@@ -23,9 +25,32 @@ export default function Home() {
         <Button>asdf</Button>
         <Button>asdf</Button>
       </ButtonGroup>
-      <IconButton size="sm">
-        <Plus color="white" />
-      </IconButton>
+
+      <div>
+        <Radio
+          name={"이름"}
+          value={"백종원"}
+          selectedValue={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+          label="백종원"
+          description="백종원의 요리비책"
+        />
+        <Radio
+          name={"이름"}
+          value={"박종원"}
+          selectedValue={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+          indent={true}
+          label="박종원"
+        />
+      </div>
+
+      <Switch
+        defalutValue={false}
+        onChange={(e) => console.log(e.target.checked)}
+        label="박종원"
+        description="박종원의 코딩비책"
+      />
     </>
   );
 }
