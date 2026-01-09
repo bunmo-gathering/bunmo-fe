@@ -6,7 +6,7 @@ interface UseHandlerProps {
   innerRef: RefObject<HTMLInputElement | HTMLTextAreaElement | null>;
 }
 
-const useHandler = ({ onChange, disabled, innerRef }: UseHandlerProps) => {
+const useHandler = ({ onChange }: UseHandlerProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleChange = (

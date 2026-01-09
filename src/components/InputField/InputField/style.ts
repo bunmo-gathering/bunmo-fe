@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
 /**
@@ -6,8 +7,8 @@ import { tv } from "tailwind-variants";
 const labelStyle = tv({
   variants: {
     error: {
-      true: "text-error text-body1-medium",
-      false: "text-onSurface text-body1-medium",
+      true: "text-body1-medium text-error!",
+      false: "text-body1-medium text-onSurface!",
     },
   },
 
@@ -67,8 +68,8 @@ const inputTextStyle = tv({
 
   variants: {
     hasValue: {
-      true: "text-onSurfaceVariant text-body2-medium",
-      false: "text-outline placeholder:text-outline text-body2-medium",
+      true: "text-body2-medium text-onSurfaceVariant!",
+      false: "text-outline placeholder:text-outline text-body2-medium!",
     },
   },
 
@@ -83,8 +84,8 @@ const inputTextStyle = tv({
 const hintTextStyle = tv({
   variants: {
     error: {
-      true: "text-error text-caption-regular",
-      false: "text-onSurfaceVariant text-caption-regular",
+      true: "text-error text-caption-regular!",
+      false: "text-onSurfaceVariant text-caption-regular!",
     },
   },
 

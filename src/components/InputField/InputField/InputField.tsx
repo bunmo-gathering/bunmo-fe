@@ -34,8 +34,8 @@ const InputField = (props: InputFieldProps) => {
   });
   const generatedId = useId();
 
-  const hasValue = Boolean(value);
-  const hasError = Boolean(errorMessage);
+  const hasValue = !!value;
+  const hasError = !!errorMessage;
 
   const handleContainerClick = () => {
     if (!disabled && innerRef.current) {
@@ -82,7 +82,7 @@ const InputField = (props: InputFieldProps) => {
       {label && (
         <label
           htmlFor={generatedId}
-          className={labelStyle({ error: !!errorMessage })}
+          className={labelStyle({ error: hasError })}
         >
           {label}
         </label>
@@ -99,7 +99,7 @@ const InputField = (props: InputFieldProps) => {
         {inputElement}
       </div>
 
-      {(hint || hasError) && (
+      {(hint || hasError || !disabled) && (
         <div className={errorHintContainer({ error: hasError })}>
           {hasError && (
             <span className={hintTextStyle({ error: true })}>
