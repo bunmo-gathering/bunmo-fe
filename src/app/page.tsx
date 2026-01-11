@@ -1,11 +1,11 @@
 "use client";
 
 import Button from "@/components/Button";
-import ButtonGroup from "@/components/ButtonGroupProvider";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
 import { useState } from "react";
+import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 
 export default function Home() {
@@ -22,10 +22,10 @@ export default function Home() {
       </Button>
       <Title title="Sample Title" />
 
-      <ButtonGroup type="action">
+      <ButtonGroupProvider type="action">
         <Button>asdf</Button>
         <Button>asdf</Button>
-      </ButtonGroup>
+      </ButtonGroupProvider>
 
       <div>
         <Radio
