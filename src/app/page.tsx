@@ -54,9 +54,9 @@ export default function Home() {
       />
 
       <Picker
-        isMulti
+        isMultiSelect
         onSelectedChange={(selected) => console.log(selected)}
-        defaultValue={"세윤"}
+        defaultValue={["세윤"]}
         gap={"lg"}
       >
         <Pick label={"세윤"} />

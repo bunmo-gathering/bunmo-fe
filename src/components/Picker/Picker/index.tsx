@@ -2,11 +2,11 @@ import { Children, isValidElement, useState } from "react";
 import { PickerProps } from "./props.type";
 import pickerStyle from "./style";
 import Pick from "../Pick/Pick";
-import { PickerContext, usePicker, Value } from "./PickerContext";
+import { PickerContext, PickValue } from "./PickerContext";
 
 const Picker = ({
   onSelectedChange,
-  isMulti = false,
+  isMultiSelect = false,
   gap = "sm",
   children,
   defaultValue,
@@ -24,13 +24,14 @@ const Picker = ({
   }
 
   // Picker 내부에서 상태 관리
-  const [selectedValue, setSelectedValue] = useState<Value | Value[] | null>(
-    defaultValue ?? (isMulti ? [] : null),
-  );
+  const [selectedValue, setSelectedValue] = useState<
+    PickValue | PickValue[] | null
+  >(defaultValue ?? (isMultiSelect ? [] : null));
 
-  const handleChange = (clickedValue: Value) => {
-    let changedValue: Value | Value[] | null;
-    if (isMulti) {
+  const handleChange = (clickedValue: PickValue) => {
+    let changedValue: PickValue | PickValue[] | null;
+
+    if (isMultiSelect) {
       // 다중 선택 로직
       // 타입 안정성을 위해 non-null check (includes 등의 함수 사용 위함)
       const currentValues = Array.isArray(selectedValue) ? selectedValue : [];
@@ -58,7 +59,7 @@ const Picker = ({
     <PickerContext.Provider
       value={{
         selectedValue /* 내부에서 관리되는 선택된 값들 */,
-        isMulti,
+        isMultiSelect,
         onSelect: handleChange,
       }}
     >

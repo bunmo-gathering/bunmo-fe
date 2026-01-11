@@ -2,7 +2,7 @@ import { Animate, Transition } from "@/types/animate";
 
 const PickAnimation = {
   whileTap: {
-    scale: 0.98,
+    scale: 0.95,
   } as Animate,
 
   transition: {

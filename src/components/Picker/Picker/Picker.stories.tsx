@@ -8,7 +8,7 @@ const meta: Meta<typeof Picker> = {
   tags: ["autodocs"],
   argTypes: {
     gap: { control: "radio", options: ["sm", "lg"] },
-    isMulti: { control: "boolean" },
+    isMultiSelect: { control: "boolean" },
     onSelectedChange: { action: "onSelectedChange" },
   },
 };
@@ -26,7 +26,7 @@ const DefaultChildren = [
 
 export const Single: Story = {
   args: {
-    isMulti: false,
+    isMultiSelect: false,
     gap: "sm",
   },
   render: (args) => <Picker {...args}>{DefaultChildren}</Picker>,
@@ -34,7 +34,7 @@ export const Single: Story = {
 
 export const Multi: Story = {
   args: {
-    isMulti: true,
+    isMultiSelect: true,
     gap: "lg",
     defaultValue: ["React", "TypeScript"],
   },
@@ -45,7 +45,7 @@ export const Multi: Story = {
  * 직접 자식을 구성하고 싶을 때의 예시
  */
 export const CustomChildren: Story = {
-  args: { isMulti: true, defaultValue: ["세윤"] },
+  args: { isMultiSelect: true, defaultValue: ["세윤"] },
   render: (args) => (
     <Picker {...args}>
       <Pick label="종원" />
