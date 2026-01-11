@@ -6,6 +6,7 @@ import Title from "@/components/Title";
 import Switch from "@/components/Switch";
 import { useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
+import { Pick, Picker } from "@/components/Picker";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -51,6 +52,18 @@ export default function Home() {
         label="박종원"
         description="박종원의 코딩비책"
       />
+
+      <Picker
+        isMultiSelect
+        onSelectedChange={(selected) => console.log(selected)}
+        defaultValue={["세윤"]}
+        gap={"lg"}
+      >
+        <Pick label={"세윤"} />
+        <Pick label={"종원"} />
+        <Pick label={"승일"} />
+        <Pick label={"성훈"} />
+      </Picker>
     </>
   );
 }
