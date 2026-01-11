@@ -1,11 +1,11 @@
 "use client";
 
 import Button from "@/components/Button";
-import ButtonGroup from "@/components/ButtonGroupProvider";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
 import { useState } from "react";
+import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -24,7 +24,7 @@ export default function Home() {
       <ButtonGroupProvider type="action">
         <Button>asdf</Button>
         <Button>asdf</Button>
-      </ButtonGroup>
+      </ButtonGroupProvider>
 
       <div>
         <Radio
