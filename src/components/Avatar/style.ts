@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants/lite";
 
 const avatarStyle = tv({
-  base: "flex items-center justify-center bg-outlineVariant overflow-hidden",
+  base: "flex items-center justify-center bg-outlineVariant overflow-hidden relative",
 
   variants: {
     size: {

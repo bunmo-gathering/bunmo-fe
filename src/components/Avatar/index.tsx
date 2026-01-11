@@ -2,6 +2,7 @@ import { AvatarProps } from "./props.type";
 import { User } from "lucide-react";
 import { avatarStyle } from "./style";
 import Indicator from "../Indicator";
+import Image from "next/image";
 
 const Avatar = ({
   size,
@@ -10,7 +11,12 @@ const Avatar = ({
   indicatorPosition = "bottom-right",
 }: AvatarProps) => {
   const avatar = imageUrl ? (
-    <img src={imageUrl} alt="ProfileImage" className="object-cover size-full" />
+    <Image
+      src={imageUrl}
+      alt="ProfileImage"
+      className="object-cover size-full"
+      fill
+    />
   ) : (
     <User className="size-full" />
   );

@@ -17,18 +17,18 @@ interface AvatarProps {
 
   /**
    * Avatar의 목적을 나타내는 props
-   * button: Avatar 위에 IconButton을 띄우는 형태
-   * indicator: Avatar 위에 Indicator을 띄우는 형태
-   * none: Avatar만 표시
+   * - `button`: Avatar 위에 IconButton을 띄우는 형태
+   * - `indicator`: Avatar 위에 Indicator을 띄우는 형태
+   * - `none`: Avatar만 표시
    */
   status?: AvatarStatus;
 
   /**
    * Indicator 위치 조정하는 props
-   * topRight: 우상단
-   * topLeft: 좌상단
-   * bottomRight: 우하단
-   * bottomLeft: 좌하단
+   * - `topRight`: 우상단
+   * - `topLeft`: 좌상단
+   * - `bottomRight`: 우하단
+   * - `bottomLeft`: 좌하단
    */
   indicatorPosition: AvatarIndicatorPosition;
 }
