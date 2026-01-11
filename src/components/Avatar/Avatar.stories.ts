@@ -12,6 +12,7 @@ const meta = {
 
     status: {
       options: ["none", "indicator", "button"],
+      if: { arg: "size", neq: "xs" },
     },
 
     indicatorPosition: {
