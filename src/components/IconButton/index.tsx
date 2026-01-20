@@ -11,7 +11,7 @@ const IconButton = ({ variant, size, children, onTap }: IconButtonProps) => {
   if (isValidElement(children)) {
     if (typeof children.type !== typeof LucideType)
       throw new Error(
-        "IconButton의 자식은 SVG 혹은 Lucide 아이콘이어야 합니다.",
+        "IconButton의 자식은 LucideIcon 컴포넌트 외 사용할 수 없습니다.",
       );
   }
 
@@ -21,7 +21,7 @@ const IconButton = ({ variant, size, children, onTap }: IconButtonProps) => {
         variant,
         size,
       })}
-      aria-label="icon button"
+      aria-label="Button"
       onClick={onTap}
       {...iconButtonAnimation}
     >
