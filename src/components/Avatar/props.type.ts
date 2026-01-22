@@ -30,7 +30,7 @@ interface AvatarProps {
    * - `bottomRight`: 우하단
    * - `bottomLeft`: 좌하단
    */
-  indicatorPosition: AvatarIndicatorPosition;
+  indicatorPosition?: AvatarIndicatorPosition;
 }
 
 export type { AvatarProps };
