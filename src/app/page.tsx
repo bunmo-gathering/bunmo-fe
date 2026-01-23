@@ -89,6 +89,7 @@ export default function Home() {
         onTap={() => {
           console.log("dd");
         }}
+        isBlock={true}
       >
         나는 라벨이야
       </Label>
@@ -102,6 +103,7 @@ export default function Home() {
       >
         {SegmentControlChildren}
       </SegmentControl>
+      <Label isBlock={false}>피아오 쭝 런</Label>
     </>
   );
 }

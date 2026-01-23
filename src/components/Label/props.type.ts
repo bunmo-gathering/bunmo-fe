@@ -23,6 +23,13 @@ interface LabelProps {
    * 라벨 내부에 표시될 텍스트 내용 (필수)
    */
   children: string;
+
+  /**
+   * 라벨의 너비를 지정합니다.
+   * - true: 텍스트의 너비만큼만 차지합니다.
+   * - false: 전체 너비를 차지합니다.
+   */
+  isBlock?: boolean;
 }
 
 export type { LabelProps };

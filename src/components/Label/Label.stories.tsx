@@ -27,6 +27,7 @@ export const Default = {
     variant: "default",
     children: "보리에요",
     onTap: () => console.log("멍"),
+    isBlock: false,
   },
 };
 
@@ -48,5 +49,15 @@ export const Destructive = {
 export const WithoutIcon = {
   args: {
     children: "맛있는 한솥",
+  },
+};
+
+/**
+ * 텍스트의 너비만큼만 차지하는 라벨입니다.
+ */
+export const BlockLabel = {
+  args: {
+    children: "맛있는 밥스볼",
+    isBlock: true,
   },
 };
