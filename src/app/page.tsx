@@ -7,6 +7,8 @@ import Switch from "@/components/Switch";
 import { useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
+import Label from "@/components/Label";
+import { LogOutIcon } from "lucide-react";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -64,6 +66,17 @@ export default function Home() {
         <Pick label={"승일"} />
         <Pick label={"성훈"} />
       </Picker>
+
+      <Label
+        variant="destructive"
+        icon={LogOutIcon}
+        onTap={() => {
+          console.log("dd");
+        }}
+      >
+        나는 라벨이야
+      </Label>
+      <Label>피아오 쭝 런</Label>
     </>
   );
 }
