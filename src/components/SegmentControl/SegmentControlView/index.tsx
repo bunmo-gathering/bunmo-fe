@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import SegmentControlContext from "../SegmentControlContext/SegmentControlContext";
 import { SegmentControlViewProps } from "./props.type";
 

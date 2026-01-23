@@ -1,5 +1,3 @@
-import { MouseEventHandler } from "react";
-
 interface TabProps {
   label: string;
 

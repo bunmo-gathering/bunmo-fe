@@ -1,4 +1,3 @@
-import React from "react";
 import { TabProps } from "./props.type";
 
 const Tab = ({ label, onTap }: TabProps) => {
