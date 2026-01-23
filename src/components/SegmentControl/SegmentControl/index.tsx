@@ -25,7 +25,7 @@ const SegmentControl = ({
   return (
     <SegmentControlContext value={{ selectedIndex, onTabChange }}>
       <AnimatePresence>
-        <div className="flex flex-col w-125">
+        <div className="flex flex-col flex-1">
           <div className="flex relative">
             {/* 탭 */}
             {data.map((data, index) => (
