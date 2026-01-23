@@ -4,14 +4,30 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
 import { LogOutIcon } from "lucide-react";
+import SegmentControl from "@/components/SegmentControl";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
+  const SegmentControlChildren = useMemo(() => {
+    switch (selectedIndex) {
+      case 0:
+        return <>Content for Tab 1</>;
+      case 1:
+        return <>Content for Tab 2</>;
+      case 2:
+        return <>Content for Tab 3</>;
+      default:
+        return <>Default Content</>;
+    }
+  }, [selectedIndex]);
+
   return (
     <>
       <Button
@@ -77,6 +93,15 @@ export default function Home() {
         나는 라벨이야
       </Label>
       <Label>피아오 쭝 런</Label>
+      <SegmentControl
+        data={[{ label: "탭 1" }, { label: "탭 2" }, { label: "탭 3" }]}
+        defaultIndex={selectedIndex}
+        onTabChange={(index) => {
+          setSelectedIndex(index);
+        }}
+      >
+        {SegmentControlChildren}
+      </SegmentControl>
     </>
   );
 }
