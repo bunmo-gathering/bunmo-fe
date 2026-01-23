@@ -32,6 +32,7 @@
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.0.16",
     "@vitest/coverage-v8": "^4.0.16",
+    "chromatic": "^13.3.5",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "eslint-plugin-storybook": "^10.1.10",
