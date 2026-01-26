@@ -7,6 +7,8 @@ import Switch from "@/components/Switch";
 import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
+import Label from "@/components/Label";
+import { LogOutIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 
 export default function Home() {
@@ -81,6 +83,17 @@ export default function Home() {
         <Pick label={"성훈"} />
       </Picker>
 
+      <Label
+        variant="destructive"
+        icon={LogOutIcon}
+        onTap={() => {
+          console.log("dd");
+        }}
+        isBlock={true}
+      >
+        나는 라벨이야
+      </Label>
+      <Label>피아오 쭝 런</Label>
       <SegmentControl
         data={[{ label: "탭 1" }, { label: "탭 2" }, { label: "탭 3" }]}
         defaultIndex={selectedIndex}
@@ -90,6 +103,7 @@ export default function Home() {
       >
         {SegmentControlChildren}
       </SegmentControl>
+      <Label isBlock={false}>피아오 쭝 런</Label>
     </>
   );
 }
