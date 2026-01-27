@@ -39,8 +39,9 @@ const Chip = ({
   variant = "default",
   icon,
   rightAction,
-  onRightActionClick,
   onClick,
+  onIconClick,
+  onRightActionClick,
   className = "",
 }: ChipProps) => {
   // rightAction prop이 명시되지 않은 경우, selected 상태이면 기본적으로 close 표시
@@ -70,9 +71,19 @@ const Chip = ({
     >
       {/* 왼쪽 아이콘 */}
       {renderedIcon && (
-        <span className="flex items-center justify-center text-current">
+        <button
+          type="button"
+          className="flex items-center justify-center text-current"
+          aria-label="Icon action"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (typeof icon === "string" && isChipIconType(icon)) {
+              onIconClick?.(icon);
+            }
+          }}
+        >
           {renderedIcon}
-        </span>
+        </button>
       )}
 
       <span className="text-body2-medium">{text}</span>

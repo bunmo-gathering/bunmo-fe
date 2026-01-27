@@ -59,6 +59,17 @@ interface ChipProps {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 
   /**
+   * 왼쪽 icon을 클릭했을 때 실행되는 콜백 함수입니다.
+   * 클릭된 아이콘의 타입을 파라미터로 전달받습니다.
+   * icon prop이 ReactNode(직접 전달)인 경우 icon이 전달되지 않습니다.
+   * @example
+   * <Chip icon="plus" onIconClick={(iconType) => {
+   *   console.log(`${iconType} icon clicked`);
+   * }} />
+   */
+  onIconClick?: (icon: ChipIconType) => void;
+
+  /**
    * 우측 액션 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
    * 클릭된 액션의 타입(more 또는 close)을 파라미터로 전달받습니다.
    * @example

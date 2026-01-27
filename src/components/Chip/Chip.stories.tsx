@@ -46,6 +46,9 @@ export const WithIconTypeString: Story = {
     text: "Add Item",
     variant: "default",
     icon: "plus",
+    onIconClick: (iconType) => {
+      console.log(`${iconType} icon clicked`);
+    },
   },
 };
 
@@ -74,6 +77,9 @@ export const WithIconAndMore: Story = {
     variant: "default",
     icon: "check",
     rightAction: "more",
+    onIconClick: (iconType) => {
+      console.log(`${iconType} icon clicked`);
+    },
     onRightActionClick: (action) => {
       console.log(`${action} button clicked`);
     },
