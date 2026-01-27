@@ -30,11 +30,6 @@ const isChipIconType = (value: string): value is ChipIconType => {
   return value in iconMap;
 };
 
-// ChipRightActionType 타입 가드 함수
-const isChipRightActionType = (value: string): value is ChipRightActionType => {
-  return value in rightActionIconMap;
-};
-
 const Chip = ({
   text,
   variant = "default",
@@ -63,10 +58,7 @@ const Chip = ({
     <motion.button
       type="button"
       className={`${chipStyle({ variant })}`}
-<<<<<<< HEAD
       initial={false}
-=======
->>>>>>> 258ef503a2ba9fb2abde84c0b90b77182af6df91
       whileTap={chipAnimation.whileTap}
       aria-pressed={variant === "selected"}
       onClick={onClick}

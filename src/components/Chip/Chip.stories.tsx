@@ -34,8 +34,8 @@ export const WithMore: Story = {
     text: "Category",
     variant: "default",
     rightAction: "more",
-    onRightActionClick: (action) => {
-      console.log(`${action} button clicked`);
+    onIconClick: (iconType) => {
+      console.log(`${iconType} action clicked`);
     },
   },
 };
@@ -58,6 +58,9 @@ export const SelectedWithCheckIcon: Story = {
     text: "Done",
     variant: "selected",
     icon: "check",
+    onIconClick: (iconType) => {
+      console.log(`${iconType} icon clicked`);
+    },
   },
 };
 

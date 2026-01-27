@@ -30,14 +30,9 @@ interface ChipProps {
 
   /**
    * Chip의 스타일 변형(variant)입니다.
-<<<<<<< HEAD
    * - `default` - 기본 상태
    * - `selected` - 선택된 상태
    * @default "default" -
-=======
-   * - `default` : 기본 상태
-	 * - `selected` : 선택된 상태
->>>>>>> 258ef503a2ba9fb2abde84c0b90b77182af6df91
    */
   variant?: ChipVariant;
 
@@ -56,8 +51,8 @@ interface ChipProps {
 
   /**
    * Chip 우측에 표시될 액션 아이콘입니다.
-   * - `more` - 더보기(kebab) 버튼을 표시합니다. onMore 콜백이 실행됩니다.
-   * - `close` - 닫기(X) 버튼을 표시합니다. onClose 콜백이 실행됩니다.
+   * - `more` - 더보기(kebab) 버튼
+   * - `close` - 닫기(X) 버튼
    * - 명시하지 않으면 variant가 'selected'일 경우 기본적으로 'close'가 표시됩니다.
    * @default - -
    */
