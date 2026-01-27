@@ -1,23 +1,63 @@
 "use client";
-import React from "react";
+import React, { useMemo, ReactNode } from "react";
 import { motion } from "motion/react";
+import { MoreHorizontal, Plus, Check, X } from "lucide-react";
 import chipStyle from "./style";
 import { chipAnimation } from "./animate";
-import type { ChipProps } from "./props.type";
+import type {
+  ChipProps,
+  ChipIconType,
+  ChipRightActionType,
+} from "./props.type";
+
+const iconMap: Record<ChipIconType, React.ReactNode> = {
+  plus: <Plus size={20} />,
+  check: <Check size={20} />,
+};
+
+// 우측 액션 아이콘 맵핑
+const rightActionIconMap: Record<
+  ChipRightActionType,
+  { icon: React.ReactNode; label: string }
+> = {
+  more: { icon: <MoreHorizontal size={20} />, label: "More" },
+  close: { icon: <X size={20} />, label: "Close" },
+};
+
+// ChipIconType 타입 가드 함수
+const isChipIconType = (value: string): value is ChipIconType => {
+  return value in iconMap;
+};
+
+// ChipRightActionType 타입 가드 함수
+const isChipRightActionType = (value: string): value is ChipRightActionType => {
+  return value in rightActionIconMap;
+};
 
 const Chip = ({
   text,
   variant = "default",
-  more = false,
-  close,
-  onMore,
-  onClose,
+  icon,
+  rightAction,
+  onRightActionClick,
   onClick,
   className = "",
 }: ChipProps) => {
-  // close prop이 명시되지 않은 경우, selected 상태이면 기본적으로 닫기 버튼을 표시
-  // Input Chip처럼 Default 상태에서도 삭제가 필요한 경우가 있을 수 있음
-  const showClose = close ?? variant === "selected";
+  // rightAction prop이 명시되지 않은 경우, selected 상태이면 기본적으로 close 표시
+  const showRightAction =
+    rightAction ?? (variant === "selected" ? "close" : undefined);
+
+  // icon prop이 문자열인 경우 매핑된 아이콘을 사용, ReactNode인 경우 직접 사용
+  const renderedIcon = useMemo(() => {
+    if (!icon) return null;
+    if (typeof icon === "string" && isChipIconType(icon)) {
+      return iconMap[icon];
+    }
+    if (typeof icon !== "string") {
+      return icon;
+    }
+    return null;
+  }, [icon]);
 
   return (
     <motion.button
@@ -28,61 +68,28 @@ const Chip = ({
       aria-pressed={variant === "selected"}
       onClick={onClick}
     >
-      <span className="text-body2-medium">{text}</span>
-
-      {/* Icon 컴포넌트로 변경 예정 */}
-      {more && (
-        <button
-          type="button"
-          aria-label="More"
-          onClick={(e) => {
-            e.stopPropagation();
-            onMore?.();
-          }}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-            className="text-current"
-          >
-            <circle cx="5" cy="12" r="1.5" fill="currentColor" />
-            <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-            <circle cx="19" cy="12" r="1.5" fill="currentColor" />
-          </svg>
-        </button>
+      {/* 왼쪽 아이콘 */}
+      {renderedIcon && (
+        <span className="flex items-center justify-center text-current">
+          {renderedIcon}
+        </span>
       )}
 
-      {/* Icon 컴포넌트로 변경 예정 */}
-      {showClose && (
+      <span className="text-body2-medium">{text}</span>
+
+      {/* 우측 액션 아이콘 */}
+      {showRightAction && (
         <button
           type="button"
-          aria-label="Close"
+          aria-label={rightActionIconMap[showRightAction].label}
           onClick={(e) => {
             e.stopPropagation();
-            onClose?.();
+            onRightActionClick?.(showRightAction);
           }}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-            className="text-current"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <span className="text-current">
+            {rightActionIconMap[showRightAction].icon}
+          </span>
         </button>
       )}
     </motion.button>

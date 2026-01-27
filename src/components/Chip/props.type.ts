@@ -1,6 +1,20 @@
-import { MouseEvent } from "react";
+import { ReactNode, MouseEvent } from "react";
 
 type ChipVariant = "default" | "selected";
+
+/**
+ * Chip 왼쪽에 표시될 아이콘의 타입입니다.
+ * 새로운 아이콘을 추가할 때는 이 타입을 확장하고,
+ * index.tsx의 iconMap에 대응하는 아이콘을 추가하세요.
+ */
+type ChipIconType = "plus" | "check";
+
+/**
+ * Chip 우측에 표시될 액션 아이콘의 타입입니다.
+ * - `more` - 더보기(kebab) 버튼
+ * - `close` - 닫기(X) 버튼
+ */
+type ChipRightActionType = "more" | "close";
 
 interface ChipProps {
   /**
@@ -10,24 +24,33 @@ interface ChipProps {
 
   /**
    * Chip의 스타일 변형(variant)입니다.
-   * 'default'는 기본 상태, 'selected'는 선택된 상태를 나타냅니다.
-   * @default "default"
+   * - `default` - 기본 상태
+   * - `selected` - 선택된 상태
+   * @default "default" -
    */
   variant?: ChipVariant;
 
   /**
-   * 더보기(kebab) 아이콘 표시 여부입니다.
-   * true일 경우 칩 우측에 더보기 버튼이 표시됩니다.
-   * @default false
+   * Chip 왼쪽에 표시될 아이콘입니다.
+   * 직접 lucide 아이콘을 전달할 수도 있고,
+   * ChipIconType을 문자열로 전달하면 미리 정의된 아이콘이 사용됩니다.
+   * @example
+   * // 직접 아이콘 전달
+   * <Chip icon={<Plus size={20} />} text="Add" />
+   * // 또는 타입 사용
+   * <Chip icon="plus" text="Add" />
+   * @default - -
    */
-  more?: boolean;
+  icon?: ReactNode | ChipIconType;
 
   /**
-   * 닫기(X) 아이콘 표시 여부입니다.
-   * true일 경우 칩 우측에 닫기 버튼이 표시됩니다.
-   * variant가 'selected'일 경우 기본값은 true이며, 그 외에는 false입니다.
+   * Chip 우측에 표시될 액션 아이콘입니다.
+   * - `more` - 더보기(kebab) 버튼을 표시합니다. onMore 콜백이 실행됩니다.
+   * - `close` - 닫기(X) 버튼을 표시합니다. onClose 콜백이 실행됩니다.
+   * - 명시하지 않으면 variant가 'selected'일 경우 기본적으로 'close'가 표시됩니다.
+   * @default - -
    */
-  close?: boolean;
+  rightAction?: ChipRightActionType;
 
   /**
    * Chip 전체를 클릭했을 때 실행되는 콜백 함수입니다.
@@ -36,15 +59,18 @@ interface ChipProps {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 
   /**
-   * 더보기 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
+   * 우측 액션 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
+   * 클릭된 액션의 타입(more 또는 close)을 파라미터로 전달받습니다.
+   * @example
+   * <Chip rightAction="more" onRightActionClick={(action) => {
+   *   if (action === "more") {
+   *     // 더보기 로직
+   *   } else if (action === "close") {
+   *     // 닫기 로직
+   *   }
+   * }} />
    */
-  onMore?: () => void;
-
-  /**
-   * 닫기 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
-   * 주로 Chip을 'default' 상태로 되돌리거나(비활성화), 목록에서 제거할 때 사용합니다.
-   */
-  onClose?: () => void;
+  onRightActionClick?: (action: ChipRightActionType) => void;
 
   /**
    * 추가적인 CSS 클래스입니다.
@@ -52,4 +78,4 @@ interface ChipProps {
   className?: string;
 }
 
-export type { ChipProps };
+export type { ChipProps, ChipIconType, ChipRightActionType };
