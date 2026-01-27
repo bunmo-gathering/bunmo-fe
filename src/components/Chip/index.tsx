@@ -63,7 +63,10 @@ const Chip = ({
     <motion.button
       type="button"
       className={`${chipStyle({ variant })}`}
+<<<<<<< HEAD
       initial={false}
+=======
+>>>>>>> 258ef503a2ba9fb2abde84c0b90b77182af6df91
       whileTap={chipAnimation.whileTap}
       aria-pressed={variant === "selected"}
       onClick={onClick}

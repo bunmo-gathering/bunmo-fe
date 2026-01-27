@@ -30,9 +30,14 @@ interface ChipProps {
 
   /**
    * Chip의 스타일 변형(variant)입니다.
+<<<<<<< HEAD
    * - `default` - 기본 상태
    * - `selected` - 선택된 상태
    * @default "default" -
+=======
+   * - `default` : 기본 상태
+	 * - `selected` : 선택된 상태
+>>>>>>> 258ef503a2ba9fb2abde84c0b90b77182af6df91
    */
   variant?: ChipVariant;
 
