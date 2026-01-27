@@ -10,8 +10,8 @@ interface ChipProps {
 
   /**
    * Chip의 스타일 변형(variant)입니다.
-   * 'default'는 기본 상태, 'selected'는 선택된 상태를 나타냅니다.
-   * @default "default"
+   * - `default` : 기본 상태
+	 * - `selected` : 선택된 상태
    */
   variant?: ChipVariant;
 
