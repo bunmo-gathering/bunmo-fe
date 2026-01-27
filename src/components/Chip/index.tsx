@@ -42,7 +42,6 @@ const Chip = ({
   onClick,
   onIconClick,
   onRightActionClick,
-  className = "",
 }: ChipProps) => {
   // rightAction prop이 명시되지 않은 경우, selected 상태이면 기본적으로 close 표시
   const showRightAction =
@@ -63,7 +62,7 @@ const Chip = ({
   return (
     <motion.button
       type="button"
-      className={`${chipStyle({ variant })} ${className}`}
+      className={`${chipStyle({ variant })}`}
       initial={false}
       whileTap={chipAnimation.whileTap}
       aria-pressed={variant === "selected"}

@@ -82,11 +82,6 @@ interface ChipProps {
    * }} />
    */
   onRightActionClick?: (action: ChipRightActionType) => void;
-
-  /**
-   * 추가적인 CSS 클래스입니다.
-   */
-  className?: string;
 }
 
 export type { ChipProps, ChipIconType, ChipRightActionType };
