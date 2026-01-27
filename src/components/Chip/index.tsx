@@ -8,6 +8,7 @@ import type {
   ChipProps,
   ChipIconType,
   ChipRightActionType,
+  ChipClickableIconType,
 } from "./props.type";
 
 const iconMap: Record<ChipIconType, React.ReactNode> = {
@@ -41,7 +42,6 @@ const Chip = ({
   rightAction,
   onClick,
   onIconClick,
-  onRightActionClick,
 }: ChipProps) => {
   // rightAction prop이 명시되지 않은 경우, selected 상태이면 기본적으로 close 표시
   const showRightAction =
@@ -94,7 +94,7 @@ const Chip = ({
           aria-label={rightActionIconMap[showRightAction].label}
           onClick={(e) => {
             e.stopPropagation();
-            onRightActionClick?.(showRightAction);
+            onIconClick?.(showRightAction);
           }}
         >
           <span className="text-current">

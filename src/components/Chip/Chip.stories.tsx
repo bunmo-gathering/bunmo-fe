@@ -80,8 +80,5 @@ export const WithIconAndMore: Story = {
     onIconClick: (iconType) => {
       console.log(`${iconType} icon clicked`);
     },
-    onRightActionClick: (action) => {
-      console.log(`${action} button clicked`);
-    },
   },
 };

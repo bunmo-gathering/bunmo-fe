@@ -16,6 +16,12 @@ type ChipIconType = "plus" | "check";
  */
 type ChipRightActionType = "more" | "close";
 
+/**
+ * Chip의 모든 클릭 가능한 아이콘의 타입입니다.
+ * 왼쪽 icon 또는 우측 action 모두 포함합니다.
+ */
+type ChipClickableIconType = ChipIconType | ChipRightActionType;
+
 interface ChipProps {
   /**
    * Chip 내부에 표시될 텍스트입니다.
@@ -59,29 +65,25 @@ interface ChipProps {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 
   /**
-   * 왼쪽 icon을 클릭했을 때 실행되는 콜백 함수입니다.
-   * 클릭된 아이콘의 타입을 파라미터로 전달받습니다.
-   * icon prop이 ReactNode(직접 전달)인 경우 icon이 전달되지 않습니다.
+   * 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
+   * 왼쪽 icon, 우측 more, 우측 close 모두 이 핸들러로 처리됩니다.
    * @example
-   * <Chip icon="plus" onIconClick={(iconType) => {
-   *   console.log(`${iconType} icon clicked`);
-   * }} />
-   */
-  onIconClick?: (icon: ChipIconType) => void;
-
-  /**
-   * 우측 액션 아이콘을 클릭했을 때 실행되는 콜백 함수입니다.
-   * 클릭된 액션의 타입(more 또는 close)을 파라미터로 전달받습니다.
-   * @example
-   * <Chip rightAction="more" onRightActionClick={(action) => {
-   *   if (action === "more") {
-   *     // 더보기 로직
-   *   } else if (action === "close") {
-   *     // 닫기 로직
+   * <Chip icon="plus" rightAction="more" onIconClick={(iconType) => {
+   *   if (iconType === "plus") {
+   *     console.log("Plus icon clicked");
+   *   } else if (iconType === "more") {
+   *     console.log("More action clicked");
+   *   } else if (iconType === "close") {
+   *     console.log("Close action clicked");
    *   }
    * }} />
    */
-  onRightActionClick?: (action: ChipRightActionType) => void;
+  onIconClick?: (iconType: ChipClickableIconType) => void;
 }
 
-export type { ChipProps, ChipIconType, ChipRightActionType };
+export type {
+  ChipProps,
+  ChipIconType,
+  ChipRightActionType,
+  ChipClickableIconType,
+};
