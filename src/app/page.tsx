@@ -10,6 +10,7 @@ import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
 import { LogOutIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import { DateButtonList } from "@/components/DateButton";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -104,6 +105,12 @@ export default function Home() {
         {SegmentControlChildren}
       </SegmentControl>
       <Label isBlock={false}>피아오 쭝 런</Label>
+
+      <DateButtonList />
+      <DateButtonList showMonth={false} />
+
+      {/* 하단 여백용 */}
+      <div className="h-100"></div>
     </>
   );
 }
