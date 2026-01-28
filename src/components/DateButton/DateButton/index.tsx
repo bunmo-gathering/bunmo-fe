@@ -17,7 +17,7 @@ const DateButton = ({
   const dayNumber = date.getDate();
 
   // 월
-  const monthLabel = date.getMonth() + 1;
+  const monthNumber = date.getMonth() + 1;
 
   // aria-label 표시용 전체 날짜
   const fullDate = date.toLocaleDateString("ko-KR", {
@@ -37,7 +37,7 @@ const DateButton = ({
       aria-checked={isSelected}
       aria-label={fullDate}
       disabled={!isPressable}
-      onClick={() => onTap?.(date)}
+      onTap={() => onTap?.(date)}
       className={dateButtonStyle({ isSelected, isPressable })}
       {...(isPressable ? dateButtonAnimation : {})}
     >
@@ -50,7 +50,7 @@ const DateButton = ({
 
       {type === "month" && (
         <span className="text-caption-semibold text-onSurfaceVariant">
-          {monthLabel}월
+          {monthNumber}월
         </span>
       )}
     </motion.button>
