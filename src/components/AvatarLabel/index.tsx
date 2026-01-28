@@ -1,18 +1,44 @@
 import Avatar from "../Avatar";
-import AvatarLabelProps from "./props.type";
+import IconButton from "../IconButton";
+import { AvatarLabelProps } from "./props.type";
+import {
+  avatarLabelWrapperStyle,
+  avatarLabelNameStyle,
+  avatarLabelDescriptionStyle,
+} from "./style";
 
-const AvatarLabel = ({ size, type, direction, children }: AvatarLabelProps) => {
+const AvatarLabel = (props: AvatarLabelProps) => {
+  const {
+    type,
+    size = "md",
+    direction = "horizon",
+    description,
+    color,
+  } = props;
+
   return (
-    <div className="flex">
-      <Avatar />
-      <div>
-        {children.map((el) => (
-          <p>{el}</p>
-        ))}
+    <div className={avatarLabelWrapperStyle({ direction })}>
+      {/* leading */}
+      {type === "avatar" ? (
+        <Avatar imageUrl={props.user?.avatarUrl} size={size} />
+      ) : (
+        <IconButton size={size}>{props.icon}</IconButton>
+      )}
+
+      {/* text */}
+      <div className="flex flex-col justify-center items-center">
+        <p className={avatarLabelNameStyle({ size, color, direction })}>
+          {props.user?.nickName}
+        </p>
+
+        {description && (
+          <span className={avatarLabelDescriptionStyle({ color })}>
+            {description}
+          </span>
+        )}
       </div>
     </div>
   );
 };
 
 export default AvatarLabel;
-// 이거 삭제 할 컴포넌트

@@ -1,37 +1,37 @@
+import { ReactElement } from "react";
+import { LucideProps } from "lucide-react";
+
 type AvatarLabelSize = "sm" | "md" | "lg";
-type AvatarLabelType = "button" | "avatar";
+export type AvatarLabelType = "avatar" | "button";
 type AvatarLabelDirection = "vertical" | "horizon";
-type AvatarLabelTextColor = "onSurface" | "onPrimary";
+type AvatarLabelColor = "onSurface" | "onPrimary";
 
-interface AvatarLabelProps {
-  /**
-   * Avatar 와 Text의 사이즈 조절 props
-   */
-  size: AvatarLabelSize;
-
-  /**
-   * Avatar 타입 또는 Button 타입 props
-   */
-  type: AvatarLabelType;
-
-  /**
-   * AvatarLabel 텍스트 색상
-   * - onSurface
-   * - onPrimary
-   */
-  color: AvatarLabelTextColor;
-
-  /**
-   *
-   */
-  children: string[];
-
-  /**
-   * Avatar와 Text 방향 props
-   * - vertical : 가로로 배치
-   * - horizon : 세로로 배치
-   */
-  direction?: AvatarLabelDirection;
+export interface UserInfo {
+  avatarUrl?: string;
+  nickName: string;
 }
 
-export default AvatarLabelProps;
+interface BaseAvatarLabelProps {
+  size?: AvatarLabelSize;
+  direction?: AvatarLabelDirection;
+  color?: AvatarLabelColor;
+
+  /** 텍스트 영역 */
+  description?: string;
+}
+
+/** avatar 타입 */
+interface AvatarTypeProps extends BaseAvatarLabelProps {
+  type: "avatar";
+  user: UserInfo;
+  icon?: never;
+}
+
+/** button 타입 */
+interface ButtonTypeProps extends BaseAvatarLabelProps {
+  type: "button";
+  icon: ReactElement<LucideProps>;
+  user?: never;
+}
+
+export type AvatarLabelProps = AvatarTypeProps | ButtonTypeProps;
