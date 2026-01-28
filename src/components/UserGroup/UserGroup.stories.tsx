@@ -9,6 +9,7 @@ import { cats } from "../../../.storybook/assets/avatars";
 const meta: Meta<typeof UserGroup> = {
   title: "Components/UserGroup",
   component: UserGroup,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
