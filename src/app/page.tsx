@@ -8,8 +8,14 @@ import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import { LogOutIcon } from "lucide-react";
+import {
+  BellIcon,
+  ChevronLeftIcon,
+  LogOutIcon,
+  SearchIcon,
+} from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 
 export default function Home() {
@@ -108,6 +114,21 @@ export default function Home() {
 
       <DateButtonList />
       <DateButtonList showMonth={false} />
+
+      <LeadingControl
+        label="분모"
+        icon={ChevronLeftIcon}
+        // iconPosition="right"
+        size="lg"
+        onTap={() => console.log("분모")}
+      />
+
+      <TrailingControl
+        actions={[
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+        ]}
+      />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
