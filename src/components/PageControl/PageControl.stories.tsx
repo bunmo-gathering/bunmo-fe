@@ -4,9 +4,6 @@ import PageControl from ".";
 const meta: Meta<typeof PageControl> = {
   title: "Components/PageControl",
   component: PageControl,
-  parameters: {
-    layout: "centered",
-  },
   tags: ["autodocs"],
   argTypes: {
     children: {

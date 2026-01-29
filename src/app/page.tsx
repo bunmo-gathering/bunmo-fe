@@ -132,8 +132,8 @@ export default function Home() {
       />
 
       <PageControl>
-        <div className="w-40 h-40 bg-red-500"></div>
-        <div className="w-40 h-40 bg-blue-500"></div>
+        <div className="w-screen h-40 bg-red-500"></div>
+        <div className="w-screen h-40 bg-blue-500"></div>
         <div className="w-40 h-40 bg-yellow-500"></div>
         <div className="w-40 h-40 bg-green-500"></div>
       </PageControl>

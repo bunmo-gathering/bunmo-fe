@@ -1,4 +1,4 @@
-import React, { useRef, useState, UIEvent } from "react";
+import React, { useRef, useState, UIEvent, Children } from "react";
 import { PageControlProps } from "./props.type";
 import pageControlDotStyle from "./style";
 
@@ -25,17 +25,17 @@ const PageControl = ({ children }: PageControlProps) => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-5 items-center justify-center">
+    <div className="flex flex-col gap-5 items-center justify-center">
       {/* 컨텐츠 부분 */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex flex-1 overflow-x-auto snap-x snap-mandatory touch-pan-x scrollbar-hide"
+        className="flex flex-1 w-full overflow-x-auto snap-x snap-mandatory touch-pan-x scrollbar-hide"
       >
-        {React.Children.map(children, (child, index) => (
+        {Children.map(children, (child, index) => (
           <div
             key={index}
-            className="flex w-full h-full justify-center shrink-0 snap-center"
+            className="flex justify-center w-full mx-auto shrink-0 snap-center"
           >
             {child}
           </div>
@@ -44,14 +44,14 @@ const PageControl = ({ children }: PageControlProps) => {
 
       {/* Page Control 부분 */}
       <div className="flex w-full justify-center px-3 py-2 gap-2">
-        {React.Children.map(children, (_, index) => {
+        {Children.map(children, (_, index) => {
           const isSelected = index === currentIndex;
           return (
             <div
               key={index}
               onClick={() => scrollToPage(index)}
               className={pageControlDotStyle({ isSelected })}
-            ></div>
+            />
           );
         })}
       </div>
