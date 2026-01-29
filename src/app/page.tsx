@@ -4,14 +4,16 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import SegmentControl from "@/components/SegmentControl";
+import { SearchField } from "@/components/InputField";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -25,6 +27,10 @@ export default function Home() {
         return <>Default Content</>;
     }
   }, [selectedIndex]);
+
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
 
   return (
     <>
@@ -90,6 +96,16 @@ export default function Home() {
       >
         {SegmentControlChildren}
       </SegmentControl>
+
+      <SearchField
+        placeholder="원하는 상품 및 마트 이름을 입력"
+        disabled={false}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        onSearchButtonTap={() => {
+          console.log("asdf");
+        }}
+      />
     </>
   );
 }
