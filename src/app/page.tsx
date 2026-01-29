@@ -17,6 +17,7 @@ import {
 import SegmentControl from "@/components/SegmentControl";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
+import PageControl from "@/components/PageControl";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -129,6 +130,13 @@ export default function Home() {
           { icon: SearchIcon, onTap: () => console.log("검색") },
         ]}
       />
+
+      <PageControl>
+        <div className="w-40 h-40 bg-red-500"></div>
+        <div className="w-40 h-40 bg-blue-500"></div>
+        <div className="w-40 h-40 bg-yellow-500"></div>
+        <div className="w-40 h-40 bg-green-500"></div>
+      </PageControl>
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
