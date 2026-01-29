@@ -18,6 +18,7 @@ import SegmentControl from "@/components/SegmentControl";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
+import NavigationBar from "@/components/NavigationBar";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -137,6 +138,16 @@ export default function Home() {
         <div className="w-40 h-40 bg-yellow-500"></div>
         <div className="w-40 h-40 bg-green-500"></div>
       </PageControl>
+
+      <NavigationBar>
+        <span>이건 무엇일까요?</span>
+        <span>안녕</span>
+      </NavigationBar>
+
+      <NavigationBar>
+        <LeadingControl icon={ChevronLeftIcon} />
+        <span>인생 참 힘들구만</span>
+      </NavigationBar>
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
