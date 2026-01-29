@@ -63,7 +63,7 @@ const SearchField = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        <button onClick={onSearchButtonTap}>
+        <button className="cursor-pointer" onClick={onSearchButtonTap}>
           <Search className={searchIconStyle({ disabled })} />
         </button>
       </div>
