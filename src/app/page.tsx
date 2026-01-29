@@ -7,8 +7,18 @@ import Switch from "@/components/Switch";
 import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
+import Label from "@/components/Label";
+import {
+  BellIcon,
+  ChevronLeftIcon,
+  LogOutIcon,
+  SearchIcon,
+} from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 import { SearchField } from "@/components/InputField";
+import { LeadingControl, TrailingControl } from "@/components/Control";
+import { DateButtonList } from "@/components/DateButton";
+import PageControl from "@/components/PageControl";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -87,6 +97,17 @@ export default function Home() {
         <Pick label={"성훈"} />
       </Picker>
 
+      <Label
+        variant="destructive"
+        icon={LogOutIcon}
+        onTap={() => {
+          console.log("dd");
+        }}
+        isBlock={true}
+      >
+        나는 라벨이야
+      </Label>
+      <Label>피아오 쭝 런</Label>
       <SegmentControl
         data={[{ label: "탭 1" }, { label: "탭 2" }, { label: "탭 3" }]}
         defaultIndex={selectedIndex}
@@ -106,6 +127,35 @@ export default function Home() {
           console.log("asdf");
         }}
       />
+      <Label isBlock={false}>피아오 쭝 런</Label>
+
+      <DateButtonList />
+      <DateButtonList showMonth={false} />
+
+      <LeadingControl
+        label="분모"
+        icon={ChevronLeftIcon}
+        // iconPosition="right"
+        size="lg"
+        onTap={() => console.log("분모")}
+      />
+
+      <TrailingControl
+        actions={[
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+        ]}
+      />
+
+      <PageControl>
+        <div className="w-screen h-40 bg-red-500"></div>
+        <div className="w-screen h-40 bg-blue-500"></div>
+        <div className="w-40 h-40 bg-yellow-500"></div>
+        <div className="w-40 h-40 bg-green-500"></div>
+      </PageControl>
+
+      {/* 하단 여백용 */}
+      <div className="h-100"></div>
     </>
   );
 }
