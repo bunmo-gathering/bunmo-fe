@@ -7,7 +7,6 @@ import {
   searchContainerStyle,
   searchInputStyle,
   searchIconStyle,
-  labelStyle,
 } from "./style";
 
 const SearchField = ({
