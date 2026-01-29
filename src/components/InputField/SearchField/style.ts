@@ -5,12 +5,12 @@ export const searchContainerStyle = tv({
   base: clsx("flex justify-between bg-surfaceDim px-4 py-2.5 rounded-2xl"),
   variants: {
     active: {
-      true: ["border", "border-outline"],
-      false: ["border", "border-transparent"],
+      true: "border border-outline",
+      false: "border border-transparent",
     },
     disabled: {
-      true: ["opacity-50", "cursor-not-allowed"],
-      false: ["cursor-text"],
+      true: "opacity-50 cursor-not-allowed",
+      false: "cursor-text",
     },
   },
   defaultVariants: {
@@ -20,21 +20,21 @@ export const searchContainerStyle = tv({
 });
 
 export const searchInputStyle = tv({
-  base: [
+  base: clsx(
     "flex-1",
     "text-caption-regular",
     "outline-none",
     "border-none",
     "placeholder:text-on-surface-variant",
-  ],
+  ),
   variants: {
     hasValue: {
-      true: ["text-on-surface"],
-      false: ["text-on-surface-variant"],
+      true: "text-on-surface",
+      false: "text-on-surface-variant",
     },
     disabled: {
-      true: ["cursor-not-allowed"],
-      false: ["cursor-text"],
+      true: "cursor-not-allowed",
+      false: "cursor-text",
     },
   },
   defaultVariants: {
@@ -44,11 +44,11 @@ export const searchInputStyle = tv({
 });
 
 export const searchIconStyle = tv({
-  base: ["w-6", "h-6", "shrink-0"],
+  base: "size-6 shrink-0",
   variants: {
     disabled: {
-      true: ["opacity-50"],
-      false: ["opacity-100"],
+      true: "opacity-50",
+      false: "opacity-100",
     },
   },
   defaultVariants: {
@@ -57,5 +57,5 @@ export const searchIconStyle = tv({
 });
 
 export const labelStyle = tv({
-  base: ["text-body-regular", "text-on-surface", "mb-2", "block"],
+  base: clsx("text-body-regular", "text-on-surface", "mb-2", "block"),
 });
