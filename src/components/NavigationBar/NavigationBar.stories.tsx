@@ -43,7 +43,7 @@ export const Default: Story = {
 };
 
 /**
- * 2. 타이틀만 전달 (Leading/Trailing 자동 생성)
+ * 2. 중앙 요소만 전달 (Leading/Trailing 자동 생성)
  * 코드가 !leading, !trailing 조건을 체크하여 빈 컨트롤을 자동으로 채워줍니다.
  */
 export const OnlyTitle: Story = {
@@ -104,7 +104,7 @@ export const NoLeading: Story = {
 };
 
 /**
- * 6. 복잡한 중앙 요소 (커스텀 타이틀)
+ * 6. 복잡한 중앙 요소
  * 단순 텍스트가 아닌 복잡한 ReactNode가 중앙에 올 때의 대응입니다.
  */
 export const CustomCenter: Story = {
@@ -117,5 +117,58 @@ export const CustomCenter: Story = {
       </div>,
       <TrailingControl key="t" />,
     ],
+  },
+};
+
+/**
+ * 7. 중앙 요소 없이 컨트롤만 있는 경우
+ * 양쪽 끝에 아이콘만 배치되어야 할 때 사용합니다.
+ */
+export const OnlyControls: Story = {
+  args: {
+    children: [
+      <LeadingControl key="l" icon={ChevronLeftIcon} />,
+      <TrailingControl
+        key="t"
+        actions={[
+          { icon: SearchIcon, onTap: () => {} },
+          { icon: MoreVerticalIcon, onTap: () => {} },
+        ]}
+      />,
+    ],
+  },
+};
+
+/**
+ * 8. 왼쪽 컨트롤만 있는 경우 (중앙 요소 없음)
+ * 보통 '뒤로가기' 버튼만 덜렁 있는 심플한 페이지에서 사용됩니다.
+ */
+export const OnlyLeading: Story = {
+  args: {
+    children: <LeadingControl icon={ChevronLeftIcon} />,
+  },
+};
+
+/**
+ * 9. 오른쪽 컨트롤만 있는 경우 (중앙 요소 없음)
+ * 닫기 버튼(X)이나 완료 버튼만 우측 상단에 배치할 때 사용됩니다.
+ */
+export const OnlyTrailing: Story = {
+  args: {
+    children: (
+      <TrailingControl
+        actions={[{ icon: XIcon, onTap: () => console.log("닫기") }]}
+      />
+    ),
+  },
+};
+
+/**
+ * 10. 아무 자식도 없는 경우 (Empty State)
+ * 기본적으로 빈 Leading과 Trailing이 생성되어 높이와 여백만 차지합니다.
+ */
+export const Nothing: Story = {
+  args: {
+    children: [],
   },
 };
