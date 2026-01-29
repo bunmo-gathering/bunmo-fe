@@ -147,6 +147,7 @@ export default function Home() {
       <NavigationBar>
         <LeadingControl icon={ChevronLeftIcon} />
         <span>인생 참 힘들구만</span>
+        <TrailingControl />
       </NavigationBar>
 
       {/* 하단 여백용 */}

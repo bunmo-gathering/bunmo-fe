@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, UIEvent, Children } from "react";
 import { PageControlProps } from "./props.type";
 import pageControlDotStyle from "./style";

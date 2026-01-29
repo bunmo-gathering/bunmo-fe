@@ -6,7 +6,7 @@ interface NavigationBarProps {
    * LeadingControl, TrailingControl이 없으면 빈 Control이 삽입됩니다.
    * 나머지 Node 요소들의 경우 마지막 하나만 반영됩니다
    */
-  children: ReactNode[] | ReactNode;
+  children: ReactNode;
 }
 
 export type { NavigationBarProps };
