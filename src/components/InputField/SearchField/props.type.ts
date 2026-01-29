@@ -10,6 +10,10 @@ export interface SearchFieldProps {
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
+
+  /**
+   * 검색 버튼이 탭될 때 호출되는 콜백 함수입니다.
+   */
   onSearchButtonTap?: () => void;
 
   /**
