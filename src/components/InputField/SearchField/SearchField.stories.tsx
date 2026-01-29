@@ -10,10 +10,6 @@ const meta: Meta<typeof SearchField> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    label: {
-      control: "text",
-      description: "입력 필드 위에 표시되는 라벨 텍스트입니다.",
-    },
     placeholder: {
       control: "text",
       description: "입력 필드에 표시되는 플레이스홀더 텍스트입니다.",
@@ -41,7 +37,6 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: "검색",
     placeholder: "원하는 상품 및 마트 이름을 입력",
     disabled: false,
   },
