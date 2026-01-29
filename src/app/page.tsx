@@ -18,10 +18,12 @@ import SegmentControl from "@/components/SegmentControl";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
+import useBridge from "@/hooks/useBridge";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const { postMessage } = useBridge();
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -44,13 +46,38 @@ export default function Home() {
           alert("test");
         }}
       >
-        asdf
+        Browse Alert
       </Button>
       <Title title="Sample Title" />
 
       <ButtonGroupProvider type="action">
-        <Button>asdf</Button>
-        <Button>asdf</Button>
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_CONFIRM",
+              payload: {
+                title: "Modal Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+              } as ConfirmModalPayload,
+            });
+          }}
+        >
+          Confirm Modal
+        </Button>
+
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_ALERT",
+              payload: {
+                title: "Alert Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+              } as ConfirmModalPayload,
+            });
+          }}
+        >
+          Alert Modal
+        </Button>
       </ButtonGroupProvider>
 
       <div>
