@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
@@ -19,11 +19,13 @@ import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
+import { BridgeEvent } from "@/types/bridgeEvent";
+import { BridgeGetEventToken } from "@/constants/event";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const { postMessage } = useBridge();
+  const { postMessage, getMessage } = useBridge();
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -79,6 +81,7 @@ export default function Home() {
           Alert Modal
         </Button>
       </ButtonGroupProvider>
+      <Title title={`${getMessage()}`} />
 
       <div>
         <Radio

@@ -12,4 +12,4 @@ type BridgePostEventToken = "NONE" | "OPEN_MODAL_CONFIRM" | "OPEN_MODAL_ALERT";
 
 type BridgeGetEventToken = "ACTION_CONFIRMED" | "ACTION_CANCELED";
 
-export type { BridgePostEventToken };
+export type { BridgePostEventToken, BridgeGetEventToken };
