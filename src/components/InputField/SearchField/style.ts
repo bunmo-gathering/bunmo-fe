@@ -2,7 +2,9 @@ import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
 export const searchContainerStyle = tv({
-  base: clsx("flex justify-between bg-surfaceDim px-4 py-2.5 rounded-2xl"),
+  base: clsx(
+    "flex justify-between bg-surfaceDim px-4 py-2.5 gap-1.5 rounded-2xl",
+  ),
   variants: {
     active: {
       true: "border border-outline",
@@ -57,5 +59,5 @@ export const searchIconStyle = tv({
 });
 
 export const labelStyle = tv({
-  base: clsx("text-body-regular", "text-on-surface", "mb-2", "block"),
+  base: "text-body-regular! text-onSurface mb-2 block",
 });

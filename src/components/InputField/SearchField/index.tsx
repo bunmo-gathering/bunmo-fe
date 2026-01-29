@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Search } from "lucide-react";
+import { SearchIcon, XIcon } from "lucide-react";
 import { SearchFieldProps } from "./props.type";
 import {
   searchContainerStyle,
@@ -13,8 +13,10 @@ const SearchField = ({
   placeholder = "",
   onChange,
   onSearchButtonTap,
+  onKeyDown,
   value,
   disabled = false,
+  ...inputOptions
 }: SearchFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -43,6 +45,28 @@ const SearchField = ({
     }
   };
 
+  const handleSearchButtonTap = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    event.stopPropagation();
+    if (!disabled && onSearchButtonTap) {
+      onSearchButtonTap();
+    }
+  };
+
+  const handleClearInput = () => {
+    if (!disabled && onChange) {
+      const event = {
+        target: { value: "" },
+      } as React.ChangeEvent<HTMLInputElement>;
+      onChange(event);
+      if (inputRef.current) {
+        inputRef.current.value = "";
+        inputRef.current.focus();
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col w-full">
       <div
@@ -62,10 +86,21 @@ const SearchField = ({
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onKeyDown={onKeyDown}
+          {...(inputOptions as React.InputHTMLAttributes<HTMLInputElement>)}
         />
-        <button className="cursor-pointer" onClick={onSearchButtonTap}>
-          <Search className={searchIconStyle({ disabled })} />
-        </button>
+
+        <div className="flex items-center gap-1">
+          {inputRef.current?.value && !disabled && (
+            <button className="cursor-pointer" onClick={handleClearInput}>
+              <XIcon className={searchIconStyle({ disabled })} />
+            </button>
+          )}
+
+          <button className="cursor-pointer" onClick={handleSearchButtonTap}>
+            <SearchIcon className={searchIconStyle({ disabled })} />
+          </button>
+        </div>
       </div>
     </div>
   );
