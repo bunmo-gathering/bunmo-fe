@@ -5,7 +5,7 @@ const avatarStyle = tv({
 
   variants: {
     size: {
-      xs: "rounded-full w-8 h-8 border border-outline p-1",
+      xs: "rounded-full size-6 border border-outline p-1",
       sm: "size-10 rounded-2xl p-2",
       md: "size-15 rounded-3xl p-3",
       lg: "size-20 rounded-4xl p-4",

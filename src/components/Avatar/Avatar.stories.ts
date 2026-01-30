@@ -1,6 +1,6 @@
 import Avatar from ".";
 import type { Meta, StoryObj } from "@storybook/react";
-import exampleImage from "./assets/cat.jpg";
+import { cats } from "../../../.storybook/assets/avatars";
 
 const meta = {
   component: Avatar,
@@ -36,7 +36,7 @@ export const WithImage: Story = {
   args: {
     size: "md",
     status: "none",
-    imageUrl: exampleImage.src,
+    imageUrl: cats[4].src,
   },
 };
 
@@ -81,7 +81,7 @@ export const ImageWithIndicatorBottomRight: Story = {
     size: "md",
     status: "indicator",
     indicatorPosition: "bottom-right",
-    imageUrl: exampleImage.src,
+    imageUrl: cats[4].src,
   },
 };
 
@@ -90,7 +90,7 @@ export const ImageWithIndicatorBottomLeft: Story = {
     size: "md",
     status: "indicator",
     indicatorPosition: "bottom-left",
-    imageUrl: exampleImage.src,
+    imageUrl: cats[4].src,
   },
 };
 
@@ -99,7 +99,7 @@ export const ImageWithIndicatorTopRight: Story = {
     size: "md",
     status: "indicator",
     indicatorPosition: "top-right",
-    imageUrl: exampleImage.src,
+    imageUrl: cats[4].src,
   },
 };
 
@@ -108,6 +108,6 @@ export const ImageWithIndicatorTopLeft: Story = {
     size: "md",
     status: "indicator",
     indicatorPosition: "top-left",
-    imageUrl: exampleImage.src,
+    imageUrl: cats[4].src,
   },
 };
