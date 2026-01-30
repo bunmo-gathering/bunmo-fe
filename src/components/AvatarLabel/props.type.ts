@@ -11,7 +11,7 @@ export interface UserInfo {
   /**
    * - 유저 아바타 url
    */
-  avatarUrl?: string;
+  avatarUrl: string | null;
 
   /**
    * - 화면에 표시되는 유저 닉네임

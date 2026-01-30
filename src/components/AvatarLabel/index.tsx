@@ -70,8 +70,8 @@ const AvatarLabel = ({
 
   return (
     <div className={avatarLabelWrapperStyle({ direction })}>
-      {type === "avatar" ? (
-        <Avatar imageUrl={user?.avatarUrl} size={size} />
+      {type === "avatar" && user ? (
+        <Avatar imageUrl={user.avatarUrl} size={size} />
       ) : (
         <IconButton size={size}>
           {cloneElement(icon, {

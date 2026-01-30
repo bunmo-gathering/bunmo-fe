@@ -16,7 +16,7 @@ import {
   LogOutIcon,
   SearchIcon,
   Plus,
-  User
+  User,
 } from "lucide-react";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
@@ -122,6 +122,7 @@ export default function Home() {
         type="button"
         icon={<Plus className="text-white" />}
       >
+        <p>아무거나</p>
         <p>버튼입력</p>
       </AvatarLabel>
       <DateButtonList />
