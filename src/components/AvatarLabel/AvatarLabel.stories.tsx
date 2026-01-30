@@ -82,6 +82,22 @@ export const AvatarVerticalNoChildren: Story = {
   },
 };
 
+export const AvatarVerticalTwoLines: Story = {
+  args: {
+    type: "avatar",
+    size: "md",
+    direction: "vertical",
+    color: "onSurface",
+    user: DEFAULT_USER,
+    children: (
+      <>
+        <span>12번 참여함</span>
+        <span>최근 거래량: 3</span>
+      </>
+    ),
+  },
+};
+
 export const AvatarHorizonSingleLine: Story = {
   args: {
     type: "avatar",
@@ -96,7 +112,7 @@ export const AvatarHorizonSingleLine: Story = {
 export const AvatarHorizonTwoLines: Story = {
   args: {
     type: "avatar",
-    size: "md",
+    size: "lg",
     direction: "horizon",
     color: "onSurface",
     user: DEFAULT_USER,
