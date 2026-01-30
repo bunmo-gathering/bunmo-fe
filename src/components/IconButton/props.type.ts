@@ -3,6 +3,7 @@ import { LucideProps } from "lucide-react";
 
 type IconButtonVariant = "primary" | "secondary";
 type IconButtonSize = "sm" | "md" | "lg";
+type IconButtonColor = "primary" | "secondary" | "onPrimary" | "onSurface";
 
 interface IconButtonProps {
   /**
@@ -13,6 +14,11 @@ interface IconButtonProps {
    * 컴포넌트 크기 설정
    */
   size?: IconButtonSize;
+
+  /**
+   * 아이콘 버튼 색상
+   */
+  iconColor?: IconButtonColor;
   /**
    * 컴포넌트의 자식 요소
    * - `LucideIcon` 컴포넌트를 children으로 받음
@@ -24,4 +30,4 @@ interface IconButtonProps {
   onTap?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export type { IconButtonProps };
+export type { IconButtonProps, IconButtonColor };

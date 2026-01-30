@@ -1,17 +1,17 @@
 import { tv } from "tailwind-variants";
 
 const avatarLabelWrapperStyle = tv({
-  base: "flex w-fit",
+  base: "flex w-full",
 
   variants: {
     direction: {
-      vertical: "gap-6 items-center",
-      horizon: "gap-1 flex-col justify-center items-center",
+      vertical: "gap-2 flex-col items-center",
+      horizon: "gap-6 flex-row items-center",
     },
   },
 
   defaultVariants: {
-    direction: "vertical",
+    direction: "horizon",
   },
 });
 
@@ -19,37 +19,36 @@ const avatarLabelNameStyle = tv({
   variants: {
     size: {
       sm: "text-body1-medium!",
-      md: "text-caption-regular!",
+      md: "",
       lg: "text-title4-semibold!",
     },
 
     direction: {
-      vertical: "",
-      horizon: "text-caption-regular!",
+      vertical: "text-caption-regular!",
+      horizon: "",
     },
 
     color: {
       onSurface: "text-onSurface",
-      onPrimary: "text-onPrimary",
+      onPrimaryContainer: "text-onPrimaryContainer",
     },
   },
 
-  /**
-   * horizon일 때 size 무조건 무시
-   */
   compoundVariants: [
     {
-      direction: "horizon",
+      direction: "vertical",
       size: "sm",
       class: "text-caption-regular!",
     },
+
     {
-      direction: "horizon",
+      direction: "vertical",
       size: "md",
       class: "text-caption-regular!",
     },
+
     {
-      direction: "horizon",
+      direction: "vertical",
       size: "lg",
       class: "text-caption-regular!",
     },
@@ -63,12 +62,17 @@ const avatarLabelNameStyle = tv({
 });
 
 const avatarLabelDescriptionStyle = tv({
-  base: "text-caption-regular!",
+  base: "flex flex-col text-caption-regular",
 
   variants: {
+    direction: {
+      vertical: "items-center",
+      horizon: "",
+    },
+
     color: {
       onSurface: "text-onSurface",
-      onPrimary: "text-onPrimary",
+      onPrimaryContainer: "text-onPrimaryContainer",
     },
   },
 

@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import { LogOutIcon, Plus } from "lucide-react";
+import { LogOutIcon, Plus, User } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 import AvatarLabel from "@/components/AvatarLabel";
 
@@ -107,12 +107,12 @@ export default function Home() {
       <Label isBlock={false}>피아오 쭝 런</Label>
 
       <AvatarLabel
-        size="sm"
-        type="avatar"
-        user={{ nickName: "승일" }}
-        description="버튼 추가"
-        direction="vertical"
-      />
+        size="lg"
+        type="button"
+        icon={<Plus className="text-white" />}
+      >
+        <p>버튼입력</p>
+      </AvatarLabel>
     </>
   );
 }

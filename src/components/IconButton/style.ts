@@ -18,7 +18,7 @@ const iconButtonStyle = tv({
     iconColor: {
       primary: "text-primary",
       secondary: "text-secondary",
-      onPrimary: "text-primary",
+      onPrimary: "text-onPrimary",
       onSurface: "text-onSurface",
     },
   },
