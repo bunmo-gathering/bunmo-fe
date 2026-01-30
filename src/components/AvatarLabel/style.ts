@@ -1,12 +1,12 @@
 import { tv } from "tailwind-variants";
 
 const avatarLabelWrapperStyle = tv({
-  base: "flex w-full",
+  base: "flex justify-center items-center",
 
   variants: {
     direction: {
-      vertical: "gap-2 flex-col items-center",
-      horizon: "gap-6 flex-row items-center",
+      vertical: "gap-2 flex-col ",
+      horizon: "gap-6 flex-row",
     },
   },
 
@@ -66,8 +66,8 @@ const avatarLabelDescriptionStyle = tv({
 
   variants: {
     direction: {
-      vertical: "items-center",
-      horizon: "",
+      vertical: "justify-center",
+      horizon: "justify-center",
     },
 
     color: {
