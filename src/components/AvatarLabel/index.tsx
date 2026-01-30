@@ -19,11 +19,7 @@ const AvatarLabel = ({
   children,
 }: AvatarLabelProps) => {
   const childrenCount = React.Children.count(children);
-
-  // button → user 제거
-  if (type === "button" && user) {
-    user = undefined;
-  }
+  const safeUser = type === "avatar" ? user : undefined;
 
   // button → direction vertical 강제
   if (type === "button" && direction !== "vertical") {
@@ -70,8 +66,8 @@ const AvatarLabel = ({
 
   return (
     <div className={avatarLabelWrapperStyle({ direction })}>
-      {type === "avatar" && user ? (
-        <Avatar imageUrl={user.avatarUrl} size={size} />
+      {type === "avatar" && safeUser ? (
+        <Avatar imageUrl={safeUser.avatarUrl} size={size} />
       ) : (
         <IconButton size={size}>
           {cloneElement(icon, {
@@ -81,9 +77,9 @@ const AvatarLabel = ({
       )}
 
       <div className="flex flex-col">
-        {type === "avatar" && user && (
+        {type === "avatar" && safeUser && (
           <p className={avatarLabelNameStyle({ size, color, direction })}>
-            {user.nickName}
+            {safeUser.nickName}
           </p>
         )}
 
