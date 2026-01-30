@@ -68,7 +68,6 @@ export const AvatarVertical: Story = {
     direction: "vertical",
     color: "onSurface",
     user: DEFAULT_USER,
-    children: <span>12번 참여함</span>,
   },
 };
 
@@ -79,22 +78,6 @@ export const AvatarVerticalNoChildren: Story = {
     direction: "vertical",
     color: "onPrimaryContainer",
     user: DEFAULT_USER,
-  },
-};
-
-export const AvatarVerticalTwoLines: Story = {
-  args: {
-    type: "avatar",
-    size: "md",
-    direction: "vertical",
-    color: "onSurface",
-    user: DEFAULT_USER,
-    children: (
-      <>
-        <span>12번 참여함</span>
-        <span>최근 거래량: 3</span>
-      </>
-    ),
   },
 };
 
