@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const leadingControlStyle = tv({
-  base: "flex w-fit pl-4 py-4",
+  base: "flex w-fit pl-4 py-4 min-w-10 min-h-14",
   variants: {
     isPressable: {
       true: "cursor-pointer",
