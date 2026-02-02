@@ -117,17 +117,15 @@ export default function Home() {
       </SegmentControl>
       <Label isBlock={false}>피아오 쭝 런</Label>
 
-      <AvatarLabel size="lg" type="avatar" user={{ nickName: "피아오 쫑 런" }}>
-        <p>12번 참여함</p>
-        <p>아마도</p>
-      </AvatarLabel>
-
       <AvatarLabel
         size="sm"
-        type="button"
-        icon={<Plus className="text-onSurface" />}
-      >
-        <p>버튼입력</p>
+        type="avatar"
+        description={{ "0": "12번 참여함" }}
+        displayName="피아오 쭝런"
+      />
+
+      <AvatarLabel size="sm" type="button">
+        <Plus />
       </AvatarLabel>
       <DateButtonList />
       <DateButtonList showMonth={false} />

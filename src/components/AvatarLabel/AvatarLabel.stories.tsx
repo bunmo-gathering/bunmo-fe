@@ -19,8 +19,6 @@ const forceButtonRules = (Story: StoryFn, context: StoryContext) => {
   return Story(args, context);
 };
 
-const DEFAULT_USER = { nickName: "홍길동", avatarUrl: "" };
-
 const meta: Meta<typeof AvatarLabel> = {
   component: AvatarLabel,
 
@@ -42,17 +40,6 @@ const meta: Meta<typeof AvatarLabel> = {
       options: ["vertical", "horizon"],
       if: { arg: "type", neq: "button" },
     },
-
-    color: {
-      control: "radio",
-      options: ["onSurface", "onPrimaryContainer"],
-      if: { arg: "type", neq: "button" },
-    },
-
-    user: {
-      control: false,
-      table: { disable: true },
-    }, // button일 때 user 제거
   },
 
   decorators: [forceButtonRules],
@@ -67,7 +54,8 @@ export const AvatarVertical: Story = {
     size: "md",
     direction: "vertical",
     color: "onSurface",
-    user: DEFAULT_USER,
+    displayName: "홍길동",
+    avatarUrl: "",
   },
 };
 
@@ -77,7 +65,8 @@ export const AvatarVerticalNoChildren: Story = {
     size: "lg",
     direction: "vertical",
     color: "onPrimaryContainer",
-    user: DEFAULT_USER,
+    displayName: "홍길동",
+    avatarUrl: "",
   },
 };
 
@@ -87,8 +76,11 @@ export const AvatarHorizonSingleLine: Story = {
     size: "sm",
     direction: "horizon",
     color: "onSurface",
-    user: DEFAULT_USER,
-    children: <span>12번 참여함</span>,
+    displayName: "홍길동",
+    avatarUrl: "",
+    description: {
+      0: "12번 참여함",
+    },
   },
 };
 
@@ -98,13 +90,12 @@ export const AvatarHorizonTwoLines: Story = {
     size: "lg",
     direction: "horizon",
     color: "onSurface",
-    user: DEFAULT_USER,
-    children: (
-      <>
-        <span>12번 참여함</span>
-        <span>최근 거래량: 3</span>
-      </>
-    ),
+    displayName: "홍길동",
+    avatarUrl: "",
+    description: {
+      0: "12번 참여함",
+      1: "최근 거래량 : 3",
+    },
   },
 };
 
@@ -113,8 +104,8 @@ export const ButtonDefault: Story = {
     type: "button",
     size: "md",
     direction: "horizon",
-    icon: <Plus color="white" />,
-    children: <span>새 사용자 추가</span>,
+    children: <Plus />,
+    description: { 0: "새 유저 추가" },
   },
 };
 
@@ -123,8 +114,8 @@ export const ButtonSmall: Story = {
     type: "button",
     size: "sm",
     direction: "horizon",
-    icon: <User color="white" />,
-    children: <span>유저 관리</span>,
+    children: <Settings />,
+    description: { 0: "설정" },
   },
 };
 
@@ -133,7 +124,7 @@ export const ButtonLarge: Story = {
     type: "button",
     size: "lg",
     direction: "horizon",
-    icon: <Settings className="colors-primary" />,
-    children: <span>설정</span>,
+    children: <User />,
+    description: { 0: "유저 관리" },
   },
 };

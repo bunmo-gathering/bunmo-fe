@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const avatarLabelWrapperStyle = tv({
-  base: "flex justify-center items-center",
+  base: "flex justify-center items-center w-fit h-fit",
 
   variants: {
     direction: {
@@ -16,6 +16,8 @@ const avatarLabelWrapperStyle = tv({
 });
 
 const avatarLabelNameStyle = tv({
+  base: "text-onSurface",
+
   variants: {
     size: {
       sm: "text-body1-medium!",
@@ -27,29 +29,11 @@ const avatarLabelNameStyle = tv({
       vertical: "text-caption-regular!",
       horizon: "",
     },
-
-    color: {
-      onSurface: "text-onSurface",
-      onPrimaryContainer: "text-onPrimaryContainer",
-    },
   },
 
   compoundVariants: [
     {
       direction: "vertical",
-      size: "sm",
-      class: "text-caption-regular!",
-    },
-
-    {
-      direction: "vertical",
-      size: "md",
-      class: "text-caption-regular!",
-    },
-
-    {
-      direction: "vertical",
-      size: "lg",
       class: "text-caption-regular!",
     },
   ],
@@ -57,27 +41,17 @@ const avatarLabelNameStyle = tv({
   defaultVariants: {
     size: "md",
     direction: "vertical",
-    color: "onSurface",
   },
 });
 
 const avatarLabelDescriptionStyle = tv({
-  base: "flex flex-col text-caption-regular",
+  base: "flex flex-col text-caption-regular text-onSurfaceVariant justify-center",
 
   variants: {
     direction: {
       vertical: "justify-center",
       horizon: "justify-center",
     },
-
-    color: {
-      onSurface: "text-onSurface",
-      onPrimaryContainer: "text-onPrimaryContainer",
-    },
-  },
-
-  defaultVariants: {
-    color: "onSurface",
   },
 });
 

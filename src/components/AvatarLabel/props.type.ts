@@ -1,23 +1,10 @@
 import { PropsWithChildren, ReactElement, ReactNode } from "react";
-import { LucideProps } from "lucide-react";
-import { IconButtonColor } from "../IconButton/props.type";
+import { LucideIcon, LucideProps } from "lucide-react";
 
 type AvatarLabelSize = "sm" | "md" | "lg";
-export type AvatarLabelType = "avatar" | "button";
+type AvatarLabelType = "avatar" | "button";
 type AvatarLabelDirection = "vertical" | "horizon";
 type AvatarLabelColor = "onSurface" | "onPrimaryContainer";
-
-export interface UserInfo {
-  /**
-   * - 유저 아바타 url
-   */
-  avatarUrl?: string | null;
-
-  /**
-   * - 화면에 표시되는 유저 닉네임
-   */
-  nickName: string;
-}
 
 interface BaseAvatarLabelProps {
   /**
@@ -46,7 +33,13 @@ interface BaseAvatarLabelProps {
    * ReactNode 형태의 텍스트
    * - 최대 2개 까지만
    */
-  children?: PropsWithChildren<ReactNode>;
+
+  description?: Record<number, string>;
+
+  /**
+   * - 화면에 표시되는 유저 닉네임 | 버튼 명
+   */
+  displayName?: string;
 }
 
 /** avatar 타입 */
@@ -59,15 +52,11 @@ interface AvatarTypeProps extends BaseAvatarLabelProps {
   type: "avatar";
 
   /**
-   * 유저 정보
-   * - type avatar 일경우 유저 정보 사용
+   * - 유저 아바타 url
    */
-  user: UserInfo;
+  avatarUrl?: string | null;
 
-  /**
-   * type이 아바타일 경우 icon 사용 x
-   */
-  icon?: never;
+  children?: never;
 }
 
 /** button 타입 */
@@ -80,12 +69,16 @@ interface ButtonTypeProps extends BaseAvatarLabelProps {
   /**
    * type button 일 경우 icon 사용
    */
-  icon: ReactElement<LucideProps>;
+  children: ReactElement<LucideProps>;
+  /**
+   * - 유저 아바타 url
+   */
+  avatarUrl?: never;
 
   /**
-   * type이 button 일 경우 유저 정보 사용 x
+   * - 화면에 표시되는 유저 닉네임
    */
-  user?: never;
+  nickName?: never;
 }
 
 export type AvatarLabelProps = AvatarTypeProps | ButtonTypeProps;

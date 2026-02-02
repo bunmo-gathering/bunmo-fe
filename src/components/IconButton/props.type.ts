@@ -1,7 +1,7 @@
 import { MouseEvent, ReactElement } from "react";
 import { LucideProps } from "lucide-react";
 
-type IconButtonVariant = "primary" | "secondary";
+type IconButtonVariant = "primary" | "secondary" | "primaryContainer";
 type IconButtonSize = "sm" | "md" | "lg";
 type IconButtonColor = "primary" | "secondary" | "onPrimary" | "onSurface";
 

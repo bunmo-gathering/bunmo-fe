@@ -7,6 +7,7 @@ const iconButtonStyle = tv({
     variant: {
       primary: "bg-primary",
       secondary: "bg-secondary",
+      primaryContainer: "bg-primaryContainer",
     },
 
     size: {
