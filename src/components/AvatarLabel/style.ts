@@ -15,6 +15,35 @@ const avatarLabelWrapperStyle = tv({
   },
 });
 
+const avatarTextWrapper = tv({
+  base: "flex flex-col h-full",
+
+  variants: {
+    size: {
+      sm: "",
+      md: "",
+      lg: "",
+    },
+
+    direction: {
+      vertical: "",
+      horizon: "",
+    },
+  },
+
+  compoundVariants: [
+    { direction: "horizon", size: "sm", class: "h-10" },
+
+    {
+      direction: "horizon",
+      size: "lg",
+      class: "h-20 justify-between ",
+    },
+
+    { direction: "vertical", class: "items-center" },
+  ],
+});
+
 const avatarLabelNameStyle = tv({
   base: "text-onSurface",
 
@@ -59,4 +88,5 @@ export {
   avatarLabelWrapperStyle,
   avatarLabelNameStyle,
   avatarLabelDescriptionStyle,
+  avatarTextWrapper,
 };

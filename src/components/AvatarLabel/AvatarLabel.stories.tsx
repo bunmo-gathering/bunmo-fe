@@ -59,7 +59,7 @@ export const AvatarVertical: Story = {
   },
 };
 
-export const AvatarVerticalNoChildren: Story = {
+export const AvatarVerticalNoDescription: Story = {
   args: {
     type: "avatar",
     size: "lg",
@@ -105,7 +105,7 @@ export const ButtonDefault: Story = {
     size: "md",
     direction: "horizon",
     children: <Plus />,
-    description: { 0: "새 유저 추가" },
+    displayName: "새 유저 추가",
   },
 };
 
@@ -115,7 +115,7 @@ export const ButtonSmall: Story = {
     size: "sm",
     direction: "horizon",
     children: <Settings />,
-    description: { 0: "설정" },
+    displayName: "설정",
   },
 };
 
@@ -125,6 +125,6 @@ export const ButtonLarge: Story = {
     size: "lg",
     direction: "horizon",
     children: <User />,
-    description: { 0: "유저 관리" },
+    displayName: "유저 관리",
   },
 };

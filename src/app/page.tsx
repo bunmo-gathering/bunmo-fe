@@ -120,13 +120,14 @@ export default function Home() {
       <AvatarLabel
         size="sm"
         type="avatar"
-        description={{ "0": "12번 참여함" }}
+        description={{ "0": "12번 참여함", "1": "현재 참여 횟수 : 12" }}
         displayName="피아오 쭝런"
       />
 
-      <AvatarLabel size="sm" type="button">
+      <AvatarLabel size="sm" type="button" displayName="유저 추가 하기">
         <Plus />
       </AvatarLabel>
+
       <DateButtonList />
       <DateButtonList showMonth={false} />
 
