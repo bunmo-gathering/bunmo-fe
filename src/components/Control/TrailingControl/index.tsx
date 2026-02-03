@@ -3,7 +3,10 @@ import { TrailingControlProps } from "./props.type";
 
 const TrailingControl = ({ actions = [] }: TrailingControlProps) => {
   return (
-    <div className="flex pr-4 py-4 gap-5 w-fit min-w-10 min-h-14">
+    <div
+      role="trailing"
+      className="flex pr-4 py-4 gap-5 w-fit min-w-10 min-h-14"
+    >
       {actions &&
         actions.map((action, index) => {
           const Icon = action.icon;

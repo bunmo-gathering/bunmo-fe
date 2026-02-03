@@ -4,23 +4,18 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import {
-  BellIcon,
-  ChevronLeftIcon,
-  LogOutIcon,
-  SearchIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
-import { BridgeEvent } from "@/types/bridgeEvent";
-import { BridgeGetEventToken } from "@/constants/event";
+import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
+import NavigationBar from "@/components/NavigationBar";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -60,6 +55,10 @@ export default function Home() {
               payload: {
                 title: "Modal Test",
                 message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+                buttonOptions: {
+                  confirmText: "확인",
+                  cancelText: "취소",
+                },
               } as ConfirmModalPayload,
             });
           }}
@@ -74,7 +73,10 @@ export default function Home() {
               payload: {
                 title: "Alert Test",
                 message: "이 동작은 분모 앱에서만 확인 가능합니다.",
-              } as ConfirmModalPayload,
+                buttonOptions: {
+                  confirmText: "확인했어용",
+                },
+              } as AlertModalPayload,
             });
           }}
         >
@@ -167,6 +169,17 @@ export default function Home() {
         <div className="w-40 h-40 bg-yellow-500"></div>
         <div className="w-40 h-40 bg-green-500"></div>
       </PageControl>
+
+      <NavigationBar>
+        <span>이건 무엇일까요?</span>
+        <span>안녕</span>
+      </NavigationBar>
+
+      <NavigationBar>
+        <LeadingControl icon={ChevronLeftIcon} />
+        <span>인생 참 힘들구만</span>
+        <TrailingControl />
+      </NavigationBar>
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
