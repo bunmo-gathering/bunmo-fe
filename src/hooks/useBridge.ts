@@ -14,11 +14,9 @@ const useBridge = () => {
       } catch {}
     };
 
-    document.addEventListener("message", handler as EventListener); // Android
-    window.addEventListener("message", handler as EventListener); // iOS
+    window.addEventListener("message", handler as EventListener);
 
     return () => {
-      document.removeEventListener("message", handler as EventListener);
       window.removeEventListener("message", handler as EventListener);
     };
   }, []);
