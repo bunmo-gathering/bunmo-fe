@@ -20,7 +20,7 @@ import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import NavigationBar from "@/components/NavigationBar";
 import ProductCard from "@/components/ItemCard/ProductCard";
-import { product } from "../../.storybook/assets/products";
+import product4 from "../../.storybook/assets/products/product4.jpg";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -153,8 +153,8 @@ export default function Home() {
       </NavigationBar>
 
       <ProductCard
-        productImageUrl={product[0]}
-        productTitle="오 로즈 오 드 뚜왈렛, 100ml"
+        productImageUrl={product4}
+        productTitle="한돈 생 삼겹살, 2kg"
         productPrice="175000"
       />
 
