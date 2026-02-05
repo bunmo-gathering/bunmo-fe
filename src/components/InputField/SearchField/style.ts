@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
-export const searchContainerStyle = tv({
+const searchContainerStyle = tv({
   base: clsx(
     "flex justify-between bg-surfaceDim px-4 py-2.5 gap-1.5 rounded-2xl",
   ),
@@ -21,10 +21,10 @@ export const searchContainerStyle = tv({
   },
 });
 
-export const searchInputStyle = tv({
+const searchInputStyle = tv({
   base: clsx(
     "flex-1",
-    "text-caption-regular",
+    "text-caption-regular!",
     "outline-none",
     "border-none",
     "placeholder:text-on-surface-variant",
@@ -58,6 +58,4 @@ export const searchIconStyle = tv({
   },
 });
 
-export const labelStyle = tv({
-  base: "text-body-regular! text-onSurface mb-2 block",
-});
+export { searchContainerStyle, searchInputStyle };
