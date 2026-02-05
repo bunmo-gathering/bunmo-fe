@@ -8,8 +8,17 @@ import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import { LogOutIcon } from "lucide-react";
+import {
+  BellIcon,
+  ChevronLeftIcon,
+  LogOutIcon,
+  SearchIcon,
+} from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import { LeadingControl, TrailingControl } from "@/components/Control";
+import { DateButtonList } from "@/components/DateButton";
+import PageControl from "@/components/PageControl";
+import NavigationBar from "@/components/NavigationBar";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -104,6 +113,45 @@ export default function Home() {
         {SegmentControlChildren}
       </SegmentControl>
       <Label isBlock={false}>피아오 쭝 런</Label>
+
+      <DateButtonList />
+      <DateButtonList showMonth={false} />
+
+      <LeadingControl
+        label="분모"
+        icon={ChevronLeftIcon}
+        // iconPosition="right"
+        size="lg"
+        onTap={() => console.log("분모")}
+      />
+
+      <TrailingControl
+        actions={[
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+          { icon: SearchIcon, onTap: () => console.log("검색") },
+        ]}
+      />
+
+      <PageControl>
+        <div className="w-screen h-40 bg-red-500"></div>
+        <div className="w-screen h-40 bg-blue-500"></div>
+        <div className="w-40 h-40 bg-yellow-500"></div>
+        <div className="w-40 h-40 bg-green-500"></div>
+      </PageControl>
+
+      <NavigationBar>
+        <span>이건 무엇일까요?</span>
+        <span>안녕</span>
+      </NavigationBar>
+
+      <NavigationBar>
+        <LeadingControl icon={ChevronLeftIcon} />
+        <span>인생 참 힘들구만</span>
+        <TrailingControl />
+      </NavigationBar>
+
+      {/* 하단 여백용 */}
+      <div className="h-100"></div>
     </>
   );
 }

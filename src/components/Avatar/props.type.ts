@@ -8,7 +8,7 @@ interface AvatarProps {
   /**
    * Avatar 이미지 URL props
    */
-  imageUrl?: string;
+  imageUrl: string | null;
 
   /**
    * Avatar 사이즈 조정
@@ -30,7 +30,7 @@ interface AvatarProps {
    * - `bottomRight`: 우하단
    * - `bottomLeft`: 좌하단
    */
-  indicatorPosition: AvatarIndicatorPosition;
+  indicatorPosition?: AvatarIndicatorPosition;
 }
 
 export type { AvatarProps };
