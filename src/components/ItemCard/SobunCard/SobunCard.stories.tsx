@@ -10,7 +10,7 @@ import { product } from "../../../../.storybook/assets/products";
  * Storybook Meta
  */
 const meta: Meta<typeof SobunCard> = {
-  title: "Components/SobunCard",
+  title: "Components/ItemCard/SobunCard",
   component: SobunCard,
   tags: ["autodocs"],
   parameters: {
