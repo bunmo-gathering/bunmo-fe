@@ -93,14 +93,14 @@ const config: Config = {
 
         body2: {
           semibold: [
-            "15px",
+            "14px",
             {
               lineHeight: "20px",
               fontWeight: "600",
             },
           ],
           medium: [
-            "15px",
+            "14px",
             {
               lineHeight: "20px",
               fontWeight: "500",
@@ -112,13 +112,13 @@ const config: Config = {
           regular: [
             "12px",
             {
-              lineHeight: "18px",
+              linehghHeight: "16px",
             },
           ],
           medium: [
-            "12px",
+            "14px",
             {
-              lineHeight: "18px",
+              lineHeight: "20px",
               fontWeight: "500",
             },
           ],

@@ -16,6 +16,7 @@ import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
 import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
+import Chip from "@/components/Chip";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -180,6 +181,10 @@ export default function Home() {
         <span>인생 참 힘들구만</span>
         <TrailingControl />
       </NavigationBar>
+
+      <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
+      <Chip>송파구</Chip>
+      <Chip>서초구</Chip>
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
