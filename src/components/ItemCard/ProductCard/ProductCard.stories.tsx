@@ -23,17 +23,17 @@ type Story = StoryObj<typeof ProductCard>;
  */
 const mockProducts: ProductCardProps[] = [
   {
-    productImageUrl: product[0].src, // StaticImageData → .src 사용
+    productImageUrl: product[0], // StaticImageData → .src 사용
     productTitle: "오 로즈 오 드 뚜왈렛, 100m",
     productPrice: 175000,
   },
   {
-    productImageUrl: product[1].src,
+    productImageUrl: product[1],
     productTitle: "썽봉 베르가모트 & 로즈 소바주 (오드코롱, 50ml)",
     productPrice: "79000",
   },
   {
-    productImageUrl: product[2].src,
+    productImageUrl: product[2],
     productTitle: "한돈 생 삼겹살, 3kg",
     productPrice: "36700",
   },
@@ -69,31 +69,6 @@ export const ThreeProducts: Story = {
       {mockProducts.map((product, index) => (
         <ProductCard key={index} {...product} />
       ))}
-    </div>
-  ),
-};
-
-/**
- * Price Edge Cases
- */
-export const PriceEdgeCases: Story = {
-  render: () => (
-    <div className="flex gap-4 flex-wrap">
-      <ProductCard
-        productImageUrl={product[0].src}
-        productTitle="문자열 콤마 테스트"
-        productPrice="123,456"
-      />
-      <ProductCard
-        productImageUrl={product[1].src}
-        productTitle="소수 테스트"
-        productPrice="789.99"
-      />
-      <ProductCard
-        productImageUrl={product[2].src}
-        productTitle="0원 테스트"
-        productPrice={0} // formatPrice에서 throw 처리 가능
-      />
     </div>
   ),
 };

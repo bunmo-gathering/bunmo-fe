@@ -12,7 +12,7 @@ interface SobunCardProps {
 
   meetingPlace: string;
 
-  imagUrl: string | StaticImageData;
+  imageUrl: string | StaticImageData;
 }
 
 export type { SobunCardProps };

@@ -21,6 +21,8 @@ import PageControl from "@/components/PageControl";
 import NavigationBar from "@/components/NavigationBar";
 import ProductCard from "@/components/ItemCard/ProductCard";
 import product4 from "../../.storybook/assets/products/product4.jpg";
+import SobunCard from "@/components/ItemCard/SobunCard";
+import { cats } from "../../.storybook/assets/avatars";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -39,6 +41,9 @@ export default function Home() {
     }
   }, [selectedIndex]);
 
+  const dummy = cats.map((cat, index) => {
+    return { userId: index, avatarUrl: cat };
+  });
   return (
     <>
       <Button
@@ -156,6 +161,24 @@ export default function Home() {
         productImageUrl={product4}
         productTitle="한돈 생 삼겹살, 2kg"
         productPrice="175000"
+      />
+
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
+      />
+
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분 여기 모여라"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
       />
 
       {/* 하단 여백용 */}

@@ -9,7 +9,7 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <div className="flex flex-col gap-2 w-30.75 h-48.75">
-      <div className="relative rounded-lg overflow-hidden h-32 w-32">
+      <div className="relative rounded-lg overflow-hidden h-32 w-32 ">
         <Image
           src={productImageUrl}
           className="object-cover"
