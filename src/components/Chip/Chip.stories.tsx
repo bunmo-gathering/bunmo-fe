@@ -20,7 +20,7 @@ export const Default: Story = {
   },
 };
 
-/** 선택된 상태이며 기본적으로 닫기 버튼이 있는 변형입니다. */
+/** 선택된 상태의 Chip입니다. */
 export const Selected: Story = {
   args: {
     children: "Category",
@@ -28,8 +28,8 @@ export const Selected: Story = {
   },
 };
 
-/** 기본 상태에서 더보기 아이콘이 표시되는 변형입니다. */
-export const WithMore: Story = {
+/** 왼쪽 아이콘이 포함된 Chip 입니다. */
+export const WithLeftIcon: Story = {
   args: {
     children: "Category",
     icon: MoreHorizontalIcon,

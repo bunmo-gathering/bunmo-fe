@@ -25,7 +25,7 @@ const Chip = ({
   return (
     <motion.button
       type="button"
-      className={`${chipStyle({ isSelected })}`}
+      className={chipStyle({ isSelected })}
       initial={false}
       whileTap={chipAnimation.whileTap}
       aria-pressed={isSelected}
@@ -37,7 +37,7 @@ const Chip = ({
       <span className="text-body2-medium">{children}</span>
 
       {/* 우측 아이콘 */}
-      {isSelected && <XIcon size={20} />}
+      {isSelected && <XIcon size={14} />}
     </motion.button>
   );
 };
