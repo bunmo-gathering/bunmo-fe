@@ -43,7 +43,7 @@ const extendMockUsers = (total: number): UserInfo[] =>
   });
 
 /**
- * 기본 props
+ * default
  */
 const defaultArgs: SobunCardProps = {
   sobunTitle: "삼겹살 대량 구매 하실분",
