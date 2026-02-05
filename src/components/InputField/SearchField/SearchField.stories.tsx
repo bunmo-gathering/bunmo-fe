@@ -55,7 +55,7 @@ export const Controlled: Story = {
     const [value, setValue] = useState("");
 
     return (
-      <div className="w-[400px]">
+      <div className="w-100">
         <SearchField
           {...args}
           value={value}
