@@ -13,7 +13,6 @@ const AvatarLabel = ({
   type,
   size = "md",
   direction = "horizon",
-  color,
   displayName,
   avatarUrl,
   description = [],
@@ -48,8 +47,6 @@ const AvatarLabel = ({
 
   // 버튼
   if (type === "button") {
-    color = "onPrimaryContainer";
-
     // button → direction vertical 강제
     if (direction !== "vertical") direction = "vertical";
 
@@ -84,7 +81,7 @@ const AvatarLabel = ({
           {displayName}
         </p>
 
-        {descriptionCount > 0 && type === "avatar" ? (
+        {descriptionCount > 0 && type === "avatar" && (
           <>
             {Object.entries(description).map(([key, value]) => (
               <span
@@ -95,8 +92,6 @@ const AvatarLabel = ({
               </span>
             ))}
           </>
-        ) : (
-          ""
         )}
       </div>
     </div>

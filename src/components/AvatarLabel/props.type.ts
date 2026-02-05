@@ -22,13 +22,6 @@ interface BaseAvatarLabelProps {
   direction?: AvatarLabelDirection;
 
   /**
-   * 텍스트 색상 지정
-   * - onSurface
-   * - onPrimary
-   */
-  color?: AvatarLabelColor;
-
-  /**
    * - 화면에 표시되는 유저 닉네임 | 버튼 명
    */
   displayName?: string;

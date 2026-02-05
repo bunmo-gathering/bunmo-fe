@@ -46,8 +46,6 @@ const avatarTextWrapper = tv({
 });
 
 const avatarLabelNameStyle = tv({
-  base: "text-onSurface",
-
   variants: {
     size: {
       sm: "text-body1-medium!",
@@ -56,17 +54,10 @@ const avatarLabelNameStyle = tv({
     },
 
     direction: {
-      vertical: "text-caption-regular!",
-      horizon: "",
+      vertical: "text-caption-regular! text-onSurfaceVariant",
+      horizon: "text-onSurface",
     },
   },
-
-  compoundVariants: [
-    {
-      direction: "vertical",
-      class: "text-caption-regular!",
-    },
-  ],
 
   defaultVariants: {
     size: "md",
