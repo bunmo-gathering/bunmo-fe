@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { LucideProps } from "lucide-react";
 
 type AvatarLabelSize = "sm" | "md" | "lg";
-type AvatarLabelType = "avatar" | "button";
 type AvatarLabelDirection = "vertical" | "horizon";
 type AvatarLabelColor = "onSurface" | "onPrimaryContainer";
 
@@ -54,7 +53,7 @@ interface AvatarTypeProps extends BaseAvatarLabelProps {
    * - 최대 2개 까지만
    */
 
-  description?: Record<number, string>;
+  description?: string[];
 
   /**
    * Lucide Icon

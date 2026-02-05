@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const avatarLabelWrapperStyle = tv({
-  base: "flex justify-center items-center w-fit h-fit",
+  base: "flex  w-fit h-fit items-center",
 
   variants: {
     direction: {
@@ -34,6 +34,7 @@ const avatarTextWrapper = tv({
   compoundVariants: [
     { direction: "horizon", size: "sm", class: "h-10" },
 
+    { direction: "horizon", size: "md", class: "justify-between h-15" },
     {
       direction: "horizon",
       size: "lg",
@@ -50,7 +51,7 @@ const avatarLabelNameStyle = tv({
   variants: {
     size: {
       sm: "text-body1-medium!",
-      md: "",
+      md: "text-title5-bold!",
       lg: "text-title4-semibold!",
     },
 
@@ -73,20 +74,4 @@ const avatarLabelNameStyle = tv({
   },
 });
 
-const avatarLabelDescriptionStyle = tv({
-  base: "flex flex-col text-caption-regular text-onSurfaceVariant justify-center",
-
-  variants: {
-    direction: {
-      vertical: "justify-center",
-      horizon: "justify-center",
-    },
-  },
-});
-
-export {
-  avatarLabelWrapperStyle,
-  avatarLabelNameStyle,
-  avatarLabelDescriptionStyle,
-  avatarTextWrapper,
-};
+export { avatarLabelWrapperStyle, avatarLabelNameStyle, avatarTextWrapper };

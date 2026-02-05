@@ -120,7 +120,7 @@ export default function Home() {
       <AvatarLabel
         size="sm"
         type="avatar"
-        description={{ "0": "12번 참여함", "1": "현재 참여 횟수 : 12" }}
+        description={["12번 참여함", "평가좋음"]}
         displayName="피아오 쭝런"
       />
 

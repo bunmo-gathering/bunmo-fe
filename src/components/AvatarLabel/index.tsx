@@ -16,19 +16,20 @@ const AvatarLabel = ({
   color,
   displayName,
   avatarUrl,
-  description = {},
+  description = [],
   children,
 }: AvatarLabelProps) => {
-  const descriptionCount = description ? Object.keys(description).length : 0;
+  const descriptionCount = description ? description.length : 0;
   const icon = children || <Plus />;
   const childrenCount = Children.count(children);
 
   // 아바타
   if (type === "avatar") {
-    // size === md → vertical 강제
-    if (size === "md") direction = "vertical";
-
-    if (descriptionCount > 1) size = "lg";
+    if (size === "sm" && descriptionCount > 1) {
+      throw new Error(
+        "Avatar 타입의 sm 사이즈는 description을 하나만 사용 할 수 있습니다.",
+      );
+    }
 
     // direction === vertical & description이 있는 경우 에러
     if (direction === "vertical" && descriptionCount > 0) {
