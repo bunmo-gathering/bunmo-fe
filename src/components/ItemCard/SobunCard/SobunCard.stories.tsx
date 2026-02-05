@@ -7,7 +7,7 @@ import { UserInfo } from "@/components/UserGroup/props.type";
 import { product } from "../../../../.storybook/assets/products";
 
 /**
- * Storybook Meta
+ * 소분 모임 생성시 유저들에게 보여주는 카드 컴포넌트
  */
 const meta: Meta<typeof SobunCard> = {
   title: "Components/ItemCard/SobunCard",
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof SobunCard>;
  */
 const mockUsers: UserInfo[] = cats.map((cat, index) => ({
   userId: index + 1,
-  avatarUrl: cat,
+  avatarUrl: cat.src,
 }));
 
 /**

@@ -2,16 +2,12 @@ import { formatPrice } from "@/utils/formatPrice";
 import { ProductCardProps } from "./props.type";
 import Image from "next/image";
 
-const ProductCard = ({
-  productImageUrl,
-  productTitle,
-  productPrice,
-}: ProductCardProps) => {
+const ProductCard = ({ imageUrl, title, price }: ProductCardProps) => {
   return (
     <div className="flex flex-col gap-2 w-30.75 h-48.75">
       <div className="relative rounded-lg overflow-hidden h-32 w-32 ">
         <Image
-          src={productImageUrl}
+          src={imageUrl}
           className="object-cover"
           fill
           alt="product-image"
@@ -19,10 +15,10 @@ const ProductCard = ({
       </div>
       <div className="flex flex-col gap-1 justify-between h-16">
         <span className="text-body2-medium text-onSurfaceVariant line-clamp-2">
-          {productTitle}
+          {title}
         </span>
         <span className="text-body2-semibold text-onSurface">
-          {formatPrice(productPrice)}원
+          {formatPrice(price)}원
         </span>
       </div>
     </div>

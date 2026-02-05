@@ -4,17 +4,17 @@ interface ProductCardProps {
   /**
    * 제품 사진 url
    */
-  productImageUrl: string | StaticImageData;
+  imageUrl: string | StaticImageData;
 
   /**
    * 제품 이름
    */
-  productTitle: string;
+  title: string;
 
   /**
    * 제품 가격
    */
-  productPrice: number | string;
+  price: number;
 }
 
 export type { ProductCardProps };

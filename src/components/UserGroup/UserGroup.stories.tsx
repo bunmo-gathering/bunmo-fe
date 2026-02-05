@@ -4,7 +4,7 @@ import UserGroup from ".";
 import { cats } from "../../../.storybook/assets/avatars";
 
 /**
- * Storybook Meta
+ * 참여 유저수를 보여주는 컴포넌트
  */
 const meta: Meta<typeof UserGroup> = {
   title: "Components/UserGroup",
@@ -19,11 +19,11 @@ export default meta;
 type Story = StoryObj<typeof UserGroup>;
 
 /**
- * Mock Data
+ * 유저 더미 데이터
  */
 const mockUsers: UserInfo[] = cats.map((cat, index) => ({
   userId: index + 1,
-  avatarUrl: cat,
+  avatarUrl: cat.src,
 }));
 
 /**

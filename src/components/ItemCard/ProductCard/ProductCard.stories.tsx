@@ -4,7 +4,7 @@ import { ProductCardProps } from "./props.type";
 import { product } from "../../../../.storybook/assets/products/index";
 
 /**
- * Storybook Meta
+ * 쿠팡 혹은 여러 사이트의 상품 목록 데이터에 대한 카드 컴포넌트
  */
 const meta: Meta<typeof ProductCard> = {
   title: "Components/ItemCard/ProductCard",
@@ -23,19 +23,19 @@ type Story = StoryObj<typeof ProductCard>;
  */
 const mockProducts: ProductCardProps[] = [
   {
-    productImageUrl: product[0], // StaticImageData → .src 사용
-    productTitle: "오 로즈 오 드 뚜왈렛, 100m",
-    productPrice: 175000,
+    imageUrl: product[0], // StaticImageData → .src 사용
+    title: "오 로즈 오 드 뚜왈렛, 100m",
+    price: 175000,
   },
   {
-    productImageUrl: product[1],
-    productTitle: "썽봉 베르가모트 & 로즈 소바주 (오드코롱, 50ml)",
-    productPrice: "79000",
+    imageUrl: product[1],
+    title: "썽봉 베르가모트 & 로즈 소바주 (오드코롱, 50ml)",
+    price: 79000,
   },
   {
-    productImageUrl: product[2],
-    productTitle: "한돈 생 삼겹살, 3kg",
-    productPrice: "36700",
+    imageUrl: product[2],
+    title: "한돈 생 삼겹살, 3kg",
+    price: 36700,
   },
 ];
 

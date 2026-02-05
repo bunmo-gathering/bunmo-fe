@@ -12,8 +12,8 @@ const SobunCard = ({
   imageUrl,
 }: SobunCardProps) => {
   return (
-    <div className="flex items-center gap-6 w-full px-4 justify-center  mb-4">
-      <div className="flex gap-6 border-outlineVariant border-b-[0.5px] py-5  w-full">
+    <div className="flex items-center gap-6 w-full px-4 justify-center mb-4 flex-nowrap overflow-hidden">
+      <div className="flex gap-6 border-outlineVariant border-b py-5  w-full">
         <div className="relative rounded-lg overflow-hidden h-32 w-32 shrink-0">
           <Image
             src={imageUrl}
