@@ -8,22 +8,22 @@ import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import {
-  BellIcon,
-  ChevronLeftIcon,
-  LogOutIcon,
-  SearchIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
+import useBridge from "@/hooks/useBridge";
+import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
+import NavigationBar from "@/components/NavigationBar";
+import Chip from "@/components/Chip";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [searchValue, setSearchValue] = useState<string>("");
+  const { postMessage, getMessage } = useBridge();
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -50,14 +50,47 @@ export default function Home() {
           alert("test");
         }}
       >
-        asdf
+        Browse Alert
       </Button>
       <Title title="Sample Title" />
 
       <ButtonGroupProvider type="action">
-        <Button>asdf</Button>
-        <Button>asdf</Button>
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_CONFIRM",
+              payload: {
+                title: "Modal Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+                buttonOptions: {
+                  confirmText: "확인",
+                  cancelText: "취소",
+                },
+              } as ConfirmModalPayload,
+            });
+          }}
+        >
+          Confirm Modal
+        </Button>
+
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_ALERT",
+              payload: {
+                title: "Alert Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+                buttonOptions: {
+                  confirmText: "확인했어용",
+                },
+              } as AlertModalPayload,
+            });
+          }}
+        >
+          Alert Modal
+        </Button>
       </ButtonGroupProvider>
+      <Title title={`${getMessage()}`} />
 
       <div>
         <Radio
@@ -153,6 +186,21 @@ export default function Home() {
         <div className="w-40 h-40 bg-yellow-500"></div>
         <div className="w-40 h-40 bg-green-500"></div>
       </PageControl>
+
+      <NavigationBar>
+        <span>이건 무엇일까요?</span>
+        <span>안녕</span>
+      </NavigationBar>
+
+      <NavigationBar>
+        <LeadingControl icon={ChevronLeftIcon} />
+        <span>인생 참 힘들구만</span>
+        <TrailingControl />
+      </NavigationBar>
+
+      <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
+      <Chip>송파구</Chip>
+      <Chip>서초구</Chip>
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>

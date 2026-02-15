@@ -8,16 +8,13 @@ const LeadingControl = ({
   size = "sm",
   onTap,
 }: LeadingControlProps) => {
-  if (!Icon && !label) {
-    throw new Error("icon props와 label props 둘 다 생략할 수 없습니다.");
-  }
-
   const isPressable = !!onTap;
 
   const contentGap = iconPosition === "left";
 
   return (
     <div
+      role="leading"
       className={leadingControlStyle({ isPressable, contentGap })}
       onClick={onTap}
     >
