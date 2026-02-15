@@ -17,7 +17,6 @@ import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
 import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
-import ProductCard from "@/components/ItemCard/ProductCard";
 import product4 from "../../.storybook/assets/products/product4.jpg";
 import SobunCard from "@/components/ItemCard/SobunCard";
 import { cats } from "../../.storybook/assets/avatars";
