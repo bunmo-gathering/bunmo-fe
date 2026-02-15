@@ -1,3 +1,4 @@
-import InputField from "./InputField/InputField";
+import InputField from "./InputField";
+import SearchField from "./SearchField";
 
-export { InputField };
+export { InputField, SearchField };

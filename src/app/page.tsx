@@ -4,29 +4,30 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import {
-  BellIcon,
-  ChevronLeftIcon,
-  LogOutIcon,
-  SearchIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
+import useBridge from "@/hooks/useBridge";
+import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
 import ProductCard from "@/components/ItemCard/ProductCard";
 import product4 from "../../.storybook/assets/products/product4.jpg";
 import SobunCard from "@/components/ItemCard/SobunCard";
 import { cats } from "../../.storybook/assets/avatars";
+import Chip from "@/components/Chip";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const { postMessage, getMessage } = useBridge();
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -44,6 +45,11 @@ export default function Home() {
   const dummy = cats.map((cat, index) => {
     return { userId: index, avatarUrl: cat };
   });
+
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
+
   return (
     <>
       <Button
@@ -52,14 +58,47 @@ export default function Home() {
           alert("test");
         }}
       >
-        asdf
+        Browse Alert
       </Button>
       <Title title="Sample Title" />
 
       <ButtonGroupProvider type="action">
-        <Button>asdf</Button>
-        <Button>asdf</Button>
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_CONFIRM",
+              payload: {
+                title: "Modal Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+                buttonOptions: {
+                  confirmText: "확인",
+                  cancelText: "취소",
+                },
+              } as ConfirmModalPayload,
+            });
+          }}
+        >
+          Confirm Modal
+        </Button>
+
+        <Button
+          onTap={() => {
+            postMessage({
+              type: "OPEN_MODAL_ALERT",
+              payload: {
+                title: "Alert Test",
+                message: "이 동작은 분모 앱에서만 확인 가능합니다.",
+                buttonOptions: {
+                  confirmText: "확인했어용",
+                },
+              } as AlertModalPayload,
+            });
+          }}
+        >
+          Alert Modal
+        </Button>
       </ButtonGroupProvider>
+      <Title title={`${getMessage()}`} />
 
       <div>
         <Radio
@@ -119,6 +158,16 @@ export default function Home() {
       >
         {SegmentControlChildren}
       </SegmentControl>
+
+      <SearchField
+        placeholder="원하는 상품 및 마트 이름을 입력"
+        disabled={false}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        onSearchButtonTap={() => {
+          console.log("asdf");
+        }}
+      />
       <Label isBlock={false}>피아오 쭝 런</Label>
 
       <DateButtonList />
@@ -157,12 +206,6 @@ export default function Home() {
         <TrailingControl />
       </NavigationBar>
 
-      <ProductCard
-        productImageUrl={product4}
-        productTitle="한돈 생 삼겹살, 2kg"
-        productPrice="175000"
-      />
-
       <SobunCard
         entryUsers={dummy}
         totalPrice={170000}
@@ -180,6 +223,11 @@ export default function Home() {
         meetingPlace={"세종시 코스트코"}
         imageUrl={product4}
       />
+      <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
+      <Chip>송파구</Chip>
+      <Chip>서초구</Chip>
+
+      <SearchField />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
