@@ -45,23 +45,11 @@ const forceButtonRules = (Story: StoryFn, context: StoryContext) => {
 const meta: Meta<typeof AvatarLabel> = {
   component: AvatarLabel,
   tags: ["autodocs"],
-
   // 기본 아이콘 설정
   args: {
-    children: <Plus />,
+    icon: Plus,
   },
-
   argTypes: {
-    /**
-     * children은 아이콘 요소이므로 Controls에서 직접 수정 불가
-     */
-    children: {
-      control: false,
-      table: {
-        defaultValue: { summary: "<Plus />" },
-      },
-    },
-
     /**
      * 컴포넌트 타입 선택
      * - avatar: 프로필 라벨
@@ -69,6 +57,7 @@ const meta: Meta<typeof AvatarLabel> = {
      */
     type: {
       control: "radio",
+      description: `컴포넌트의 타입을 지정합니다. avatar, button 중 선택합니다.`,
       options: ["avatar", "button"],
     },
 
@@ -77,6 +66,7 @@ const meta: Meta<typeof AvatarLabel> = {
      */
     size: {
       control: "radio",
+      description: "컴포넌트의 크기를 지정합니다. sm, md, lg 중 선택합니다.",
       options: ["sm", "md", "lg"],
     },
 
@@ -86,8 +76,29 @@ const meta: Meta<typeof AvatarLabel> = {
      */
     direction: {
       control: "radio",
+      description:
+        "컴포넌트의 방향을 지정합니다. vertical, horizon 중 선택합니다.",
       options: ["vertical", "horizon"],
       if: { arg: "type", neq: "button" },
+    },
+
+    /**
+     * 아이콘 요소이므로 Controls에서 직접 수정 불가
+     */
+    icon: {
+      control: false,
+      description: "type이 button인 경우 표시할 LucideIcon 입니다.",
+      table: {
+        defaultValue: { summary: "Plus" },
+      },
+    },
+
+    displayName: {
+      description: "표시할 유저의 닉네임입니다.",
+    },
+
+    avatarUrl: {
+      description: "표시할 유저의 프로필 사진 URL입니다.",
     },
   },
 
@@ -207,7 +218,6 @@ export const ButtonDefault: Story = {
     type: "button",
     size: "md",
     direction: "horizon",
-    children: <Plus />,
     displayName: "새 유저 추가",
   },
 };
@@ -220,7 +230,7 @@ export const ButtonSmall: Story = {
     type: "button",
     size: "sm",
     direction: "horizon",
-    children: <Settings />,
+    icon: Settings,
     displayName: "설정",
   },
 };
@@ -233,7 +243,7 @@ export const ButtonLarge: Story = {
     type: "button",
     size: "lg",
     direction: "horizon",
-    children: <User />,
+    icon: User,
     displayName: "유저 관리",
   },
 };

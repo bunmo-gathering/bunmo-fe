@@ -1,48 +1,35 @@
 import { tv } from "tailwind-variants";
 
 const avatarLabelWrapperStyle = tv({
-  base: "flex  w-fit h-fit items-center",
+  base: "flex items-center w-fit",
 
   variants: {
     direction: {
-      vertical: "gap-2 flex-col ",
+      vertical: "gap-2 flex-col",
       horizon: "gap-6 flex-row",
     },
-  },
 
-  defaultVariants: {
-    direction: "horizon",
-  },
-});
-
-const avatarTextWrapper = tv({
-  base: "flex flex-col h-full",
-
-  variants: {
-    size: {
-      sm: "",
-      md: "",
-      lg: "",
-    },
-
-    direction: {
-      vertical: "",
-      horizon: "",
-    },
+    // compoundVariant 용 빈 값
+    size: { sm: "", md: "", lg: "" },
   },
 
   compoundVariants: [
+    { direction: "vertical", size: "sm", class: "w-10" },
+    { direction: "vertical", size: "md", class: "w-15" },
+    { direction: "vertical", size: "lg", class: "w-20" },
     { direction: "horizon", size: "sm", class: "h-10" },
-
-    { direction: "horizon", size: "md", class: "justify-between h-15" },
-    {
-      direction: "horizon",
-      size: "lg",
-      class: "h-20 justify-between ",
-    },
-
-    { direction: "vertical", class: "items-center" },
+    { direction: "horizon", size: "md", class: "h-15" },
+    { direction: "horizon", size: "lg", class: "h-20" },
   ],
+});
+
+const avatarTextWrapper = tv({
+  base: "flex flex-col h-full justify-center",
+
+  variants: {
+    direction: { vertical: "items-center", horizon: "" },
+    size: { sm: "gap-0", md: "gap-1", lg: "gap-1" },
+  },
 });
 
 const avatarLabelNameStyle = tv({
@@ -54,14 +41,9 @@ const avatarLabelNameStyle = tv({
     },
 
     direction: {
-      vertical: "text-caption-regular! text-onSurfaceVariant",
+      vertical: "text-caption-regular! text-onSurfaceVariant text-center!",
       horizon: "text-onSurface",
     },
-  },
-
-  defaultVariants: {
-    size: "md",
-    direction: "vertical",
   },
 });
 

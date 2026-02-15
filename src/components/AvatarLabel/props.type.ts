@@ -1,9 +1,8 @@
-import { ReactElement } from "react";
-import { LucideProps } from "lucide-react";
+import { MouseEvent } from "react";
+import { LucideIcon } from "lucide-react";
 
 type AvatarLabelSize = "sm" | "md" | "lg";
 type AvatarLabelDirection = "vertical" | "horizon";
-type AvatarLabelColor = "onSurface" | "onPrimaryContainer";
 
 interface BaseAvatarLabelProps {
   /**
@@ -25,6 +24,11 @@ interface BaseAvatarLabelProps {
    * - 화면에 표시되는 유저 닉네임 | 버튼 명
    */
   displayName?: string;
+
+  /**
+   * - 클릭시 실행할 함수
+   */
+  onTap?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 /** avatar 타입 */
@@ -52,7 +56,7 @@ interface AvatarTypeProps extends BaseAvatarLabelProps {
    * Lucide Icon
    * - type === avatar 일 경우 never
    */
-  children?: never;
+  icon?: never;
 }
 
 /** button 타입 */
@@ -61,11 +65,6 @@ interface ButtonTypeProps extends BaseAvatarLabelProps {
    * Avatar Type 설정
    */
   type: "button";
-
-  /**
-   * type button 일 경우 icon 사용
-   */
-  children: ReactElement<LucideProps>;
 
   /**
    * - 유저 아바타 url
@@ -80,10 +79,9 @@ interface ButtonTypeProps extends BaseAvatarLabelProps {
   description?: never;
 
   /**
-   * - 화면에 표시되는 유저 닉네임
-   * - type === button 일 경우 never
+   * type button 일 경우 icon 사용
    */
-  nickName?: never;
+  icon?: LucideIcon;
 }
 
 export type AvatarLabelProps = AvatarTypeProps | ButtonTypeProps;

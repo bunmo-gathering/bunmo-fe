@@ -1,13 +1,12 @@
-import React, { Children } from "react";
 import Avatar from "../Avatar";
 import IconButton from "../IconButton";
 import { AvatarLabelProps } from "./props.type";
+import { Plus } from "lucide-react";
 import {
   avatarLabelWrapperStyle,
   avatarLabelNameStyle,
   avatarTextWrapper,
 } from "./style";
-import { Plus } from "lucide-react";
 
 const AvatarLabel = ({
   type,
@@ -15,12 +14,11 @@ const AvatarLabel = ({
   direction = "horizon",
   displayName,
   avatarUrl,
-  description = [],
-  children,
+  description,
+  icon: Icon = Plus,
+  onTap,
 }: AvatarLabelProps) => {
   const descriptionCount = description ? description.length : 0;
-  const icon = children || <Plus />;
-  const childrenCount = Children.count(children);
 
   // 아바타
   if (type === "avatar") {
@@ -56,37 +54,31 @@ const AvatarLabel = ({
         "AvatarLabel이 Button일 경우 description의 최대 개수는 1개까지만 사용 할 수 있습니다.",
       );
     }
-
-    if (childrenCount !== 1) {
-      throw new Error(
-        "AvatarLabel Button type은 1개의 아이콘 children이 필요합니다.",
-      );
-    }
   }
 
   return (
-    <div className={avatarLabelWrapperStyle({ direction })}>
+    <div className={avatarLabelWrapperStyle({ size, direction })}>
       {type === "avatar" ? (
         <Avatar imageUrl={avatarUrl} size={size} />
       ) : (
-        <IconButton size={size} variant="primaryContainer">
-          {React.cloneElement(icon, {
-            className: "w-full h-full text-onPrimaryContainer",
-          })}
+        <IconButton size={size} variant="primaryContainer" onTap={onTap}>
+          <Icon className="w-full h-full text-onPrimaryContainer" />
         </IconButton>
       )}
 
       <div className={avatarTextWrapper({ size, direction })}>
+        {/* 유저 이름 */}
         <p className={avatarLabelNameStyle({ size, direction })}>
           {displayName}
         </p>
 
+        {/* 설명 (최대 2줄) */}
         {descriptionCount > 0 && type === "avatar" && (
           <>
-            {Object.entries(description).map(([key, value]) => (
+            {description!.map((value, index) => (
               <span
                 className="flex flex-col text-caption-regular text-onSurfaceVariant justify-center"
-                key={key}
+                key={index}
               >
                 {value}
               </span>
