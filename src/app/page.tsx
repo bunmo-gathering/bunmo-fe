@@ -4,12 +4,13 @@ import Button from "@/components/Button";
 import Radio from "@/components/Radio";
 import Title from "@/components/Title";
 import Switch from "@/components/Switch";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
 import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
@@ -21,6 +22,7 @@ import Chip from "@/components/Chip";
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [searchValue, setSearchValue] = useState<string>("");
   const { postMessage, getMessage } = useBridge();
 
   const SegmentControlChildren = useMemo(() => {
@@ -35,6 +37,10 @@ export default function Home() {
         return <>Default Content</>;
     }
   }, [selectedIndex]);
+
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
 
   return (
     <>
@@ -144,6 +150,16 @@ export default function Home() {
       >
         {SegmentControlChildren}
       </SegmentControl>
+
+      <SearchField
+        placeholder="원하는 상품 및 마트 이름을 입력"
+        disabled={false}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        onSearchButtonTap={() => {
+          console.log("asdf");
+        }}
+      />
       <Label isBlock={false}>피아오 쭝 런</Label>
 
       <DateButtonList />
@@ -185,6 +201,8 @@ export default function Home() {
       <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
       <Chip>송파구</Chip>
       <Chip>서초구</Chip>
+
+      <SearchField />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
