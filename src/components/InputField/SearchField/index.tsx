@@ -20,8 +20,7 @@ const SearchField = ({
 }: SearchFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-
-  const hasValue = !!value;
+  const [hasValue, setHasValue] = useState(!!value);
 
   const handleContainerClick = () => {
     if (!disabled && inputRef.current) {
@@ -43,6 +42,8 @@ const SearchField = ({
     if (!disabled && onChange) {
       onChange(event);
     }
+
+    setHasValue(!!event.target.value);
   };
 
   const handleSearchButtonTap = (
@@ -91,7 +92,7 @@ const SearchField = ({
         />
 
         <div className="flex items-center gap-1">
-          {inputRef.current?.value && !disabled && (
+          {hasValue && (
             <button className="cursor-pointer" onClick={handleClearInput}>
               <XIcon className={searchIconStyle({ disabled })} />
             </button>

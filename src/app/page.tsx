@@ -202,6 +202,8 @@ export default function Home() {
       <Chip>송파구</Chip>
       <Chip>서초구</Chip>
 
+      <SearchField />
+
       {/* 하단 여백용 */}
       <div className="h-100"></div>
     </>
