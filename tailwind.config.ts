@@ -112,7 +112,7 @@ const config: Config = {
           regular: [
             "12px",
             {
-              linehghHeight: "16px",
+              lineHeight: "16px",
             },
           ],
           medium: [

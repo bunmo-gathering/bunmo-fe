@@ -8,8 +8,9 @@ import { useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import AvatarLabel from "@/components/AvatarLabel";
+import { ChevronLeftIcon, LogOutIcon, SearchIcon, Plus } from "lucide-react";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
@@ -145,6 +146,17 @@ export default function Home() {
         {SegmentControlChildren}
       </SegmentControl>
       <Label isBlock={false}>피아오 쭝 런</Label>
+
+      <AvatarLabel
+        size="sm"
+        type="avatar"
+        description={["12번 참여함", "평가좋음"]}
+        displayName="피아오 쭝런"
+      />
+
+      <AvatarLabel size="sm" type="button" displayName="유저 추가 하기">
+        <Plus />
+      </AvatarLabel>
 
       <DateButtonList />
       <DateButtonList showMonth={false} />
