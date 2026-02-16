@@ -7,6 +7,7 @@ const iconButtonStyle = tv({
     variant: {
       primary: "bg-primary",
       secondary: "bg-secondary",
+      primaryContainer: "bg-primaryContainer",
     },
 
     size: {
@@ -18,7 +19,7 @@ const iconButtonStyle = tv({
     iconColor: {
       primary: "text-primary",
       secondary: "text-secondary",
-      onPrimary: "text-primary",
+      onPrimary: "text-onPrimary",
       onSurface: "text-onSurface",
     },
   },

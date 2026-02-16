@@ -18,7 +18,7 @@ const Avatar = ({
       fill
     />
   ) : (
-    <User className="size-full" />
+    <User className="size-full text-onSurface" />
   );
 
   return (

@@ -8,7 +8,7 @@ interface AvatarProps {
   /**
    * Avatar 이미지 URL props
    */
-  imageUrl: string | null;
+  imageUrl?: string | null;
 
   /**
    * Avatar 사이즈 조정
