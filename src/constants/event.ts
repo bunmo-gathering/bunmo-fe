@@ -8,7 +8,11 @@
    */
 }
 
-type BridgePostEventToken = "NONE" | "OPEN_MODAL_CONFIRM" | "OPEN_MODAL_ALERT";
+type BridgePostEventToken =
+  | "NONE"
+  | "OPEN_MODAL_CONFIRM"
+  | "OPEN_MODAL_ALERT"
+  | "OPEN_BOTTOMSHEET_SELECT";
 
 type BridgeGetEventToken = "ACTION_CONFIRMED" | "ACTION_CANCELED";
 
