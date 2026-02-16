@@ -7,7 +7,13 @@ import icnoButtonStyle from "./style";
 import iconButtonAnimation from "./animate";
 import { LucideType } from "lucide-react";
 
-const IconButton = ({ variant, size, children, onTap }: IconButtonProps) => {
+const IconButton = ({
+  variant,
+  size,
+  children,
+  iconColor,
+  onTap,
+}: IconButtonProps) => {
   if (isValidElement(children)) {
     if (typeof children.type !== typeof LucideType)
       throw new Error(
@@ -20,12 +26,15 @@ const IconButton = ({ variant, size, children, onTap }: IconButtonProps) => {
       className={icnoButtonStyle({
         variant,
         size,
+        iconColor,
       })}
       aria-label="Button"
       onClick={onTap}
       {...iconButtonAnimation}
     >
-      {cloneElement(children, { size: "size-full" })}
+      {cloneElement(children, {
+        className: `${children.props.className ?? ""} size-full `,
+      })}
     </motion.button>
   );
 };

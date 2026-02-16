@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 interface UserInfo {
   /**
    * - 유저 아이디 값
@@ -5,9 +7,14 @@ interface UserInfo {
   userId: number;
 
   /**
+   * - 유저 닉네임
+   */
+  userName: string;
+
+  /**
    * - 유저 아바타 url
    */
-  avatarUrl: string | null;
+  avatarUrl: StaticImageData | string | null;
 }
 
 interface UserGroupProps {

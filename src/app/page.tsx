@@ -13,17 +13,23 @@ import {
   LogOutIcon,
   SearchIcon,
   TrashIcon,
+  UserPlusIcon,
 } from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
+import AvatarLabel from "@/components/AvatarLabel";
 import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
 import NavigationBar from "@/components/NavigationBar";
+import product4 from "../../.storybook/assets/products/product4.jpg";
+import SobunCard from "@/components/ItemCard/SobunCard";
+import { cats } from "../../.storybook/assets/avatars";
 import Chip from "@/components/Chip";
 import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload/modal";
 import { SelectBottomSheetPayload } from "@/types/payload/bottomSheet";
+import AvatarLabelCard from "@/components/AvatarLabelCard";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -43,6 +49,10 @@ export default function Home() {
         return <>Default Content</>;
     }
   }, [selectedIndex]);
+
+  const dummy = cats.map((cat, index) => {
+    return { userId: index, avatarUrl: cat, userName: `cat${index}` };
+  });
 
   useEffect(() => {
     console.log(searchValue);
@@ -193,6 +203,19 @@ export default function Home() {
       />
       <Label isBlock={false}>피아오 쭝 런</Label>
 
+      <AvatarLabel
+        size="md"
+        type="avatar"
+        description={["12번 참여함", "평가좋음"]}
+        displayName="박세윤"
+      />
+
+      <AvatarLabel
+        type="button"
+        displayName="유저 추가 하기"
+        icon={UserPlusIcon}
+        onTap={() => console.log("띱")}
+      />
       <DateButtonList />
       <DateButtonList showMonth={false} />
 
@@ -229,11 +252,30 @@ export default function Home() {
         <TrailingControl />
       </NavigationBar>
 
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
+      />
+
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분 여기 모여라"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
+      />
       <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
       <Chip>송파구</Chip>
       <Chip>서초구</Chip>
 
       <SearchField />
+
+      <AvatarLabelCard title="참가 중인 사람" maxEntry={5} entryUsers={dummy} />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>

@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { IndicatorPosition } from "../Indicator/props.type";
 
 type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl";
@@ -8,7 +9,7 @@ interface AvatarProps {
   /**
    * Avatar 이미지 URL props
    */
-  imageUrl: string | null;
+  imageUrl?: StaticImageData | string | null;
 
   /**
    * Avatar 사이즈 조정
