@@ -8,26 +8,28 @@ import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import SegmentControl from "@/components/SegmentControl";
-import AvatarLabel from "@/components/AvatarLabel";
 import {
   ChevronLeftIcon,
   LogOutIcon,
   MoreVerticalIcon,
   SearchIcon,
+  TrashIcon,
   UserPlusIcon,
 } from "lucide-react";
+import SegmentControl from "@/components/SegmentControl";
+import AvatarLabel from "@/components/AvatarLabel";
 import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
-import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
 import product4 from "../../.storybook/assets/products/product4.jpg";
 import SobunCard from "@/components/ItemCard/SobunCard";
 import { cats } from "../../.storybook/assets/avatars";
 import Chip from "@/components/Chip";
+import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload/modal";
+import { SelectBottomSheetPayload } from "@/types/payload/bottomSheet";
 import AvatarLabelCard from "@/components/AvatarLabelCard";
 import AvatarLabelGroup from "@/components/AvatarLabelGroup";
 import { label } from "motion/react-client";
@@ -108,6 +110,31 @@ export default function Home() {
           Alert Modal
         </Button>
       </ButtonGroupProvider>
+
+      <Button
+        onTap={() => {
+          postMessage({
+            type: "OPEN_BOTTOMSHEET_SELECT",
+            payload: {
+              title: "프로필 사진 추가",
+              selectOptions: [
+                {
+                  icon: "ImageIcon",
+                  label: "갤러리에서 추가하기",
+                },
+                {
+                  icon: "TrashIcon",
+                  label: "프로필 사진 삭제하기",
+                  variant: "destructive",
+                },
+              ],
+            } as SelectBottomSheetPayload,
+          });
+        }}
+      >
+        BottomSheet Open
+      </Button>
+
       <Title title={`${getMessage()}`} />
 
       <div>
@@ -145,7 +172,31 @@ export default function Home() {
         <Pick label={"세윤"} />
         <Pick label={"종원"} />
         <Pick label={"승일"} />
+        <Pick label={"성훈1"} />
+        <Pick label={"성훈2"} />
+        <Pick label={"성훈3"} />
+        <Pick label={"성훈4"} />
+        <Pick label={"성훈5"} />
+        <Pick label={"성훈6"} />
+      </Picker>
+
+      <Picker
+        onSelectedChange={(selected) => console.log(selected)}
+        defaultValue={["세윤"]}
+        gap={"lg"}
+        wrap={false}
+      >
+        <Pick label={"세윤"} />
+        <Pick label={"종원"} />
+        <Pick label={"승일"} />
         <Pick label={"성훈"} />
+        <Pick label={"성훈2"} />
+        <Pick label={"성훈3"} />
+        <Pick label={"성훈4"} />
+        <Pick label={"성훈5"} />
+        <Pick label={"성훈6"} />
+        <Pick label={"성훈7"} />
+        <Pick label={"성훈8"} />
       </Picker>
 
       <Label
