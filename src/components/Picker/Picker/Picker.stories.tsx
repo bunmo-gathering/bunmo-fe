@@ -24,6 +24,7 @@ const DefaultChildren = [
   <Pick key="4" label="Tailwind" />,
 ];
 
+// 한 개만 선택 가능한 Picker Story 입니다.
 export const Single: Story = {
   args: {
     isMultiSelect: false,
@@ -32,6 +33,7 @@ export const Single: Story = {
   render: (args) => <Picker {...args}>{DefaultChildren}</Picker>,
 };
 
+// 중복 선택 가능한 Picker Story 입니다.
 export const Multi: Story = {
   args: {
     isMultiSelect: true,
@@ -41,8 +43,30 @@ export const Multi: Story = {
   render: (args) => <Picker {...args}>{DefaultChildren}</Picker>,
 };
 
+// wrap 속성이 적용된 Picker Story 입니다.
+export const Wrapped: Story = {
+  args: {
+    wrap: true,
+    isMultiSelect: true,
+    gap: "lg",
+    defaultValue: ["React", "TypeScript"],
+  },
+  render: (args) => <Picker {...args}>{DefaultChildren}</Picker>,
+};
+
+// 중복 선택 가능한 Picker Story 입니다.
+export const Scroll: Story = {
+  args: {
+    wrap: false,
+    isMultiSelect: true,
+    gap: "lg",
+    defaultValue: ["React", "TypeScript"],
+  },
+  render: (args) => <Picker {...args}>{DefaultChildren}</Picker>,
+};
+
 /**
- * 직접 자식을 구성하고 싶을 때의 예시
+ * 직접 자식을 구성하고 싶을 때의 예시 Story 입니다.
  */
 export const CustomChildren: Story = {
   args: { isMultiSelect: true, defaultValue: ["세윤"] },

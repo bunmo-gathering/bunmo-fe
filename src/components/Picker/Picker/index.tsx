@@ -10,6 +10,7 @@ const Picker = ({
   gap = "sm",
   children,
   defaultValue,
+  wrap = true,
 }: PickerProps) => {
   if (
     Children.toArray(children).some((child) => {
@@ -63,7 +64,7 @@ const Picker = ({
         onSelect: handleChange,
       }}
     >
-      <div className={pickerStyle({ gap })}>{children}</div>
+      <div className={pickerStyle({ gap, wrap })}>{children}</div>
     </PickerContext.Provider>
   );
 };

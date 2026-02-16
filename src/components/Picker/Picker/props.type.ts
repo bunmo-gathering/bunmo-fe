@@ -32,6 +32,13 @@ interface PickerProps {
    * Picker 내부에 들어가는 Pick 컴포넌트 입니다.
    */
   children?: ReactNode;
+
+  /**
+   * Picker의 wrapped 속성을 지정합니다. (default: true)
+   * - true: wrapped
+   * - false: scroll-x
+   */
+  wrap?: boolean;
 }
 
 export type { PickerProps };
