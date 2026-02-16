@@ -1,5 +1,6 @@
 import { MouseEvent } from "react";
 import { LucideIcon } from "lucide-react";
+import { StaticImageData } from "next/image";
 
 type AvatarLabelSize = "sm" | "md" | "lg";
 type AvatarLabelDirection = "vertical" | "horizon";
@@ -43,7 +44,7 @@ interface AvatarTypeProps extends BaseAvatarLabelProps {
   /**
    * - 유저 아바타 url
    */
-  avatarUrl?: string | null;
+  avatarUrl?: StaticImageData | string | null;
 
   /**
    * ReactNode 형태의 텍스트

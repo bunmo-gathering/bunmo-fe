@@ -26,6 +26,7 @@ type Story = StoryObj<typeof SobunCard>;
  */
 const mockUsers: UserInfo[] = cats.map((cat, index) => ({
   userId: index + 1,
+  userName: `cat${index + 1}`,
   avatarUrl: cat.src,
 }));
 
@@ -38,6 +39,7 @@ const extendMockUsers = (total: number): UserInfo[] =>
     const baseUser = mockUsers[index % mockUsers.length];
     return {
       userId: index + 1,
+      userName: `user${index + 1}`,
       avatarUrl: index < mockUsers.length * 2 ? baseUser.avatarUrl : null,
     };
   });

@@ -7,6 +7,11 @@ interface UserInfo {
   userId: number;
 
   /**
+   * - 유저 닉네임
+   */
+  userName: string;
+
+  /**
    * - 유저 아바타 url
    */
   avatarUrl: StaticImageData | string | null;

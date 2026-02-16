@@ -27,6 +27,7 @@ import product4 from "../../.storybook/assets/products/product4.jpg";
 import SobunCard from "@/components/ItemCard/SobunCard";
 import { cats } from "../../.storybook/assets/avatars";
 import Chip from "@/components/Chip";
+import AvatarLabelCard from "@/components/AvatarLabelCard";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -48,7 +49,7 @@ export default function Home() {
   }, [selectedIndex]);
 
   const dummy = cats.map((cat, index) => {
-    return { userId: index, avatarUrl: cat };
+    return { userId: index, avatarUrl: cat, userName: `cat${index}` };
   });
 
   useEffect(() => {
@@ -246,6 +247,8 @@ export default function Home() {
       <Chip>서초구</Chip>
 
       <SearchField />
+
+      <AvatarLabelCard title="참가 중인 사람" maxEntry={5} entryUsers={dummy} />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
