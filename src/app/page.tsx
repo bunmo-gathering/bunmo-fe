@@ -8,16 +8,22 @@ import { useEffect, useMemo, useState } from "react";
 import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
-import { ChevronLeftIcon, LogOutIcon, SearchIcon } from "lucide-react";
+import {
+  ChevronLeftIcon,
+  LogOutIcon,
+  SearchIcon,
+  TrashIcon,
+} from "lucide-react";
 import SegmentControl from "@/components/SegmentControl";
 import { SearchField } from "@/components/InputField";
 import { LeadingControl, TrailingControl } from "@/components/Control";
 import { DateButtonList } from "@/components/DateButton";
 import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
-import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
 import Chip from "@/components/Chip";
+import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload/modal";
+import { SelectBottomSheetPayload } from "@/types/payload/bottomSheet";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
@@ -90,6 +96,31 @@ export default function Home() {
           Alert Modal
         </Button>
       </ButtonGroupProvider>
+
+      <Button
+        onTap={() => {
+          postMessage({
+            type: "OPEN_BOTTOMSHEET_SELECT",
+            payload: {
+              title: "프로필 사진 추가",
+              selectOptions: [
+                {
+                  icon: "ImageIcon",
+                  label: "갤러리에서 추가하기",
+                },
+                {
+                  icon: "TrashIcon",
+                  label: "프로필 사진 삭제하기",
+                  variant: "destructive",
+                },
+              ],
+            } as SelectBottomSheetPayload,
+          });
+        }}
+      >
+        BottomSheet Open
+      </Button>
+
       <Title title={`${getMessage()}`} />
 
       <div>
