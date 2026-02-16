@@ -23,6 +23,7 @@ type Story = StoryObj<typeof UserGroup>;
  */
 const mockUsers: UserInfo[] = cats.map((cat, index) => ({
   userId: index + 1,
+  userName: `cat${index + 1}`,
   avatarUrl: cat.src,
 }));
 
@@ -37,6 +38,7 @@ const extendMockUsers = (total: number): UserInfo[] =>
 
     return {
       userId: index + 1,
+      userName: `${index + 1}`,
       avatarUrl: index < mockUsers.length * 2 ? baseUser.avatarUrl : null,
     };
   });
