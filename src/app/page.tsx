@@ -168,7 +168,31 @@ export default function Home() {
         <Pick label={"세윤"} />
         <Pick label={"종원"} />
         <Pick label={"승일"} />
+        <Pick label={"성훈1"} />
+        <Pick label={"성훈2"} />
+        <Pick label={"성훈3"} />
+        <Pick label={"성훈4"} />
+        <Pick label={"성훈5"} />
+        <Pick label={"성훈6"} />
+      </Picker>
+
+      <Picker
+        onSelectedChange={(selected) => console.log(selected)}
+        defaultValue={["세윤"]}
+        gap={"lg"}
+        wrap={false}
+      >
+        <Pick label={"세윤"} />
+        <Pick label={"종원"} />
+        <Pick label={"승일"} />
         <Pick label={"성훈"} />
+        <Pick label={"성훈2"} />
+        <Pick label={"성훈3"} />
+        <Pick label={"성훈4"} />
+        <Pick label={"성훈5"} />
+        <Pick label={"성훈6"} />
+        <Pick label={"성훈7"} />
+        <Pick label={"성훈8"} />
       </Picker>
 
       <Label
