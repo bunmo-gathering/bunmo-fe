@@ -17,6 +17,9 @@ import PageControl from "@/components/PageControl";
 import useBridge from "@/hooks/useBridge";
 import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload";
 import NavigationBar from "@/components/NavigationBar";
+import product4 from "../../.storybook/assets/products/product4.jpg";
+import SobunCard from "@/components/ItemCard/SobunCard";
+import { cats } from "../../.storybook/assets/avatars";
 import Chip from "@/components/Chip";
 
 export default function Home() {
@@ -37,6 +40,10 @@ export default function Home() {
         return <>Default Content</>;
     }
   }, [selectedIndex]);
+
+  const dummy = cats.map((cat, index) => {
+    return { userId: index, avatarUrl: cat };
+  });
 
   useEffect(() => {
     console.log(searchValue);
@@ -198,6 +205,23 @@ export default function Home() {
         <TrailingControl />
       </NavigationBar>
 
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
+      />
+
+      <SobunCard
+        entryUsers={dummy}
+        totalPrice={170000}
+        sobunTitle={"같이 대용량 고기 사실분 여기 모여라"}
+        meetingTime={"17:00"}
+        meetingPlace={"세종시 코스트코"}
+        imageUrl={product4}
+      />
       <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
       <Chip>송파구</Chip>
       <Chip>서초구</Chip>
