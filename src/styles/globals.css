@@ -121,4 +121,22 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
+  /* 파이어폭스 */
+  input[type="search"]::-moz-search-clear {
+    display: none;
+  }
+
+  /* IE/레거시 엣지 */
+  input[type="search"]::-ms-clear,
+  input[type="search"]::-ms-reveal {
+    display: none;
+  }
 }
