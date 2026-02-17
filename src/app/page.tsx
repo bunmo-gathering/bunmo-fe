@@ -310,13 +310,14 @@ export default function Home() {
         infoOption={{ name: "세윤", price: 10000 }}
         toggleOption={{
           isActive: isActive,
-          onChange: (isActive) => {
-            setIsActive(isActive);
+          onChange: (nextState) => {
+            console.log(nextState);
           },
         }}
       />
 
       <AvatarLabelGroup type="blank" infoOption={{ name: "세윤" }} />
+
       <AvatarLabelGroup
         type="button"
         infoOption={{ name: "세윤", price: 10000 }}

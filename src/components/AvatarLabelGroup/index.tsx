@@ -4,17 +4,59 @@ import { formatPrice } from "@/utils/formatPrice";
 import Button from "../Button";
 import { PlusIcon, XIcon } from "lucide-react";
 import avatarLabelGroupWrapperStyle from "./style";
+import { useState } from "react";
 
 const AvatarLabelGroup = (props: AvatarLabelGroupProps) => {
   const { infoOption, type } = props;
 
-  const isActive = type === "toggle" ? props.toggleOption.isActive : true;
+  const [isActive, setIsActive] = useState(
+    type === "toggle" ? props.toggleOption.isActive : true,
+  );
 
   const handleToggle = () => {
     if (type === "toggle") {
+      setIsActive((prev) => !prev);
+
       if (props.toggleOption.onChange) {
         props.toggleOption.onChange(!isActive);
       }
+    }
+  };
+
+  const actionComponent = () => {
+    switch (props.type) {
+      case "button":
+        return (
+          <Button size="sm" onTap={props.actionOption.onTap}>
+            {props.actionOption.label}
+          </Button>
+        );
+
+      case "icon":
+        const Icon = props.actionOption.icon;
+        return (
+          Icon && (
+            <Icon
+              size={24}
+              className="cursor-pointer text-onSurface"
+              onClick={props.actionOption.onTap}
+            />
+          )
+        );
+
+      case "toggle":
+        return (
+          <div className="cursor-pointer" onClick={handleToggle}>
+            {isActive ? (
+              <XIcon size={20} className="text-outline" />
+            ) : (
+              <PlusIcon size={20} className="text-primary" />
+            )}
+          </div>
+        );
+
+      default:
+        return null;
     }
   };
 
@@ -26,7 +68,6 @@ const AvatarLabelGroup = (props: AvatarLabelGroupProps) => {
         size="sm"
         direction="horizon"
         displayName={infoOption.name}
-        description={infoOption.description ? [infoOption.description] : []}
         avatarUrl={infoOption.avatarUrl}
       />
 
@@ -39,32 +80,8 @@ const AvatarLabelGroup = (props: AvatarLabelGroupProps) => {
           </span>
         )}
 
-        {/* 버튼 타입의 경우 */}
-        {type === "button" && (
-          <Button size="sm" onTap={props.actionOption.onTap}>
-            {props.actionOption.label}
-          </Button>
-        )}
-
-        {/* 아이콘 타입의 경우 */}
-        {type === "icon" && (
-          <props.actionOption.icon
-            size={24}
-            className="cursor-pointer text-onSurface"
-            onClick={props.actionOption.onTap}
-          />
-        )}
-
-        {/* 토글 타입의 경우 */}
-        {type === "toggle" && (
-          <div className="cursor-pointer" onClick={handleToggle}>
-            {isActive ? (
-              <XIcon size={20} className="text-outline" />
-            ) : (
-              <PlusIcon size={20} className="text-primary" />
-            )}
-          </div>
-        )}
+        {/* type별 액션 컴포넌트 (button, icon, toggle, blank) */}
+        {actionComponent()}
       </div>
     </div>
   );
