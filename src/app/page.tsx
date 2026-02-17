@@ -11,6 +11,7 @@ import Label from "@/components/Label";
 import {
   ChevronLeftIcon,
   LogOutIcon,
+  MoreVerticalIcon,
   SearchIcon,
   TrashIcon,
   UserPlusIcon,
@@ -30,12 +31,15 @@ import Chip from "@/components/Chip";
 import { AlertModalPayload, ConfirmModalPayload } from "@/types/payload/modal";
 import { SelectBottomSheetPayload } from "@/types/payload/bottomSheet";
 import AvatarLabelCard from "@/components/AvatarLabelCard";
+import AvatarLabelGroup from "@/components/AvatarLabelGroup";
+import { label } from "motion/react-client";
 
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState<string>();
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [searchValue, setSearchValue] = useState<string>("");
   const { postMessage, getMessage } = useBridge();
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const SegmentControlChildren = useMemo(() => {
     switch (selectedIndex) {
@@ -300,6 +304,41 @@ export default function Home() {
       <SearchField />
 
       <AvatarLabelCard title="참가 중인 사람" maxEntry={5} entryUsers={dummy} />
+
+      <AvatarLabelGroup
+        type="toggle"
+        infoOption={{ name: "세윤", price: 10000 }}
+        toggleOption={{
+          isActive: isActive,
+          onChange: (nextState) => {
+            console.log(nextState);
+          },
+        }}
+      />
+
+      <AvatarLabelGroup type="blank" infoOption={{ name: "세윤" }} />
+
+      <AvatarLabelGroup
+        type="button"
+        infoOption={{ name: "세윤", price: 10000 }}
+        actionOption={{
+          label: "입금 완료",
+          onTap: () => {
+            console.log("입금 완료");
+          },
+        }}
+      />
+
+      <AvatarLabelGroup
+        type="icon"
+        infoOption={{ name: "세윤" }}
+        actionOption={{
+          icon: MoreVerticalIcon,
+          onTap: () => {
+            console.log("더보기");
+          },
+        }}
+      />
 
       {/* 하단 여백용 */}
       <div className="h-100"></div>
