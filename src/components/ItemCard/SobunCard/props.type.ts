@@ -8,9 +8,9 @@ interface SobunCardProps {
   entryUsers: UserInfo[];
 
   /**
-   * 구매하는 품목의 가격
+   * 구매하는 품목의 1인당 가격
    */
-  totalPrice: number;
+  price: number;
 
   /**
    * 소분 목적 혹은 소분 명
