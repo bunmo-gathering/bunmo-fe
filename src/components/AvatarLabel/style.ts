@@ -6,7 +6,7 @@ const avatarLabelWrapperStyle = tv({
   variants: {
     direction: {
       vertical: "gap-2 flex-col",
-      horizon: "gap-6 flex-row",
+      horizon: "gap-4 flex-row",
     },
 
     // compoundVariant 용 빈 값

@@ -8,11 +8,11 @@ const SobunCard = ({
   sobunTitle,
   meetingPlace,
   meetingTime,
-  totalPrice,
+  price,
   imageUrl,
 }: SobunCardProps) => {
   return (
-    <div className="flex items-center gap-6 w-full px-4 justify-center mb-4 flex-nowrap overflow-hidden">
+    <div className="flex items-center gap-6 w-full px-4 justify-center flex-nowrap overflow-hidden">
       <div className="flex gap-6 border-outlineVariant border-b py-5 w-full">
         {/* 상품 이미지 */}
         <div className="relative rounded-lg overflow-hidden size-30 shrink-0">
@@ -21,13 +21,15 @@ const SobunCard = ({
             alt="sobun-image"
             className="object-cover"
             fill
+            sizes="120px"
+            priority
           />
         </div>
         {/* 상품 정보 */}
         <div className="flex flex-col gap-2 justify-between w-full">
           <div className="flex flex-col gap-2">
             {/* 상품 제목 */}
-            <span className="text-body1-medium line-clamp-1 text-onSurface">
+            <span className="text-title5-bold line-clamp-1 text-onSurface">
               {sobunTitle}
             </span>
 
@@ -38,7 +40,7 @@ const SobunCard = ({
 
             {/* 상품 가격 */}
             <span className="text-body1-bold text-onSurfaceVariant">
-              1인당 {formatPrice(Math.ceil(totalPrice / entryUsers.length))}원
+              {price ? `1인당 ${formatPrice(price)}원` : "각자 계산"}
             </span>
           </div>
 

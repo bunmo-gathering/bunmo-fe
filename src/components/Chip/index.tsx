@@ -34,7 +34,7 @@ const Chip = ({
       {/* 왼쪽 아이콘 */}
       {Icon && <Icon size={20} />}
 
-      <span className="text-body2-medium">{children}</span>
+      <span className="text-body2-medium whitespace-nowrap">{children}</span>
 
       {/* 우측 아이콘 */}
       {isSelected && <XIcon size={14} />}

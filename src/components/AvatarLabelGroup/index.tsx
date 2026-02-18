@@ -1,3 +1,5 @@
+"use client";
+
 import { AvatarLabelGroupProps } from "./props.type";
 import AvatarLabel from "../AvatarLabel";
 import { formatPrice } from "@/utils/formatPrice";
