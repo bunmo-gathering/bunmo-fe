@@ -58,7 +58,7 @@ const config: Config = {
           semibold: [
             "22px",
             {
-              lineHeight: "36px",
+              lineHeight: "28px",
               fontWeight: "600",
             },
           ],
