@@ -2,7 +2,7 @@
 
 import { AvatarLabelGroupProps } from "./props.type";
 import AvatarLabel from "../AvatarLabel";
-import { formatPrice } from "@/utils/formatPrice";
+import { formatPrice } from "@/libs/formatPrice";
 import Button from "../Button";
 import { PlusIcon, XIcon } from "lucide-react";
 import avatarLabelGroupWrapperStyle from "./style";

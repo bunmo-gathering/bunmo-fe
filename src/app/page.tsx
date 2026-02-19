@@ -9,6 +9,7 @@ import ButtonGroupProvider from "@/components/ButtonGroupProvider";
 import { Pick, Picker } from "@/components/Picker";
 import Label from "@/components/Label";
 import {
+  ChevronDownIcon,
   ChevronLeftIcon,
   LogOutIcon,
   MoreVerticalIcon,
@@ -282,7 +283,7 @@ export default function Home() {
 
       <SobunCard
         entryUsers={dummy}
-        totalPrice={170000}
+        price={17000}
         sobunTitle={"같이 대용량 고기 사실분"}
         meetingTime={"17:00"}
         meetingPlace={"세종시 코스트코"}
@@ -291,15 +292,20 @@ export default function Home() {
 
       <SobunCard
         entryUsers={dummy}
-        totalPrice={170000}
+        price={0}
         sobunTitle={"같이 대용량 고기 사실분 여기 모여라"}
         meetingTime={"17:00"}
         meetingPlace={"세종시 코스트코"}
         imageUrl={product4}
       />
-      <Chip onChange={(isSelected) => console.log(isSelected)}>강남구</Chip>
-      <Chip>송파구</Chip>
-      <Chip>서초구</Chip>
+      <Chip defaultValue="카테고리" value="식품" />
+      <Chip defaultValue="모임 유형" value="모임 유형" />
+      <Chip
+        defaultValue="최신 순"
+        value="최신 순"
+        icon={ChevronDownIcon}
+        iconPosition="right"
+      />
 
       <SearchField />
 

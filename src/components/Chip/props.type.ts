@@ -1,25 +1,35 @@
 import { LucideIcon } from "lucide-react";
+import { MouseEvent } from "react";
+
+type IconPosition = "left" | "right";
 
 interface ChipProps {
   /**
-   * Chip 내부에 표시할 텍스트입니다.
+   * 현재 값과 비교할 디폴트 값입니다. 현재 값과 같은 경우 inactive 상태가 됩니다.
    */
-  children: string;
+  defaultValue: string;
 
   /**
-   * Chip 좌측에 표시할 아이콘입니다.
+   * 현재 선택된 값입니다.
+   */
+  value?: string;
+
+  /**
+   * Chip에 표시할 아이콘입니다.
    */
   icon?: LucideIcon;
 
   /**
-   * 초기 선택 여부를 설정하는 값입니다. (기본적으로 false)
+   * Chip에 표시할 아이콘의 위치입니다.
+   * - left: 왼쪽
+   * - right: 오른쪽
    */
-  defaultValue?: boolean;
+  iconPosition?: IconPosition;
 
   /**
-   * 선택 여부가 변경될 시 실행되는 함수입니다.
+   * 클릭 시 실행되는 콜백 함수입니다.
    */
-  onChange?: (isSelected: boolean) => void;
+  onTap?: () => void;
 }
 
 export type { ChipProps };

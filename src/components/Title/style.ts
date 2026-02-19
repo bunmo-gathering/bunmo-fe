@@ -43,7 +43,7 @@ const subtitleStyle = tv({
     },
     color: {
       primary: "text-primary",
-      gray: "text-[#667085]",
+      onSurfaceVariant: "text-onSurfaceVariant",
     },
   },
   defaultVariants: {
