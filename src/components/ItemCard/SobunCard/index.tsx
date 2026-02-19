@@ -1,7 +1,7 @@
 import UserGroup from "@/components/UserGroup";
 import Image from "next/image";
 import { SobunCardProps } from "./props.type";
-import { formatPrice } from "@/utils/formatPrice";
+import { formatPrice } from "@/libs/formatPrice";
 
 const SobunCard = ({
   entryUsers,
