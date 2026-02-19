@@ -21,8 +21,8 @@ export const Default: Story = {
   },
 };
 
-/** 선택된 상태의 Chip입니다. */
-export const Selected: Story = {
+/** Active 상태의 Chip입니다. */
+export const Active: Story = {
   args: {
     defaultValue: "카테고리",
     value: "식품",
