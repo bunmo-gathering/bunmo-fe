@@ -1,43 +1,37 @@
 "use client";
-import { useState } from "react";
 import { motion } from "motion/react";
-import { XIcon } from "lucide-react";
 import chipStyle from "./style";
 import { chipAnimation } from "./animate";
 import type { ChipProps } from "./props.type";
 
 const Chip = ({
-  children,
+  value,
+  defaultValue,
   icon: Icon,
-  defaultValue = false,
-  onChange,
+  iconPosition = "right",
+  onTap,
 }: ChipProps) => {
-  const [isSelected, setIsSelected] = useState<boolean>(defaultValue);
-
-  const handleTap = () => {
-    const nextValue = !isSelected;
-    setIsSelected(nextValue);
-    if (onChange) {
-      onChange(nextValue);
-    }
-  };
+  const isActive = value ? value !== defaultValue : false;
 
   return (
     <motion.button
       type="button"
-      className={chipStyle({ isSelected })}
+      className={chipStyle({ isActive })}
       initial={false}
       whileTap={chipAnimation.whileTap}
-      aria-pressed={isSelected}
-      onClick={handleTap}
+      aria-pressed={isActive}
+      onClick={onTap}
     >
       {/* 왼쪽 아이콘 */}
-      {Icon && <Icon size={20} />}
+      {Icon && iconPosition === "left" && <Icon size={16} />}
 
-      <span className="text-body2-medium whitespace-nowrap">{children}</span>
+      {/* Chip 텍스트 */}
+      <span className="text-body2-medium whitespace-nowrap">
+        {isActive ? value : defaultValue}
+      </span>
 
-      {/* 우측 아이콘 */}
-      {isSelected && <XIcon size={14} />}
+      {/* 오른쪽 아이콘 */}
+      {Icon && iconPosition === "right" && <Icon size={16} />}
     </motion.button>
   );
 };
