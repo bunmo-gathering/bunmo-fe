@@ -30,6 +30,17 @@ const formatKoreanDateTime = (dateStr: string): string => {
 };
 
 /**
+ * Date 객체를 'YY-MM-DD' 형식의 문자열로 변환합니다.
+ */
+export const formatDate = (date: Date) => {
+  const yy = String(date.getFullYear()).slice(-2);
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+
+  return `${yy}-${mm}-${dd}`;
+};
+
+/**
  * 현재 시간 대비 남은 시간을 계산하여 문자열 반환
  * - 1시간 미만: "N분"
  * - 24시간 미만: "N시간"
