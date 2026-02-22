@@ -21,7 +21,7 @@ export const Horizontal = {
   args: {
     title: "This is a Title",
     subtitle: "This is a subtitle",
-    subtitleColor: "gray",
+    subtitleColor: "onSurfaceVariant",
     direction: "horizon",
     size: "lg",
   },

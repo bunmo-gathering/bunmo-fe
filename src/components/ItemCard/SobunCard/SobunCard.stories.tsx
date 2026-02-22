@@ -51,7 +51,7 @@ const defaultArgs: SobunCardProps = {
   sobunTitle: "삼겹살 대량 구매 하실분",
   meetingPlace: "합정역 2번 출구",
   meetingTime: "2026-02-12 11:00",
-  totalPrice: 75000,
+  price: 7500,
   imageUrl: product[2], // public 폴더 기준
   entryUsers: mockUsers.slice(0, 3),
 };

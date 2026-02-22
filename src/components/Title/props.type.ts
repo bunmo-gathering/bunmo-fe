@@ -1,5 +1,5 @@
 type TitleDirection = "vertical" | "horizon" | "center";
-type SubTitleColor = "primary" | "gray";
+type SubTitleColor = "primary" | "onSurfaceVariant";
 type TitleSize = "sm" | "md" | "lg";
 
 interface TitleProps {
