@@ -1,35 +1,47 @@
-import Chip from "@/components/Chip";
-import { LeadingControl, TrailingControl } from "@/components/Control";
-import { DateButtonList } from "@/components/DateButton";
-import { SobunCard } from "@/components/ItemCard";
-import NavigationBar from "@/components/NavigationBar";
-import { formatTimeOnly } from "@/libs/formatDate";
+import MainFilter from "@/widgets/(web)/MainFilter";
+import MainNavigationBar from "@/widgets/(web)/MainNavigationBar";
+import MainSobunList from "@/widgets/(web)/MainSobunList";
 import { getFirstParam } from "@/libs/getFirstParam";
-import { BellIcon, ChevronRightIcon, SearchIcon } from "lucide-react";
-import Link from "next/link";
+import { Post } from "@/types/post";
+import { Category } from "@/types/category";
+import { MeetingType } from "@/types/meetingType";
+import { SortOption } from "@/widgets/(web)/types/SortOptions";
+import MainEmptyList from "@/widgets/(web)/MainEmptyList";
 
 interface MainPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const MainPage = async ({ searchParams }: MainPageProps) => {
-  const { query, category, type, date } = await searchParams;
-  // const area = getUserArea() || "동네 설정"
-  const mockArea = "세종시";
-  const selectedDate = getFirstParam(date)
-    ? new Date(getFirstParam(date)!)
-    : new Date();
+  const sp = await searchParams;
 
-  // const groups = await getGroup({area, date, query, category, type});
-  const mockGroups = [
+  // const area = getUserArea() || "동네 설정"
+  const area = "세종시";
+
+  // props로 넘길 searchParams 가공 (DEFAULT 처리 page 단에서 진행)
+  const currentQuery = getFirstParam(sp.query) ?? "";
+  const selectedDate = getFirstParam(sp.date)
+    ? new Date(getFirstParam(sp.date)!)
+    : new Date();
+  const selectedCategory =
+    (getFirstParam(sp.category) as Category) ?? "DEFAULT";
+  const selectedType = (getFirstParam(sp.type) as MeetingType) ?? "DEFAULT";
+  const selectedSort = (getFirstParam(sp.sort) as SortOption) ?? "DEFAULT";
+
+  // 필터가 하나라도 적용되어 있는지에 대한 여부
+  const isFilterApplied = Object.keys(sp).length > 0;
+
+  // const posts = await getPosts({area, date, query, category, type, sort});
+  // 임시 mock 데이터
+  const posts: Post[] = [
     {
-      id: "group-001",
+      postId: 1,
       imageUrl:
         "https://images.unsplash.com/photo-1518843875459-f738682238a6?q=80&w=2042&auto=format&fit=crop",
       title: "논산 설향 딸기 2kg 소분하실 분!",
       date: "2026-02-20T14:30:00",
-      place: "강남역 10번 출구 앞",
-      price: 80000,
+      placeName: "강남역 10번 출구 앞",
+      totalPrice: 80000,
       maxEntry: 4,
       entryUsers: [
         {
@@ -45,13 +57,13 @@ const MainPage = async ({ searchParams }: MainPageProps) => {
       ],
     },
     {
-      id: "group-002",
+      postId: 2,
       imageUrl:
         "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=1974&auto=format&fit=crop",
       title: "코스트코 베이글 1+1 같이 사요",
       date: "2026-02-21T11:00:00",
-      place: "광명역 인근 아파트 정문",
-      price: 60000,
+      placeName: "광명역 인근 아파트 정문",
+      totalPrice: 60000,
       maxEntry: 5,
       entryUsers: [
         {
@@ -62,13 +74,13 @@ const MainPage = async ({ searchParams }: MainPageProps) => {
       ],
     },
     {
-      id: "group-003",
+      postId: 3,
       imageUrl:
         "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2070&auto=format&fit=crop", // 404 해결: 유효한 양파 이미지
       title: "대용량 양파 15kg 나눔",
       date: "2026-02-22T18:15:00",
-      place: "잠실새내역 4번 출구",
-      price: null,
+      placeName: "잠실새내역 4번 출구",
+      totalPrice: 0,
       maxEntry: 3,
       entryUsers: [
         {
@@ -89,45 +101,28 @@ const MainPage = async ({ searchParams }: MainPageProps) => {
       ],
     },
   ];
+  const emptyPosts: Post[] = [];
 
   return (
-    <div className="flex flex-col w-full">
-      <NavigationBar>
-        <LeadingControl
-          size="lg"
-          icon={ChevronRightIcon}
-          iconPosition="right"
-          label={mockArea}
-          // onTap={handleSetArea} // 클라이언트 컴포넌트로 함수 전달 못함
-        />
-        <TrailingControl
-          actions={[
-            { icon: SearchIcon, label: "검색" },
-            { icon: BellIcon, label: "알림" },
-          ]}
-        />
-      </NavigationBar>
-      <div className="flex flex-col gap-4 pl-4 pt-4 pb-4">
-        <DateButtonList initialDate={selectedDate} />
-        <div className="flex gap-2 overflow-x-scroll scrollbar-hide">
-          <Chip>지역 선택</Chip>
-          <Chip>카테고리</Chip>
-          <Chip>대용량 상품</Chip>
-          <Chip>대형 마트</Chip>
-        </div>
-      </div>
-      {mockGroups.map((group) => (
-        <Link href={`/main/${group.id}`} key={group.id}>
-          <SobunCard
-            entryUsers={group.entryUsers}
-            price={group.price ? group.price / group.maxEntry : 0}
-            sobunTitle={group.title}
-            meetingTime={formatTimeOnly(group.date)}
-            meetingPlace={group.place}
-            imageUrl={group.imageUrl}
-          />
-        </Link>
-      ))}
+    <div className="flex flex-col">
+      {/* 네비게이션 바 */}
+      <MainNavigationBar currentQuery={currentQuery} />
+
+      {/* 필터링 옵션 */}
+      <MainFilter
+        selectedDate={selectedDate}
+        selectedCategory={selectedCategory}
+        selectedType={selectedType}
+        selectedSort={selectedSort}
+      />
+
+      {posts.length ? (
+        // 소분 모임 리스트
+        <MainSobunList posts={posts} />
+      ) : (
+        // 빈 리스트
+        <MainEmptyList isFilterApplied={isFilterApplied} />
+      )}
     </div>
   );
 };
